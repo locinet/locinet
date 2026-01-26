@@ -3,16 +3,19 @@ works:
     title: Institutio Christianae Religionis
     author: John Calvin
     year: 1559
-    books:
-      - id: book_1
+    structure:
+      - type: book
+        id: inst1559_1
+        number: 1
         title:
-          en: "Book I: Of the Knowledge of God the Creator"
-        sections:
-          - id: inst1559_1_1
-            section_number: "1"
+          en: "Of the Knowledge of God the Creator"
+        children:
+          - type: chapter
+            id: inst1559_1_1
+            number: 1
             title:
-              en: "The Knowledge of God and of Ourselves Mutually Connected"
+              en: "Connection between the Knowledge of God and the Knowledge of Ourselves. Nature of the connection."
             links:
               - site: CCEL
                 language: en
-                url: https://www.ccel.org/ccel/calvin/institutes.vi.i.html
+                url: https://www.ccel.org/ccel/calvin/institutes.iii.ii.html
