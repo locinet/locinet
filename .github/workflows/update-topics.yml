@@ -6,6 +6,9 @@ on:
     paths:
       - '_data/*.yaml'
 
+permissions:
+  contents: write  # Add this line!
+
 jobs:
   update-topics:
     runs-on: ubuntu-latest
