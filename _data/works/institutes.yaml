@@ -1,21 +1,21 @@
-id: institutes_1559
-title: Institutio Christianae Religionis
-title_en: Institutes of the Christian Religion
-author: John Calvin
-edition: 1559 Latin
-language: la
-
-parts:
-  - id: book_1
-    title:
-      en: Of the Knowledge of God the Creator
-
-    sections:
-      - id: inst1559_1_1
-        section_number: "1"
-        title:
-          en: The Knowledge of God and of Ourselves Mutually Connected
-        links:
-          - site: CCEL
-            language: en
-            url: https://www.ccel.org/ccel/calvin/institutes.vi.i.html
+ - id: institutes_1559
+   title: Institutio Christianae Religionis
+   title_en: Institutes of the Christian Religion
+   author: John Calvin
+   edition: 1559 Latin
+   language: la
+   
+   parts:
+     - id: book_1
+       title:
+         en: Of the Knowledge of God the Creator
+   
+       sections:
+         - id: inst1559_1_1
+           section_number: "1"
+           title:
+             en: The Knowledge of God and of Ourselves Mutually Connected
+           links:
+             - site: CCEL
+               language: en
+               url: https://www.ccel.org/ccel/calvin/institutes.vi.i.html
