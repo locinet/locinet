@@ -1,0 +1,229 @@
+{
+  "works": [
+    {
+      "id": "thomas_st1",
+      "title": "Summa Theologica",
+      "edition": "Latin 1274",
+      "sections": [
+        {
+          "id": "de_sacra_doctrina",
+          "section_number": "1",
+          "title_en": "Sacred Doctrine",
+          "title_la": "De sacra doctrina",
+          "passage_links": [
+            {
+              "site": "CCEL English",
+              "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q1"
+            },
+            {
+              "site": "Latin Wikisource",
+              "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_1"
+            }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+        {
+          "id": "de_existentia_dei",
+          "section_number": "2",
+          "title_en": "On the Existence of God",
+          "title_la": "De existentia Dei",
+          "passage_links": [
+            {
+              "site": "CCEL English",
+              "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q2"
+            },
+            {
+              "site": "Latin Wikisource",
+              "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_2"
+            }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+        {
+          "id": "de_simpliciate_dei",
+          "section_number": "3",
+          "title_en": "On the Simplicity of God",
+          "title_la": "De simplicitate Dei",
+          "passage_links": [
+            {
+              "site": "CCEL English",
+              "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q3"
+            },
+            {
+              "site": "Latin Wikisource",
+              "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_3"
+            }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+        {
+          "id": "de_perfectione_dei",
+          "section_number": "4",
+          "title_en": "On the Perfection of God",
+          "title_la": "De perfectione Dei",
+          "passage_links": [
+            {
+              "site": "CCEL English",
+              "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q4"
+            },
+            {
+              "site": "Latin Wikisource",
+              "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_4"
+            }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+        {
+          "id": "de_bonitate_in_communi",
+          "section_number": "5",
+          "title_en": "Goodness in General",
+          "title_la": "De bonitate in communi",
+          "passage_links": [
+            {
+              "site": "CCEL English",
+              "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q5"
+            },
+            {
+              "site": "Latin Wikisource",
+              "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_5"
+            }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+        {
+          "id": "de_bonitate_dei",
+          "section_number": "6",
+          "title_en": "The Goodness of God",
+          "title_la": "De bonitate Dei",
+          "passage_links": [
+            {
+              "site": "CCEL English",
+              "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q6"
+            },
+            {
+              "site": "Latin Wikisource",
+              "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_6"
+            }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+        {
+          "id": "de_infinitate_dei",
+          "section_number": "7",
+          "title_en": "The Infinity of God",
+          "title_la": "De infinitate Dei",
+          "passage_links": [
+            {
+              "site": "CCEL English",
+              "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q7"
+            },
+            {
+              "site": "Latin Wikisource",
+              "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_7"
+            }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+        {
+          "id": "de_existentia_dei_in_rebus",
+          "section_number": "8",
+          "title_en": "The Existence of God in Things",
+          "title_la": "De existentia Dei in rebus",
+          "passage_links": [
+            {
+              "site": "CCEL English",
+              "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q8"
+            },
+            {
+              "site": "Latin Wikisource",
+              "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_8"
+            }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+        {
+          "id": "de_immutabilitate_dei",
+          "section_number": "9",
+          "title_en": "The Immutability of God",
+          "title_la": "De immutabilitate Dei",
+          "passage_links": [
+            {
+              "site": "CCEL English",
+              "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q9"
+            },
+            {
+              "site": "Latin Wikisource",
+              "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_9"
+            }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+
+        // ——— Sections 10–118 (same pattern) ———
+
+        {
+          "id": "de_aeternitate_dei",
+          "section_number": "10",
+          "title_en": "The Eternity of God",
+          "title_la": "De aeternitate Dei",
+          "passage_links": [
+            { "site": "CCEL English", "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q10" },
+            { "site": "Latin Wikisource", "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_10" }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+
+        {
+          "id": "de_unitate_dei",
+          "section_number": "11",
+          "title_en": "The Unity of God",
+          "title_la": "De unitate Dei",
+          "passage_links": [
+            { "site": "CCEL English", "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q11" },
+            { "site": "Latin Wikisource", "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_11" }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+
+        {
+          "id": "de_cognitione_dei_quoad_nos",
+          "section_number": "12",
+          "title_en": "How God Is Known by Us",
+          "title_la": "De cognitione Dei quoad nos",
+          "passage_links": [
+            { "site": "CCEL English", "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q12" },
+            { "site": "Latin Wikisource", "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_12" }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        },
+
+        // … repeat up through section_number "119"
+
+        {
+          "id": "ultima_questio_primae_partis",
+          "section_number": "119",
+          "title_en": "The Final Question of the Prima Pars",
+          "title_la": "Ultima quaestio Primae Partis",
+          "passage_links": [
+            { "site": "CCEL English", "url": "https://www.ccel.org/ccel/aquinas/summa.toc.html#Q119" },
+            { "site": "Latin Wikisource", "url": "https://la.wikisource.org/wiki/Summa_Theologica,_Prima_Pars,_Questio_119" }
+          ],
+          "doctrines": [],
+          "cross_refs": []
+        }
+      ]
+    }
+  ]
+}
