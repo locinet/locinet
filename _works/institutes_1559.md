@@ -1,4 +1,4 @@
 ---
 layout: work
-work_id: institutes_1559
+work_id: institutes-1559
 ---
