@@ -1,10 +1,9 @@
 ---
 layout: default
-title: Home
+title: Works
 ---
-<p>The theological syntopticon is a database of sections of theological works discussing the various topics of theology. The syntopticon allows one to find sections in the writings of many theologians on a given topic.</p>
 
-<p>Data files: {{ site.data | jsonify }}</p>
+<h1>Works</h1>
 
 {% assign all_works = "" | split: "" %}
 
@@ -15,31 +14,17 @@ title: Home
   {% endif %}
 {% endfor %}
 
-{%- comment -%} Sort by year (ascending = oldest first) {%- endcomment -%}
+{%- comment -%} Sort oldest → newest {%- endcomment -%}
 {% assign all_works = all_works | sort: "year" %}
 
-{%- comment -%} Track current author for grouping {%- endcomment -%}
-{% assign current_author = "" %}
-
-{% for work in all_works %}
-  {% if work.author != current_author %}
-    {% unless forloop.first %}
-      </ul>
-    {% endunless %}
-
-    <h3>{{ work.author }}</h3>
-    <ul>
-
-    {% assign current_author = work.author %}
-  {% endif %}
-
-  <li>
-    {{ work.title }}
-    {% if work.year %} ({{ work.year }}){% endif %}
-  </li>
-
-  {% if forloop.last %}
-    </ul>
-  {% endif %}
-{% endfor %}
-
+<ul>
+  {% for work in all_works %}
+    <li>
+      <a href="{{ '/works/' | append: work.id | append: '/' | relative_url }}">
+        {{ work.title }}
+      </a>
+      — {{ work.author }}
+      {% if work.year %} ({{ work.year }}){% endif %}
+    </li>
+  {% endfor %}
+</ul>
