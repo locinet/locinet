@@ -1,3 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{{ page.title }} - {{ site.title }}</title>
+  <style>
+    body { max-width: 800px; margin: 2rem auto; line-height: 1.6; }
+    a { color: blue; text-decoration: none; }
+    h1,h2,h3 { margin-top: 1.5em; }
+    ul { list-style-type: none; padding-left: 0; }
+    li { margin-bottom: 0.5em; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+  </header>
+  <main>
 {% assign work = nil %}
 {% for pair in site.data %}
   {% if pair[1].works %}
@@ -42,3 +60,8 @@
   {% endif %}
 {% endfor %}
 {% endif %}
+  </main>
+</body>
+</html>
+
+
