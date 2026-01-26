@@ -9,6 +9,7 @@ books:
   - id: book_1
     title:
       en: Book I: Of the Knowledge of God the Creator
+
     sections:
       - id: inst1559_1_1
         section_number: "1"
