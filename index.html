@@ -17,7 +17,7 @@ title: Works
     <li>
       {{ work.author }}, 
       <a href="{{ '/works/' | append: work.id | append: '/' | relative_url }}">
-        {{ work.title }}
+        <em>{{ work.title }}</em>
       </a>
       {% if work.year %} ({{ work.year }}){% endif %}
     </li>
