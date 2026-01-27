@@ -15,11 +15,10 @@ permalink: /topics/
   {% endif %}
 {% endfor %}
 
-{% comment %}Precompute HTML for each topic (links to work pages){% endcomment %}
+{% comment %}Precompute links HTML for each topic{% endcomment %}
 {% assign topic_html = {} %}
 {% for assignment in all_assignments %}
-  {% assign topic_ids = assignment.topics %}
-  {% for tid in topic_ids %}
+  {% for tid in assignment.topics %}
     {% assign current_html = topic_html[tid] | default: "" %}
     {% for pair in site.data %}
       {% if pair[1].works %}
@@ -33,17 +32,35 @@ permalink: /topics/
   {% endfor %}
 {% endfor %}
 
-{% comment %}Render all topics recursively{% endcomment %}
-{% assign parent_level = 2 %}
+{% comment %}Flattened rendering - 4 levels{% endcomment %}
 {% for topic in site.data.topics_definitions.topics %}
-  <h{{ parent_level }} id="{{ topic.id }}">{{ topic.name }}</h{{ parent_level }}>
-  {% if topic.description %}
-    <p>{{ topic.description }}</p>
-  {% endif %}
+  <h2 id="{{ topic.id }}">{{ topic.name }}</h2>
+  {% if topic.description %}<p>{{ topic.description }}</p>{% endif %}
+  <p style="color: purple; font-size: small;">DEBUG: id={{ topic.id }}, children={{ topic.children | default: empty | size }}, links={{ topic_html[topic.id] | default: "" | split: "<li>" | size | minus: 1 }}</p>
+  {% if topic_html[topic.id] != "" %}<ul>{{ topic_html[topic.id] | raw }}</ul>{% endif %}
 
-  {% assign children = topic.children | default: empty %}
-  {% include topic_children.html 
-     children=children 
-     parent_level=3 
-     topic_html=topic_html %}
+  {% assign children1 = topic.children | default: empty %}
+  {% for sub1 in children1 %}
+    <h3 id="{{ sub1.id }}" style="margin-left: 20px;">{{ sub1.name }}</h3>
+    {% if sub1.description %}<p style="margin-left: 20px;">{{ sub1.description }}</p>{% endif %}
+    <p style="margin-left: 20px; color: purple; font-size: small;">DEBUG: id={{ sub1.id }}, children={{ sub1.children | default: empty | size }}, links={{ topic_html[sub1.id] | default: "" | split: "<li>" | size | minus: 1 }}</p>
+    {% if topic_html[sub1.id] != "" %}<ul style="margin-left: 20px;">{{ topic_html[sub1.id] | raw }}</ul>{% endif %}
+
+    {% assign children2 = sub1.children | default: empty %}
+    {% for sub2 in children2 %}
+      <h4 id="{{ sub2.id }}" style="margin-left: 40px;">{{ sub2.name }}</h4>
+      {% if sub2.description %}<p style="margin-left: 40px;">{{ sub2.description }}</p>{% endif %}
+      <p style="margin-left: 40px; color: purple; font-size: small;">DEBUG: id={{ sub2.id }}, children={{ sub2.children | default: empty | size }}, links={{ topic_html[sub2.id] | default: "" | split: "<li>" | size | minus: 1 }}</p>
+      {% if topic_html[sub2.id] != "" %}<ul style="margin-left: 40px;">{{ topic_html[sub2.id] | raw }}</ul>{% endif %}
+
+      {% assign children3 = sub2.children | default: empty %}
+      {% for sub3 in children3 %}
+        <h5 id="{{ sub3.id }}" style="margin-left: 60px;">{{ sub3.name }}</h5>
+        {% if sub3.description %}<p style="margin-left: 60px;">{{ sub3.description }}</p>{% endif %}
+        <p style="margin-left: 60px; color: purple; font-size: small;">DEBUG: id={{ sub3.id }}, children={{ sub3.children | default: empty | size }}, links={{ topic_html[sub3.id] | default: "" | split: "<li>" | size | minus: 1 }}</p>
+        {% if topic_html[sub3.id] != "" %}<ul style="margin-left: 60px;">{{ topic_html[sub3.id] | raw }}</ul>{% endif %}
+      {% endfor %}
+
+    {% endfor %}
+  {% endfor %}
 {% endfor %}
