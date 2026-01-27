@@ -1,7 +1,5 @@
 {% assign children = children | default: empty %}
 
-<h6 style="color: red;">DEBUG: parent_level={{ parent_level }}, children type={{ children | class }}, children size={{ children.size }}</h6>
-
 {% if children.size > 0 %}
   {% assign margin = parent_level | times: 20 %}
   {% for subtopic in children %}
@@ -12,38 +10,13 @@
       <p style="margin-left: {{ margin }}px;"><em>{{ subtopic.description }}</em></p>
     {% endif %}
 
-    <pre style="color: blue;">DEBUG: subtopic={{ subtopic | jsonify }}</pre>
-
-    {% assign has_sections = false %}
-    {% for assignment in all_assignments %}
-      {% if assignment.topics contains subtopic.id %}
-        {% assign has_sections = true %}
-        {% break %}
-      {% endif %}
-    {% endfor %}
-
-    {% if has_sections %}
+    {% assign links = topic_links[subtopic.id] | default: empty %}
+    {% if links.size > 0 %}
       <ul style="margin-left: {{ margin }}px;">
-        {% for assignment in all_assignments %}
-          {% if assignment.topics contains subtopic.id %}
-            {% for pair in site.data %}
-              {% if pair[1].works %}
-                {% for work in pair[1].works %}
-                  {% for structure_item in work.structure %}
-                    {% for child in structure_item.children %}
-                      {% if child.id == assignment.section_id %}
-                        <li>
-                          <a href="{{ '/works/' | append: work.id | append: '/' | relative_url }}">
-                            <em>{{ work.title }}</em>
-                          </a>
-                        </li>
-                      {% endif %}
-                    {% endfor %}
-                  {% endfor %}
-                {% endfor %}
-              {% endif %}
-            {% endfor %}
-          {% endif %}
+        {% for link in links %}
+          <li>
+            <a href="{{ link }}"><em>{{ link | split: '/' | slice: -3,1 | first }}</em></a>
+          </li>
         {% endfor %}
       </ul>
     {% endif %}
@@ -52,10 +25,11 @@
     {% assign max_depth = 6 %}
     {% if next_children.size > 0 and parent_level < max_depth %}
       {% assign next_level = parent_level | plus: 1 %}
-      {% include topic_children.html children=next_children parent_level=next_level all_assignments=all_assignments %}
+      {% include topic_children.html 
+         children=next_children 
+         parent_level=next_level 
+         topic_links=topic_links %}
     {% endif %}
 
   {% endfor %}
-{% else %}
-  <p style="color: orange;">DEBUG: No children at this level</p>
 {% endif %}
