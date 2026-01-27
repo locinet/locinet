@@ -137,6 +137,22 @@ topics:
           - id: creation-time
             name: Creation and Time
             description: Whether creation is eternal or temporal
+          - id: six-days-of-creation
+            name: Six Days of Creation
+            description: The work of the six days
+            children:
+              - id: corporeal-creatures
+                name: Creation of Corporeal Creatures
+                description: Material creation
+              - id: work-of-distinction
+                name: Work of Distinction
+                description: Separating and ordering creation
+              - id: work-of-adornment
+                name: Work of Adornment
+                description: Filling and beautifying creation
+              - id: seventh-day
+                name: The Seventh Day
+                description: God's rest
       
       - id: divine-providence
         name: Divine Providence
@@ -175,6 +191,18 @@ topics:
       - id: miracles
         name: Miracles
         description: God's extraordinary interventions in nature
+      
+      - id: corporeal-action
+        name: Action of Corporeal Creatures
+        description: How physical things act as secondary causes
+      
+      - id: fate
+        name: Fate
+        description: Whether fate exists and its relation to providence
+      
+      - id: human-action
+        name: Human Action
+        description: Things pertaining to human acts as secondary causes
 
   - id: revelation
     name: Revelation and Scripture
@@ -229,10 +257,83 @@ topics:
       - id: nature-of-angels
         name: Nature of Angels
         description: The substance and powers of angelic beings
+        children:
+          - id: angelic-substance
+            name: Angelic Substance
+            description: What angels are made of
+          - id: angels-and-bodies
+            name: Angels in Relation to Bodies
+            description: How angels relate to physical matter
+          - id: angels-and-place
+            name: Angels in Relation to Place
+            description: How angels occupy space
+          - id: angelic-movement
+            name: Angelic Movement
+            description: How angels move from place to place
+      
+      - id: angelic-knowledge
+        name: Angelic Knowledge
+        description: How and what angels know
+        children:
+          - id: angelic-mode-of-knowing
+            name: Mode of Angelic Knowledge
+            description: How angels understand
+          - id: angelic-knowledge-of-immaterial
+            name: Angels' Knowledge of Immaterial Things
+            description: How angels know spiritual realities
+          - id: angelic-knowledge-of-material
+            name: Angels' Knowledge of Material Things
+            description: How angels know physical realities
+      
+      - id: angelic-will
+        name: Angelic Will
+        description: The will and love of angels
+        children:
+          - id: angels-willing
+            name: The Will of Angels
+            description: How angels choose
+          - id: angelic-love
+            name: Love of Angels
+            description: How angels love
+      
+      - id: angelic-production
+        name: Production of Angels
+        description: The creation and perfection of angels
+        children:
+          - id: angels-in-natural-being
+            name: Angels in Natural Being
+            description: Creation of angelic nature
+          - id: angels-in-grace
+            name: Angels in Grace and Glory
+            description: Perfection of angels in grace
       
       - id: angelic-hierarchy
         name: Angelic Hierarchy
         description: The orders and ranks of angels
+        children:
+          - id: angelic-orders
+            name: Angelic Orders
+            description: The nine choirs of angels
+          - id: ordering-of-bad-angels
+            name: Ordering of Bad Angels
+            description: Hierarchy among demons
+      
+      - id: angelic-operations
+        name: Angelic Operations
+        description: What angels do
+        children:
+          - id: angels-on-bodies
+            name: How Angels Act on Bodies
+            description: Angels' power over physical creation
+          - id: angels-on-humans
+            name: Action of Angels on Humans
+            description: How angels influence people
+          - id: angelic-missions
+            name: Missions of Angels
+            description: Angels sent by God
+          - id: angelic-speech
+            name: Speech of Angels
+            description: How angels communicate
       
       - id: good-angels
         name: Good Angels
@@ -255,9 +356,18 @@ topics:
           - id: satan
             name: Satan
             description: The chief of fallen angels
+          - id: angelic-sin
+            name: Sin of Angels
+            description: The malice of fallen angels
+          - id: demonic-punishment
+            name: Punishment of Demons
+            description: The consequences of angelic sin
           - id: demonic-temptation
             name: Demonic Temptation
             description: How demons tempt humanity
+          - id: demonic-assaults
+            name: Assaults of Demons
+            description: How demons attack humanity
 
   - id: anthropology
     name: Theological Anthropology
@@ -280,6 +390,13 @@ topics:
       - id: original-righteousness
         name: Original Righteousness
         description: Humanity's state before the Fall
+        children:
+          - id: state-of-innocence
+            name: State of Innocence
+            description: Human perfection before sin
+          - id: paradise
+            name: Paradise
+            description: The Garden of Eden as humanity's original dwelling
       
       - id: the-fall
         name: The Fall
