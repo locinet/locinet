@@ -6,27 +6,6 @@ permalink: /topics/
 
 <h1>Topics</h1>
 
-{% comment %}Build a flat topic lookup (optional, if you need it later){% endcomment %}
-{% assign topic_lookup = "" | split: "" %}
-{% for topic in site.data.topics_definitions.topics %}
-  {% assign topic_lookup = topic_lookup | push: topic %}
-  {% if topic.children %}
-    {% for child in topic.children %}
-      {% assign topic_lookup = topic_lookup | push: child %}
-      {% if child.children %}
-        {% for grandchild in child.children %}
-          {% assign topic_lookup = topic_lookup | push: grandchild %}
-          {% if grandchild.children %}
-            {% for ggrandchild in grandchild.children %}
-              {% assign topic_lookup = topic_lookup | push: ggrandchild %}
-            {% endfor %}
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
-{% endfor %}
-
 {% comment %}Combine all assignments from all _data files{% endcomment %}
 {% assign all_assignments = "" | split: "" %}
 {% for pair in site.data %}
@@ -37,8 +16,6 @@ permalink: /topics/
 {% endfor %}
 
 {% comment %}Display topics recursively{% endcomment %}
-{% assign heading_levels = "h2,h3,h4,h5" | split: "," %}
-
 {% for topic in site.data.topics_definitions.topics %}
   <h2 id="{{ topic.id }}">{{ topic.name }}</h2>
   {% if topic.description %}
