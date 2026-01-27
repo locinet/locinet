@@ -10,14 +10,10 @@
       <p style="margin-left: {{ margin }}px;"><em>{{ subtopic.description }}</em></p>
     {% endif %}
 
-    {% assign links = topic_links[subtopic.id] | default: empty %}
-    {% if links.size > 0 %}
+    {% assign links_html = topic_html[subtopic.id] | default: "" %}
+    {% if links_html != "" %}
       <ul style="margin-left: {{ margin }}px;">
-        {% for link in links %}
-          <li>
-            <a href="{{ link }}"><em>{{ link | split: '/' | slice: -3,1 | first }}</em></a>
-          </li>
-        {% endfor %}
+        {{ links_html | raw }}
       </ul>
     {% endif %}
 
@@ -28,8 +24,7 @@
       {% include topic_children.html 
          children=next_children 
          parent_level=next_level 
-         topic_links=topic_links %}
+         topic_html=topic_html %}
     {% endif %}
-
   {% endfor %}
 {% endif %}
