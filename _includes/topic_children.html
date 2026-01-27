@@ -1,5 +1,7 @@
 {% assign children = children | default: empty %}
 
+<h6 style="color: red;">DEBUG: parent_level={{ parent_level }}, children type={{ children | class }}, children size={{ children.size }}</h6>
+
 {% if children.size > 0 %}
   {% assign margin = parent_level | times: 20 %}
   {% for subtopic in children %}
@@ -9,6 +11,9 @@
     {% if subtopic.description %}
       <p style="margin-left: {{ margin }}px;"><em>{{ subtopic.description }}</em></p>
     {% endif %}
+
+    {% comment %}Debug: show subtopic object{% endcomment %}
+    <pre style="color: blue;">DEBUG: subtopic={{ subtopic | jsonify }}</pre>
 
     {% assign has_sections = false %}
     {% for assignment in all_assignments %}
@@ -48,6 +53,7 @@
       {% assign next_level = parent_level | plus: 1 %}
       {% include topic_children.html children=subtopic.children parent_level=next_level all_assignments=all_assignments %}
     {% endif %}
-
   {% endfor %}
+{% else %}
+  <p style="color: orange;">DEBUG: No children at this level</p>
 {% endif %}
