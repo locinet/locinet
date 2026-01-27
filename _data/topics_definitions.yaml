@@ -1086,7 +1086,7 @@ topics:
             description: Purpose of the act
           - id: circumstances
             name: Circumstances
-                description: Conditions affecting morality
+            description: Conditions affecting morality
           - id: good-and-evil
             name: Good and Evil in Acts
             description: Moral evaluation of actions
