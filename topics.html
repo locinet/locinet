@@ -17,20 +17,29 @@ permalink: /topics/
 
 {% comment %}Precompute links HTML for each topic{% endcomment %}
 {% assign topic_html = {} %}
+
 {% for assignment in all_assignments %}
   {% for tid in assignment.topics %}
     {% assign current_html = topic_html[tid] | default: "" %}
     {% for pair in site.data %}
       {% if pair[1].works %}
         {% for work in pair[1].works %}
-          {% assign link = "/works/" | append: work.id | append: "/" | relative_url %}
-          {% assign current_html = current_html | append: "<li><a href='" | append: link | append: "'><em>" | append: work.title | append: "</em></a></li>" %}
+          {% for structure_item in work.structure %}
+            {% assign children = structure_item.children | default: empty %}
+            {% for child in children %}
+              {% if child.id == assignment.section_id %}
+                {% assign link = "/works/" | append: work.id | append: "/" | relative_url %}
+                {% assign current_html = current_html | append: "<li><a href='" | append: link | append: "'><em>" | append: work.title | append: "</em> — " | append: child.type | append: " " | append: child.number | append: ": " | append: child.title.en | append: "</a></li>" %}
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
         {% endfor %}
       {% endif %}
     {% endfor %}
     {% assign topic_html = topic_html | merge: { tid: current_html } %}
   {% endfor %}
 {% endfor %}
+
 
 {% comment %}Flattened rendering - 4 levels{% endcomment %}
 {% for topic in site.data.topics_definitions.topics %}
