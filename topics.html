@@ -1,41 +1,193 @@
 ---
 layout: default
 title: Topics Index
+permalink: /topics/
 ---
 <h1>Topics</h1>
 
-{% for topic_def in site.data.topics_definitions %}
-  <h2 id="{{ topic_def.topic_id }}">{{ topic_def.topic_name }}</h2>
-  {% if topic_def.description %}
-    <p>{{ topic_def.description }}</p>
+{% comment %}Build a flat topic lookup for easy searching{% endcomment %}
+{% assign topic_lookup = "" | split: "" %}
+{% for topic in site.data.topics_definitions.topics %}
+  {% assign topic_lookup = topic_lookup | push: topic %}
+  {% if topic.children %}
+    {% for child in topic.children %}
+      {% assign topic_lookup = topic_lookup | push: child %}
+      {% if child.children %}
+        {% for grandchild in child.children %}
+          {% assign topic_lookup = topic_lookup | push: grandchild %}
+          {% if grandchild.children %}
+            {% for ggrandchild in grandchild.children %}
+              {% assign topic_lookup = topic_lookup | push: ggrandchild %}
+            {% endfor %}
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+{% endfor %}
+
+{% comment %}Display topics hierarchically{% endcomment %}
+{% for topic in site.data.topics_definitions.topics %}
+  <h2 id="{{ topic.id }}">{{ topic.name }}</h2>
+  {% if topic.description %}
+    <p>{{ topic.description }}</p>
   {% endif %}
   
-  <ul>
-    {% for row in site.data.topics %}
-      {% assign topic_ids = row.topic_ids | split: "," %}
-      {% if topic_ids contains topic_def.topic_id %}
-        {% comment %}Find the work and section details{% endcomment %}
-        {% for pair in site.data %}
-          {% if pair[1].works %}
-            {% for work in pair[1].works %}
-              {% if work.id == row.work_id %}
-                {% for structure_item in work.structure %}
-                  {% for child in structure_item.children %}
-                    {% if child.id == row.section_id %}
-                      <li>
-                        <em>{{ work.title }}</em> — 
-                        <a href="{{ '/works/' | append: work.id | append: '/' | relative_url }}">
-                          {{ child.type | capitalize }} {{ child.number }}: {{ child.title.en }}
-                        </a>
-                      </li>
+  {% if topic.children %}
+    {% for subtopic in topic.children %}
+      <h3 id="{{ subtopic.id }}" style="margin-left: 20px;">{{ subtopic.name }}</h3>
+      {% if subtopic.description %}
+        <p style="margin-left: 20px;"><em>{{ subtopic.description }}</em></p>
+      {% endif %}
+      
+      {% comment %}Check if this subtopic has any sections assigned to it{% endcomment %}
+      {% assign has_sections = false %}
+      {% for assignment in site.data.topics.assignments %}
+        {% if assignment.topics contains subtopic.id %}
+          {% assign has_sections = true %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+      
+      {% if has_sections %}
+        <ul style="margin-left: 20px;">
+          {% for assignment in site.data.topics.assignments %}
+            {% if assignment.topics contains subtopic.id %}
+              {% comment %}Find the work and section details{% endcomment %}
+              {% for pair in site.data %}
+                {% if pair[1].works %}
+                  {% for work in pair[1].works %}
+                    {% for structure_item in work.structure %}
+                      {% for child in structure_item.children %}
+                        {% if child.id == assignment.section_id %}
+                          <li>
+                            <em>{{ work.title }}</em> — 
+                            <a href="{{ '/works/' | append: work.id | append: '/' | relative_url }}">
+                              {{ child.type | capitalize }} {{ child.number }}: {{ child.title.en }}
+                            </a>
+                          </li>
+                        {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                  {% endfor %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </ul>
+      {% endif %}
+      
+      {% comment %}Handle third-level topics{% endcomment %}
+      {% if subtopic.children %}
+        {% for subsubtopic in subtopic.children %}
+          <h4 id="{{ subsubtopic.id }}" style="margin-left: 40px;">{{ subsubtopic.name }}</h4>
+          {% if subsubtopic.description %}
+            <p style="margin-left: 40px;"><em>{{ subsubtopic.description }}</em></p>
+          {% endif %}
+          
+          {% assign has_sections = false %}
+          {% for assignment in site.data.topics.assignments %}
+            {% if assignment.topics contains subsubtopic.id %}
+              {% assign has_sections = true %}
+              {% break %}
+            {% endif %}
+          {% endfor %}
+          
+          {% if has_sections %}
+            <ul style="margin-left: 40px;">
+              {% for assignment in site.data.topics.assignments %}
+                {% if assignment.topics contains subsubtopic.id %}
+                  {% for pair in site.data %}
+                    {% if pair[1].works %}
+                      {% for work in pair[1].works %}
+                        {% for structure_item in work.structure %}
+                          {% for child in structure_item.children %}
+                            {% if child.id == assignment.section_id %}
+                              <li>
+                                <em>{{ work.title }}</em> — 
+                                <a href="{{ '/works/' | append: work.id | append: '/' | relative_url }}">
+                                  {{ child.type | capitalize }} {{ child.number }}: {{ child.title.en }}
+                                </a>
+                              </li>
+                            {% endif %}
+                          {% endfor %}
+                        {% endfor %}
+                      {% endfor %}
                     {% endif %}
                   {% endfor %}
-                {% endfor %}
+                {% endif %}
+              {% endfor %}
+            </ul>
+          {% endif %}
+          
+          {% comment %}Handle fourth-level topics{% endcomment %}
+          {% if subsubtopic.children %}
+            {% for subsubsubtopic in subsubtopic.children %}
+              <h5 id="{{ subsubsubtopic.id }}" style="margin-left: 60px;">{{ subsubsubtopic.name }}</h5>
+              {% if subsubsubtopic.description %}
+                <p style="margin-left: 60px;"><em>{{ subsubsubtopic.description }}</em></p>
+              {% endif %}
+              
+              {% assign has_sections = false %}
+              {% for assignment in site.data.topics.assignments %}
+                {% if assignment.topics contains subsubsubtopic.id %}
+                  {% assign has_sections = true %}
+                  {% break %}
+                {% endif %}
+              {% endfor %}
+              
+              {% if has_sections %}
+                <ul style="margin-left: 60px;">
+                  {% for assignment in site.data.topics.assignments %}
+                    {% if assignment.topics contains subsubsubtopic.id %}
+                      {% for pair in site.data %}
+                        {% if pair[1].works %}
+                          {% for work in pair[1].works %}
+                            {% for structure_item in work.structure %}
+                              {% for child in structure_item.children %}
+                                {% if child.id == assignment.section_id %}
+                                  <li>
+                                    <em>{{ work.title }}</em> — 
+                                    <a href="{{ '/works/' | append: work.id | append: '/' | relative_url }}">
+                                      {{ child.type | capitalize }} {{ child.number }}: {{ child.title.en }}
+                                    </a>
+                                  </li>
+                                {% endif %}
+                              {% endfor %}
+                            {% endfor %}
+                          {% endfor %}
+                        {% endif %}
+                      {% endfor %}
+                    {% endif %}
+                  {% endfor %}
+                </ul>
               {% endif %}
             {% endfor %}
           {% endif %}
         {% endfor %}
       {% endif %}
     {% endfor %}
-  </ul>
+  {% endif %}
 {% endfor %}
+```
+
+## What this page will look like
+
+When you visit `https://yourusername.github.io/yourrepo/topics/`, you'll see:
+```
+Topics
+
+Theology Proper
+The doctrine of God - His existence, nature, and attributes
+
+  Existence of God
+  Arguments and proofs for God's existence
+  
+    Ontological Argument
+    God's existence from the concept of a perfect being
+    
+    Cosmological Argument
+    God as first cause and necessary being
+    • Summa Theologiae — Question 2: The Existence of God
+    
+    [etc...]
