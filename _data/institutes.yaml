@@ -1,6 +1,7 @@
 works:
   - id: institutes-1559
     title: Institutio Christianae Religionis
+    short_title: Institutes
     author: John Calvin
     year: 1559
     structure:
