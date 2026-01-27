@@ -10,6 +10,11 @@
       <p style="margin-left: {{ margin }}px;"><em>{{ subtopic.description }}</em></p>
     {% endif %}
 
+    {% comment %}Debug info{% endcomment %}
+    <p style="margin-left: {{ margin }}px; color: purple; font-size: small;">
+      DEBUG: topic_id={{ subtopic.id }}, children={{ subtopic.children | default: empty | size }}, links={{ topic_html[subtopic.id] | default: "" | split: "<li>" | size | minus: 1 }}
+    </p>
+
     {% assign links_html = topic_html[subtopic.id] | default: "" %}
     {% if links_html != "" %}
       <ul style="margin-left: {{ margin }}px;">
@@ -27,4 +32,8 @@
          topic_html=topic_html %}
     {% endif %}
   {% endfor %}
+{% else %}
+  <p style="margin-left: {{ margin }}px; color: orange; font-size: small;">
+    DEBUG: No children at this level
+  </p>
 {% endif %}
