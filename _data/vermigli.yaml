@@ -1,8 +1,8 @@
 works:
   - id: common-places-1583
     title: The common places of the most famous and renowmed diuine Doctor Peter Martyr
-    title: LC
-    author: Pietro Martire Vermigli
+    short_title: LC
+    author: vermigli
     year: 1583
     structure:
       - type: part
