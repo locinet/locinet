@@ -9,7 +9,7 @@ works:
         id: part_1
         number: 1
         title:
-          en: "A Generall Method and Distribution of the Whole Worke"
+          en: "The First Part"
         children:
           - type: chapter
             id: cp1583_1_1
