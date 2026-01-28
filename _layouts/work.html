@@ -56,6 +56,28 @@ layout: default
   box-shadow: 2px 2px 8px rgba(80, 60, 40, 0.15);
 }
 
+.back-to-top {
+  display: block;
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  background: #8b7355;
+  color: #faf8f3;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 2px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+}
+
+.back-to-top:hover {
+  background: #6d5d4b;
+  color: #faf8f3;
+}
+
 .work-toc-title {
   font-size: 1.125rem;
   font-weight: 700;
@@ -65,6 +87,27 @@ layout: default
   border-bottom: 2px solid #8b7355;
   text-transform: uppercase;
   letter-spacing: 0.05em;
+}
+
+.sidebar-nav-links {
+  margin-bottom: 1rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #8b7355;
+}
+
+.sidebar-nav-link {
+  display: block;
+  color: #8b4513;
+  text-decoration: none;
+  font-size: 0.9375rem;
+  padding: 0.375rem 0;
+  border-bottom: 1px dotted #8b4513;
+  transition: color 0.2s;
+}
+
+.sidebar-nav-link:hover {
+  color: #6d3410;
+  border-bottom-style: solid;
 }
 
 .work-toc-list {
@@ -133,27 +176,6 @@ layout: default
   letter-spacing: 0.02em;
 }
 
-.nav-links {
-  display: flex;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.back-link,
-.works-index-link {
-  display: inline-block;
-  color: #8b4513;
-  text-decoration: none;
-  font-size: 0.9375rem;
-  border-bottom: 1px dotted #8b4513;
-}
-
-.back-link:hover,
-.works-index-link:hover {
-  color: #6d3410;
-  border-bottom-style: solid;
-}
-
 .work-structure {
   margin-top: 2rem;
 }
@@ -205,10 +227,6 @@ layout: default
 }
 
 .section-header {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  flex-wrap: wrap;
   margin-bottom: 0.5rem;
 }
 
@@ -216,8 +234,8 @@ layout: default
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
-  flex: 1;
-  min-width: 0;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .section-number {
@@ -230,6 +248,7 @@ layout: default
 .section-title {
   color: #3e2723;
   font-weight: 500;
+  flex: 1;
 }
 
 .section-links {
@@ -316,6 +335,13 @@ layout: default
 <div class="work-page-container">
   <aside class="work-toc-sidebar">
     <nav class="work-toc-sticky">
+      <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="back-to-top">↑ Back to Top</button>
+      
+      <div class="sidebar-nav-links">
+        <a href="{{ '/' | relative_url }}" class="sidebar-nav-link">← Syntopticon</a>
+        <a href="{{ '/works-index.html' | relative_url }}" class="sidebar-nav-link">Index of Works</a>
+      </div>
+      
       <h2 class="work-toc-title">Contents</h2>
       <ul class="work-toc-list">
         {% for structure_item in work_data.structure %}
@@ -337,11 +363,6 @@ layout: default
   </aside>
 
   <div class="work-page">
-    <div class="nav-links">
-      <a href="{{ '/' | relative_url }}" class="back-link">← Topics Index</a>
-      <a href="{{ '/works-index.html' | relative_url }}" class="works-index-link">Index of Works</a>
-    </div>
-    
     <div class="work-header">
       <div class="work-title-line">
         <h1 class="work-title">{{ work_data.title }}</h1>
