@@ -20,11 +20,9 @@ layout: default
   {% endif %}
 {% endfor %}
 
-{% comment %} Find the topics data {% endcomment %}
 {% assign topics_file_name = work_file_name | append: "_topics" %}
 {% assign work_topics = site.data[topics_file_name] %}
 
-{% comment %} Get author info {% endcomment %}
 {% assign author_info = nil %}
 {% for author in site.data.authors.authors %}
   {% if author.id == work_data.author %}
@@ -33,11 +31,70 @@ layout: default
 {% endfor %}
 
 <style>
-.work-page {
-  max-width: 900px;
+.work-page-container {
+  display: flex;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 2rem;
+  gap: 2rem;
   font-family: 'Garamond', 'Crimson Text', 'Libre Baskerville', Georgia, serif;
+}
+
+.work-toc-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.work-toc-sticky {
+  position: sticky;
+  top: 1rem;
+  max-height: calc(100vh - 2rem);
+  overflow-y: auto;
+  background: #faf8f3;
+  border: 2px solid #8b7355;
+  border-radius: 2px;
+  padding: 1.5rem;
+  box-shadow: 2px 2px 8px rgba(80, 60, 40, 0.15);
+}
+
+.work-toc-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #3e2723;
+  margin: 0 0 1rem 0;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid #8b7355;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.work-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.work-toc-item {
+  margin-bottom: 0.5rem;
+}
+
+.work-toc-item a {
+  display: block;
+  color: #5d4037;
+  text-decoration: none;
+  font-size: 0.875rem;
+  padding: 0.25rem 0;
+  transition: color 0.2s;
+  font-variant: small-caps;
+}
+
+.work-toc-item a:hover {
+  color: #8b4513;
+}
+
+.work-page {
+  flex: 1;
+  min-width: 0;
+  padding: 2rem 0;
 }
 
 .work-header {
@@ -46,26 +103,34 @@ layout: default
   border-bottom: 3px double #8b7355;
 }
 
+.work-title-line {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 0.75rem;
+}
+
 .work-title {
   font-size: 2.5rem;
   font-weight: 400;
   color: #3e2723;
-  margin: 0 0 0.75rem 0;
+  margin: 0;
   font-style: italic;
+}
+
+.work-year {
+  font-size: 1.5rem;
+  color: #6d5d4b;
+  margin: 0;
 }
 
 .work-author {
   font-size: 1.5rem;
   color: #5d4037;
-  margin: 0 0 0.5rem 0;
+  margin: 0;
   font-variant: small-caps;
   letter-spacing: 0.02em;
-}
-
-.work-year {
-  font-size: 1.125rem;
-  color: #6d5d4b;
-  margin: 0;
 }
 
 .work-structure {
@@ -172,6 +237,10 @@ layout: default
   margin-top: 0.5rem;
   padding-top: 0.5rem;
   border-top: 1px solid #d7ccc8;
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
 }
 
 .topics-label {
@@ -180,13 +249,14 @@ layout: default
   letter-spacing: 0.05em;
   color: #8d6e63;
   font-weight: 600;
-  margin-bottom: 0.375rem;
+  padding-top: 0.25rem;
 }
 
 .topic-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.375rem;
+  flex: 1;
 }
 
 .topic-tag {
@@ -219,117 +289,147 @@ layout: default
   color: #6d3410;
   border-bottom-style: solid;
 }
+
+@media (max-width: 768px) {
+  .work-page-container {
+    flex-direction: column;
+  }
+  
+  .work-toc-sidebar {
+    width: 100%;
+  }
+  
+  .work-toc-sticky {
+    position: static;
+    max-height: none;
+  }
+}
 </style>
 
-<div class="work-page">
-  <a href="{{ '/topics-index.html' | relative_url }}" class="back-link">← Back to Topics Index</a>
-  
-  <div class="work-header">
-    <h1 class="work-title">{{ work_data.title }}</h1>
-    <div class="work-author">{{ author_info.name.en }}</div>
-    <div class="work-year">{{ work_data.year }}</div>
-  </div>
+<div class="work-page-container">
+  <aside class="work-toc-sidebar">
+    <nav class="work-toc-sticky">
+      <h2 class="work-toc-title">Contents</h2>
+      <ul class="work-toc-list">
+        {% for structure_item in work_data.structure %}
+          <li class="work-toc-item">
+            <a href="#structure-{{ structure_item.id }}">{{ structure_item.title.en }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </nav>
+  </aside>
 
-  <div class="work-structure">
-    {% for structure_item in work_data.structure %}
-      <div class="structure-item">
-        <div class="structure-header">
-          <h2 class="structure-title">
-            {{ structure_item.title.en }}
-          </h2>
-        </div>
-        
-        <div class="structure-content">
-          <ul class="section-list">
-            {% for child in structure_item.children %}
-              <li class="section-item">
-                <div class="section-header">
-                  <div class="section-number-title">
-                    <span class="section-number">
-                      {% if structure_item.type == "book" %}
-                        Book {{ structure_item.number }}, Chapter {{ child.number }}
-                      {% elsif structure_item.type == "part" %}
-                        Part {{ structure_item.number }}, Question {{ child.number }}
-                      {% else %}
-                        {{ structure_item.number }}.{{ child.number }}
-                      {% endif %}
-                    </span>
-                    <span class="section-title">{{ child.title.en }}</span>
-                  </div>
-                  
-                  {% if child.links %}
-                    <div class="section-links">
-                      {% for link in child.links %}
-                        <a href="{{ link.url }}" class="section-link" target="_blank">
-                          {{ link.site }} ({{ link.language | upcase }})
-                        </a>
-                      {% endfor %}
+  <div class="work-page">
+    <a href="{{ '/' | relative_url }}" class="back-link">← Back to Topics Index</a>
+    
+    <div class="work-header">
+      <div class="work-title-line">
+        <h1 class="work-title">{{ work_data.title }}</h1>
+        <span class="work-year">({{ work_data.year }})</span>
+      </div>
+      <div class="work-author">{{ author_info.name.en }}</div>
+    </div>
+
+    <div class="work-structure">
+      {% for structure_item in work_data.structure %}
+        <div class="structure-item" id="structure-{{ structure_item.id }}">
+          <div class="structure-header">
+            <h2 class="structure-title">
+              {{ structure_item.title.en }}
+            </h2>
+          </div>
+          
+          <div class="structure-content">
+            <ul class="section-list">
+              {% for child in structure_item.children %}
+                <li class="section-item">
+                  <div class="section-header">
+                    <div class="section-number-title">
+                      <span class="section-number">
+                        {% if structure_item.type == "book" %}
+                          Book {{ structure_item.number }}, Chapter {{ child.number }}
+                        {% elsif structure_item.type == "part" %}
+                          Part {{ structure_item.number }}, Question {{ child.number }}
+                        {% else %}
+                          {{ structure_item.number }}.{{ child.number }}
+                        {% endif %}
+                      </span>
+                      <span class="section-title">{{ child.title.en }}</span>
                     </div>
-                  {% endif %}
-                </div>
-                
-                {% comment %} Find topics for this section {% endcomment %}
-                {% if work_topics %}
-                  {% assign section_topics = "" | split: "" %}
-                  {% for assignment in work_topics.assignments %}
-                    {% if assignment.section_id == child.id %}
-                      {% assign section_topics = assignment.topics %}
-                    {% endif %}
-                  {% endfor %}
-                  
-                  {% if section_topics.size > 0 %}
-                    <div class="section-topics">
-                      <div class="topics-label">Topics:</div>
-                      <div class="topic-tags">
-                        {% for topic_id in section_topics %}
-                          {% comment %} Find the topic name {% endcomment %}
-                          {% assign topic_found = false %}
-                          {% for topic1 in site.data.topics_definitions.topics %}
-                            {% if topic1.id == topic_id %}
-                              <a href="{{ '/topics-index.html' | relative_url }}#topic-{{ topic_id }}" class="topic-tag">{{ topic1.name }}</a>
-                              {% assign topic_found = true %}
-                            {% endif %}
-                            {% unless topic_found %}
-                              {% if topic1.children %}
-                                {% for topic2 in topic1.children %}
-                                  {% if topic2.id == topic_id %}
-                                    <a href="{{ '/topics-index.html' | relative_url }}#topic-{{ topic_id }}" class="topic-tag">{{ topic2.name }}</a>
-                                    {% assign topic_found = true %}
-                                  {% endif %}
-                                  {% unless topic_found %}
-                                    {% if topic2.children %}
-                                      {% for topic3 in topic2.children %}
-                                        {% if topic3.id == topic_id %}
-                                          <a href="{{ '/topics-index.html' | relative_url }}#topic-{{ topic_id }}" class="topic-tag">{{ topic3.name }}</a>
-                                          {% assign topic_found = true %}
-                                        {% endif %}
-                                        {% unless topic_found %}
-                                          {% if topic3.children %}
-                                            {% for topic4 in topic3.children %}
-                                              {% if topic4.id == topic_id %}
-                                                <a href="{{ '/topics-index.html' | relative_url }}#topic-{{ topic_id }}" class="topic-tag">{{ topic4.name }}</a>
-                                                {% assign topic_found = true %}
-                                              {% endif %}
-                                            {% endfor %}
-                                          {% endif %}
-                                        {% endunless %}
-                                      {% endfor %}
-                                    {% endif %}
-                                  {% endunless %}
-                                {% endfor %}
-                              {% endif %}
-                            {% endunless %}
-                          {% endfor %}
+                    
+                    {% if child.links %}
+                      <div class="section-links">
+                        {% for link in child.links %}
+                          <a href="{{ link.url }}" class="section-link" target="_blank">
+                            {{ link.site }} ({{ link.language | upcase }})
+                          </a>
                         {% endfor %}
                       </div>
-                    </div>
+                    {% endif %}
+                  </div>
+                  
+                  {% if work_topics %}
+                    {% assign section_topics = "" | split: "" %}
+                    {% for assignment in work_topics.assignments %}
+                      {% if assignment.section_id == child.id %}
+                        {% assign section_topics = assignment.topics %}
+                      {% endif %}
+                    {% endfor %}
+                    
+                    {% if section_topics.size > 0 %}
+                      <div class="section-topics">
+                        <div class="topics-label">Topics:</div>
+                        <div class="topic-tags">
+                          {% for topic_id in section_topics %}
+                            {% assign topic_found = false %}
+                            {% for topic1 in site.data.topics_definitions.topics %}
+                              {% if topic1.id == topic_id %}
+                                <a href="{{ '/' | relative_url }}#topic-{{ topic_id }}" class="topic-tag">{{ topic1.name }}</a>
+                                {% assign topic_found = true %}
+                              {% endif %}
+                              {% unless topic_found %}
+                                {% if topic1.children %}
+                                  {% for topic2 in topic1.children %}
+                                    {% if topic2.id == topic_id %}
+                                      <a href="{{ '/' | relative_url }}#topic-{{ topic_id }}" class="topic-tag">{{ topic2.name }}</a>
+                                      {% assign topic_found = true %}
+                                    {% endif %}
+                                    {% unless topic_found %}
+                                      {% if topic2.children %}
+                                        {% for topic3 in topic2.children %}
+                                          {% if topic3.id == topic_id %}
+                                            <a href="{{ '/' | relative_url }}#topic-{{ topic_id }}" class="topic-tag">{{ topic3.name }}</a>
+                                            {% assign topic_found = true %}
+                                          {% endif %}
+                                          {% unless topic_found %}
+                                            {% if topic3.children %}
+                                              {% for topic4 in topic3.children %}
+                                                {% if topic4.id == topic_id %}
+                                                  <a href="{{ '/' | relative_url }}#topic-{{ topic_id }}" class="topic-tag">{{ topic4.name }}</a>
+                                                  {% assign topic_found = true %}
+                                                {% endif %}
+                                              {% endfor %}
+                                            {% endif %}
+                                          {% endunless %}
+                                        {% endfor %}
+                                      {% endif %}
+                                    {% endunless %}
+                                  {% endfor %}
+                                {% endif %}
+                              {% endunless %}
+                            {% endfor %}
+                          {% endfor %}
+                        </div>
+                      </div>
+                    {% endif %}
                   {% endif %}
-                {% endif %}
-              </li>
-            {% endfor %}
-          </ul>
+                </li>
+              {% endfor %}
+            </ul>
+          </div>
         </div>
-      </div>
-    {% endfor %}
+      {% endfor %}
+    </div>
   </div>
 </div>
