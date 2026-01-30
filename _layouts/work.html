@@ -4,19 +4,10 @@ layout: default
 
 {% comment %} Get work metadata from works subfolder {% endcomment %}
 {% assign work = site.data.works[page.work_id] %}
-
-{% comment %} Get structure from structures subfolder {% endcomment %}
 {% assign structure_data = site.data.structures[page.work_id] %}
-
-{% comment %} Get titles from titles subfolder {% endcomment %}
 {% assign titles_data = site.data.titles[page.work_id] %}
-
-{% comment %} Get links from links subfolder {% endcomment %}
 {% assign links_data = site.data.links[page.work_id] %}
-
-{% comment %} Get topics {% endcomment %}
-{% assign topics_file_name = page.work_id | append: "_topics" %}
-{% assign work_topics = site.data[topics_file_name] %}
+{% assign work_topics = site.data.topics[page.work_id] %}
 
 {% comment %} Get author info {% endcomment %}
 {% assign author_info = nil %}
@@ -241,6 +232,10 @@ layout: default
 }
 
 .section-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
   margin-bottom: 0.5rem;
 }
 
@@ -248,8 +243,8 @@ layout: default
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
-  margin-bottom: 0.5rem;
-  flex-wrap: wrap;
+  flex: 1;
+  min-width: 0;
 }
 
 .section-number {
@@ -262,7 +257,6 @@ layout: default
 .section-title {
   color: #3e2723;
   font-weight: 500;
-  flex: 1;
 }
 
 .section-links {
@@ -361,13 +355,11 @@ layout: default
         {% for parent_node in top_level_nodes %}
           <li class="work-toc-item">
             <a href="#node-{{ parent_node.id }}">
-              {% comment %} Get level label {% endcomment %}
               {% for level in structure_data.structure.levels %}
                 {% if level.id == parent_node.level %}
                   {{ level.label.en }} {{ parent_node.ordinal }}.
                 {% endif %}
               {% endfor %}
-              {% comment %} Get title {% endcomment %}
               {% if titles_data.book_titles.en[parent_node.id] %}
                 {{ titles_data.book_titles.en[parent_node.id] }}
               {% endif %}
@@ -409,7 +401,6 @@ layout: default
             
             <div class="structure-content">
               <ul class="section-list">
-                {% comment %} Get child nodes {% endcomment %}
                 {% for child_node in structure_data.structure.nodes %}
                   {% if child_node.parent == parent_node.id %}
                     <li class="section-item">
@@ -434,7 +425,6 @@ layout: default
                           </span>
                         </div>
                         
-                        {% comment %} Get links for this node {% endcomment %}
                         {% if links_data.sites %}
                           <div class="section-links">
                             {% for site_entry in links_data.sites %}
@@ -450,7 +440,6 @@ layout: default
                         {% endif %}
                       </div>
                       
-                      {% comment %} Get topics for this section {% endcomment %}
                       {% if work_topics %}
                         {% assign section_topics = "" | split: "" %}
                         {% for assignment in work_topics.assignments %}
