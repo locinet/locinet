@@ -1,30 +1,28 @@
 {% comment %}
 This include displays sections for a given topic_id with tooltips
-Uses new data structure: works/, structures/, titles/, links/
+Uses new data structure with topics in _data/topics/ folder
 Parameters: topic_id
 {% endcomment %}
 
 {% assign sections_found = false %}
 {% assign work_sections = "" | split: "" %}
 
-{% comment %} Iterate through all topics assignment files {% endcomment %}
-{% for data_file in site.data %}
-  {% assign file_name = data_file[0] %}
-  {% assign file_data = data_file[1] %}
-  
-  {% if file_name contains "_topics" %}
-    {% assign work_id = file_data.work_id %}
+{% comment %} Iterate through topics folder {% endcomment %}
+{% if site.data.topics %}
+  {% for topics_file in site.data.topics %}
+    {% assign work_id = topics_file[0] %}
+    {% assign topics_data = topics_file[1] %}
     
     {% comment %} Get work metadata {% endcomment %}
     {% assign work = site.data.works[work_id] %}
     
     {% if work %}
       {% comment %} Process assignments {% endcomment %}
-      {% for assignment in file_data.assignments %}
+      {% for assignment in topics_data.assignments %}
         {% if assignment.topics contains include.topic_id %}
           {% assign section_id = assignment.section_id %}
           
-          {% comment %} Get structure info to find parent and ordinal {% endcomment %}
+          {% comment %} Get structure info {% endcomment %}
           {% assign structure_data = site.data.structures[work_id] %}
           
           {% if structure_data %}
@@ -33,7 +31,7 @@ Parameters: topic_id
                 {% assign parent_id = node.parent %}
                 {% assign ordinal = node.ordinal %}
                 
-                {% comment %} Find parent ordinal if exists {% endcomment %}
+                {% comment %} Find parent ordinal {% endcomment %}
                 {% assign parent_ordinal = "" %}
                 {% for parent_node in structure_data.structure.nodes %}
                   {% if parent_node.id == parent_id %}
@@ -64,8 +62,8 @@ Parameters: topic_id
         {% endif %}
       {% endfor %}
     {% endif %}
-  {% endif %}
-{% endfor %}
+  {% endfor %}
+{% endif %}
 
 {% if sections_found %}
   {% assign works_hash = "" | split: "" %}
