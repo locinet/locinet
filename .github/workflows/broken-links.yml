@@ -12,4 +12,3 @@ jobs:
         uses: ScholliYT/Broken-Links-Crawler-Action@v3.3.2
         with:
           website_url: "https://locinet.github.io/locinet"
-          verbose: "true"
