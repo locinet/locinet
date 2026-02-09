@@ -9,6 +9,16 @@ navExtra: '<div class="add-author-container"><a href="#" class="contribute-link"
 <div class="view-toggle">
   <button type="button" class="toggle-btn active" id="toggle-topic">By Topic</button>
   <button type="button" class="toggle-btn" id="toggle-author">By Author</button>
+  <div class="tradition-dropdown" id="tradition-dropdown">
+    <button type="button" class="tradition-dropdown-btn" id="tradition-dropdown-btn">All traditions</button>
+    <div class="tradition-dropdown-menu" id="tradition-dropdown-menu" style="display:none;">
+      {% for t in site.traditions %}
+        <label class="tradition-option">
+          <input type="checkbox" value="{{ t.slug }}" class="tradition-checkbox"> {{ t.name }}
+        </label>
+      {% endfor %}
+    </div>
+  </div>
 </div>
 
 <div class="filter-box" id="filter-box-topic">
@@ -70,9 +80,9 @@ navExtra: '<div class="add-author-container"><a href="#" class="contribute-link"
     <span class="loci-slug-label">({{ node.slug }})</span>
     {% if authorList.length > 0 %}
       <span class="loci-authors">
-        — {% for author in authorList %}<a href="/authors/{{ author.slug }}/?locus={{ node.slug }}"
+        <span class="loci-authors-dash">— </span>{% for author in authorList %}<span class="loci-author-item" data-tradition="{{ author.tradition }}"><a href="/authors/{{ author.slug }}/?locus={{ node.slug }}"
              class="author-link"
-             data-entries="{{ author.entries | dump | escape }}">{{ author.displayName }}</a>{% if not loop.last %}, {% endif %}{% endfor %}
+             data-entries="{{ author.entries | dump | escape }}">{{ author.displayName }}</a></span>{% endfor %}
       </span>
     {% endif %}
 
@@ -95,7 +105,7 @@ navExtra: '<div class="add-author-container"><a href="#" class="contribute-link"
 <div class="works-main" style="display:none;">
 <div id="works-index">
 {% for author in site.worksIndex %}
-  <div class="works-index-author" data-author-name="{{ author.name | lower }}">
+  <div class="works-index-author" data-author-name="{{ author.name | lower }}" data-tradition="{{ author.tradition }}">
     <h2>
       <a href="/authors/{{ author.slug }}/">{{ author.name }}</a>
       {% if author.birthYear or author.deathYear %}
@@ -120,6 +130,7 @@ navExtra: '<div class="add-author-container"><a href="#" class="contribute-link"
 
 <script>
   const lociFlat = {{ site.lociFlat | dump | safe }};
+  const traditions = {{ site.traditions | dump | safe }};
 </script>
 <script>
   // Tooltip for author mouseover

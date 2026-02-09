@@ -1,0 +1,53 @@
+traditions:
+  - name: Reformed
+    slug: reformed
+  - name: Lutheran
+    slug: lutheran
+  - name: Anglican
+    slug: anglican
+  - name: Patristic
+    slug: patristic
+
+authors:
+  Q8018: patristic          # Augustine of Hippo
+  Q43939: patristic         # Anselm of Canterbury
+  Q102851: patristic        # Boethius
+  Q9554: lutheran           # Martin Luther
+  Q37577: reformed          # John Calvin
+  Q101080: reformed         # Ludwig Crocius
+  Q101207391: reformed      # Johannes Vlak
+  Q10320226: reformed       # Lucas Trelcatius
+  Q105799249: reformed      # Louis Le Blanc de Beaulieu
+  Q110005: reformed         # Matthias Martinius
+  Q110226797: reformed      # Johann Simonis
+  Q1159923: reformed        # Daniel Angelocrator
+  Q12319161: reformed       # Jean la Placette
+  Q1236249: reformed        # Moses Amyraut
+  Q123839: reformed         # Heinrich Bullinger
+  Q1698178: reformed        # Johannes Polyander
+  Q1765666: reformed        # Stephen Charnock
+  Q1901484: reformed        # Marcus Friedrich Wendelin
+  Q1971867: reformed        # Johann Heinrich Alting
+  Q1977349: reformed        # Herman Venema
+  Q2280913: reformed        # Sibrandus Lubbertus
+  Q2848543: reformed        # André Rivet
+  Q3186122: reformed        # Josué de la Place
+  Q330591: reformed         # Abraham Scultetus
+  Q454349: reformed         # Amandus Polanus
+  Q55124802: reformed       # Heinrich Isselburg
+  Q5535673: reformed        # Georg Cruciger
+  Q5617668: reformed        # Gulielmus Bucanus
+  Q606748: reformed         # Antonius Thysius the Elder
+  Q606757: reformed         # Antonius Walaeus
+  Q6228619: reformed        # John Davenant
+  Q680070: reformed         # Richard Baxter
+  Q692115: reformed         # Giovanni Diodati
+  Q704851: reformed         # Wolfgang Musculus
+  Q7154052: reformed        # Paul Tossanus
+  Q7412879: anglican        # Samuel Ward
+  Q809291: reformed         # Barthold Holtzfus
+  Q931871: reformed         # Franciscus Gomarus
+  Q94383012: reformed       # Daniel Bernhard Eilshemius
+  Q95721: reformed          # David Pareus
+  Q983340: reformed         # Johannes Hoornbeek
+  Q983347: reformed         # Gisbertus Voetius

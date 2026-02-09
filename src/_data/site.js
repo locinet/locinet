@@ -5,6 +5,7 @@ const yaml = require("js-yaml");
 const WORKS_DIR = path.resolve(__dirname, "../../works");
 const LOCI_PATH = path.resolve(__dirname, "../../loci.yaml");
 const AUTHORS_DIR = path.resolve(__dirname, "../../_cache/authors");
+const TRADITIONS_PATH = path.resolve(__dirname, "../../traditions.yaml");
 
 // --- Loci processing ---
 
@@ -50,6 +51,14 @@ function loadAuthors() {
     authors[data.qid] = data;
   }
   return authors;
+}
+
+// --- Traditions ---
+
+function loadTraditions() {
+  if (!fs.existsSync(TRADITIONS_PATH)) return { traditions: [], authors: {} };
+  const raw = fs.readFileSync(TRADITIONS_PATH, "utf8");
+  return yaml.load(raw) || { traditions: [], authors: {} };
 }
 
 // --- Section parsing ---
@@ -312,7 +321,7 @@ function getAuthorMeta(qid, authors) {
   };
 }
 
-function buildAuthorPages(works, authors) {
+function buildAuthorPages(works, authors, traditionAuthors) {
   const byAuthor = {};
   const corporateAuthors = {}; // keyed by slug
 
@@ -406,6 +415,7 @@ function buildAuthorPages(works, authors) {
         openLibraryId: meta.openLibraryId || null,
         origLangName,
         authorLabels,
+        tradition: traditionAuthors[qid] || null,
         works: authorWorks,
       };
     });
@@ -435,6 +445,7 @@ function buildAuthorPages(works, authors) {
       openLibraryId: caMeta?.openLibraryId || null,
       origLangName: ca.label,
       authorLabels: [],
+      tradition: ca.qid ? (traditionAuthors[ca.qid] || null) : null,
       isCorporate: true,
       members,
       works: ca.works,
@@ -644,9 +655,18 @@ module.exports = function () {
   const lociFlat = buildLociFlat(lociTree);
   const authors = loadAuthors();
   const works = loadAllWorks();
-  const authorPages = buildAuthorPages(works, authors);
+  const traditionsData = loadTraditions();
+  const traditionAuthors = traditionsData.authors || {};
+  const authorPages = buildAuthorPages(works, authors, traditionAuthors);
   const lociIndex = buildLociIndex(lociFlat, works, authors);
   computeDisplayNames(lociIndex);
+
+  // Annotate lociIndex entries with tradition
+  for (const slug of Object.keys(lociIndex)) {
+    for (const authorKey of Object.keys(lociIndex[slug])) {
+      lociIndex[slug][authorKey].tradition = traditionAuthors[authorKey] || null;
+    }
+  }
 
   // Works index: authors sorted by first published work year
   const worksIndex = [...authorPages].sort((a, b) => {
@@ -664,6 +684,7 @@ module.exports = function () {
     worksIndex,
     lociIndex,
     translatorIndex,
+    traditions: traditionsData.traditions || [],
     repoUrl: "https://github.com/locinet/locinet",
   };
 };

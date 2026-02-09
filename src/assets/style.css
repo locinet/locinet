@@ -523,6 +523,53 @@ body:has(.loci-page) { max-width: 1200px; }
   font-weight: bold;
 }
 
+/* Tradition filter */
+.view-toggle .tradition-dropdown {
+  margin-left: 0.7em;
+}
+.tradition-dropdown {
+  position: relative;
+  display: inline-block;
+}
+.tradition-dropdown-btn {
+  font-family: inherit;
+  font-size: 0.85em;
+  padding: 0.3em 0.7em;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text);
+  cursor: pointer;
+}
+.tradition-dropdown-btn:hover {
+  background: var(--tag-bg);
+}
+.tradition-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 50;
+  padding: 0.4em;
+  min-width: 160px;
+}
+.tradition-option {
+  display: block;
+  padding: 0.2em 0.4em;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+.tradition-option:hover {
+  background: var(--tag-bg);
+}
+
+/* Loci tree author items — comma separation via CSS */
+.loci-author-item { display: inline; }
+.loci-author-item:not(.filtered-hidden) ~ .loci-author-item:not(.filtered-hidden)::before {
+  content: ", ";
+}
+
 /* Hidden elements during filtering */
 .filtered-hidden { display: none; }
 

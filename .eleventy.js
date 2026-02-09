@@ -6,6 +6,7 @@ module.exports = function (eleventyConfig) {
 
   eleventyConfig.addWatchTarget("./works/");
   eleventyConfig.addWatchTarget("./loci.yaml");
+  eleventyConfig.addWatchTarget("./traditions.yaml");
   eleventyConfig.addWatchTarget("./_cache/");
 
   // Nunjucks filter: pad string to a given length

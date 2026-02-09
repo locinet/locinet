@@ -146,6 +146,78 @@
     const filterBoxAuthor = document.getElementById("filter-box-author");
     const authorFilterInput = document.getElementById("author-filter");
 
+    // --- Tradition dropdown (always active) ---
+
+    var activeTraditions = new Set();
+    var traditionDropdownBtn = document.getElementById("tradition-dropdown-btn");
+    var traditionDropdownMenu = document.getElementById("tradition-dropdown-menu");
+    var traditionCheckboxes = document.querySelectorAll(".tradition-checkbox");
+
+    if (traditionDropdownBtn && traditionDropdownMenu) {
+      traditionDropdownBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        var open = traditionDropdownMenu.style.display !== "none";
+        traditionDropdownMenu.style.display = open ? "none" : "";
+      });
+
+      document.addEventListener("click", function (e) {
+        if (traditionDropdownMenu.style.display !== "none" &&
+            !traditionDropdownMenu.contains(e.target) &&
+            e.target !== traditionDropdownBtn) {
+          traditionDropdownMenu.style.display = "none";
+        }
+      });
+
+      traditionCheckboxes.forEach(function (cb) {
+        cb.addEventListener("change", function () {
+          if (this.checked) {
+            activeTraditions.add(this.value);
+          } else {
+            activeTraditions.delete(this.value);
+          }
+          updateTraditionLabel();
+          applyTraditionToLociTree();
+          if (typeof applyAuthorAndLocusFilter === "function") {
+            applyAuthorAndLocusFilter();
+          }
+        });
+      });
+    }
+
+    function updateTraditionLabel() {
+      if (!traditionDropdownBtn) return;
+      if (activeTraditions.size === 0) {
+        traditionDropdownBtn.textContent = "All traditions";
+        return;
+      }
+      var names = [];
+      traditionCheckboxes.forEach(function (cb) {
+        if (activeTraditions.has(cb.value)) {
+          names.push(cb.parentElement.textContent.trim());
+        }
+      });
+      traditionDropdownBtn.textContent = names.join(", ");
+    }
+
+    function applyTraditionToLociTree() {
+      var authorItems = document.querySelectorAll(".loci-author-item");
+      for (var item of authorItems) {
+        var tradition = item.dataset.tradition || "";
+        if (activeTraditions.size > 0 && !activeTraditions.has(tradition)) {
+          item.classList.add("filtered-hidden");
+        } else {
+          item.classList.remove("filtered-hidden");
+        }
+      }
+      // Hide the "— " dash and entire .loci-authors when all children are hidden
+      var authorSpans = document.querySelectorAll(".loci-authors");
+      for (var span of authorSpans) {
+        var anyVisible = span.querySelector(".loci-author-item:not(.filtered-hidden)");
+        var dash = span.querySelector(".loci-authors-dash");
+        if (dash) dash.style.display = anyVisible ? "" : "none";
+      }
+    }
+
     if (toggleTopicBtn && toggleAuthorBtn && lociMain && worksMain) {
       let currentMode = "topic";
       let activeLocusSlug = null;
@@ -284,6 +356,13 @@
         var authors = document.querySelectorAll("#works-index .works-index-author");
         for (var author of authors) {
           var authorName = author.dataset.authorName || "";
+          var authorTradition = author.dataset.tradition || "";
+
+          // Tradition filter
+          if (activeTraditions.size > 0 && !activeTraditions.has(authorTradition)) {
+            author.classList.add("filtered-hidden");
+            continue;
+          }
 
           // Author name filter
           var authorNameMatch = !authorQuery || authorName.includes(authorQuery);

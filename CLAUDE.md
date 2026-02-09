@@ -22,9 +22,10 @@ A directory of theological works hosted on the internet, built with 11ty and dep
 ### Data flow
 1. `works/*.yaml` — one file per theological work (source of truth for works)
 2. `loci.yaml` — the loci topic tree (source of truth for tags)
-3. `_cache/authors/Q*.json` — cached Wikidata author data (name, dates, image, labels)
-4. `src/_data/site.js` — reads all of the above, builds data structures for templates
-5. 11ty generates static HTML from Nunjucks templates
+3. `traditions.yaml` — tradition definitions and author-to-tradition mapping
+4. `_cache/authors/Q*.json` — cached Wikidata author data (name, dates, image, labels)
+5. `src/_data/site.js` — reads all of the above, builds data structures for templates
+6. 11ty generates static HTML from Nunjucks templates
 
 ### YAML work file schema
 Each file has one top-level key (the work ID, e.g. `calvin-institutes`). Structure:
@@ -82,6 +83,12 @@ work-id:
 - Tree nodes: `{name, slug, children[]}`
 - `lociFlat` (built by site.js) maps each slug to `{name, slug, ancestors[], descendants[]}`
 
+### Traditions (traditions.yaml)
+- `traditions[]`: list of `{name, slug}` — defines available tradition filters
+- `authors`: maps Wikidata QIDs to tradition slugs (e.g., `Q37577: reformed`)
+- Used on the home page "By Author" view to filter authors by tradition
+- Authors without a mapping show for all traditions (only hidden when a specific tradition is selected)
+
 ### Pages
 - `/` — Loci index (home page), shows tree with author links and tooltips
 - `/works/` — Works index, authors sorted by first published work year, with author name filter
@@ -93,7 +100,7 @@ work-id:
 - Loci filtering: matches typed text against loci names/slugs, includes all descendants
 - Author pages: hides non-matching works/sections, preserves work headers
 - Loci index: shows matching nodes plus their ancestors/descendants
-- Works index: filters author entries by name
+- Works index: filters author entries by name and tradition (multi-select dropdown)
 - URL param `?locus=slug` pre-fills the filter (used by loci index author links)
 - Contribute button: generates YAML skeleton and opens GitHub new-file editor
 - Edit links: open GitHub file editor for the work's YAML file
@@ -102,7 +109,7 @@ work-id:
 ### 11ty configuration (.eleventy.js)
 - Input: `src/`, Output: `_site/`
 - Passthrough: `src/assets`
-- Watch targets: `works/`, `loci.yaml`, `_cache/`
+- Watch targets: `works/`, `loci.yaml`, `traditions.yaml`, `_cache/`
 - `pathPrefix`: reads from `PATH_PREFIX` env var (set to `/locinet/` in GitHub Actions deploy)
 - Custom filter: `padEnd` for tagging reference formatting
 
@@ -112,7 +119,7 @@ work-id:
 - Wikidata results are cached in repo so builds don't fail if Wikidata is down
 
 ### Key data structures in site.js
-- `authorPages[]`: one entry per author with `{qid, name, slug, birthYear, deathYear, works[], authorLabels[]}`, sorted by birth year
+- `authorPages[]`: one entry per author with `{qid, name, slug, birthYear, deathYear, tradition, works[], authorLabels[]}`, sorted by birth year
 - `worksIndex[]`: same data as authorPages but sorted by earliest work year
 - `lociIndex[slug][qid]`: maps each locus to authors who discuss it, with `{displayName, entries[]}` for the home page tree
 - `computeDisplayNames()`: disambiguates authors sharing a family name (adds initial, then birth year if still ambiguous)
