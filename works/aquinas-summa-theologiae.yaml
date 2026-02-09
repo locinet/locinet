@@ -18,19 +18,19 @@ aquinas-summa-theologiae:
           - i-q3: Q3. The Simplicity of God
             loci: divine-simplicity
           - i-q4: Q4. The Perfection of God
-            loci: attributes-of-god
+            loci: divine-perfection
           - i-q5: Q5. Goodness in General
             loci: goodness-of-god
           - i-q6: Q6. The Goodness of God
             loci: goodness-of-god
           - i-q7: Q7. The Infinity of God
-            loci: attributes-of-god
+            loci: divine-infinity
           - i-q8: Q8. The Existence of God in Things
             loci: attributes-of-god
           - i-q9: Q9. The Immutability of God
-            loci: attributes-of-god
+            loci: divine-immutability
           - i-q10: Q10. The Eternity of God
-            loci: attributes-of-god
+            loci: divine-eternity
           - i-q11: Q11. The Unity of God
             loci: unity-of-god
           - i-q12: Q12. How God Is Known by Us
@@ -46,13 +46,13 @@ aquinas-summa-theologiae:
           - i-q17: Q17. Falsity
             loci: knowledge-of-god
           - i-q18: Q18. The Life of God
-            loci: knowledge-of-god
+            loci: attributes-of-god
           - i-q19: Q19. The Will of God
             loci: will-of-god
           - i-q20: Q20. God's Love
-            loci: will-of-god
+            loci: divine-love
           - i-q21: Q21. The Justice and Mercy of God
-            loci: attributes-of-god
+            loci: [divine-justice, divine-mercy]
           - i-q22: Q22. The Providence of God
             loci: providence
           - i-q23: Q23. Predestination
@@ -62,6 +62,7 @@ aquinas-summa-theologiae:
           - i-q25: Q25. The Power of God
             loci: power-of-god
           - i-q26: Q26. The Beatitude of God
+            loci: attributes-of-god
           - i-q27: Q27. The Procession of the Divine Persons
             loci: trinity
           - i-q28: Q28. The Divine Relations
@@ -105,6 +106,7 @@ aquinas-summa-theologiae:
           - i-q47: Q47. The Distinction of Things in General
             loci: creation
           - i-q48: Q48. The Distinction of Things in Particular
+            loci: nature-of-sin
           - i-q49: Q49. The Cause of Evil
             loci: [creation, origin-of-sin]
           - i-q50: Q50. The Substance of the Angels Absolutely Considered
@@ -138,15 +140,25 @@ aquinas-summa-theologiae:
           - i-q64: Q64. The Punishment of the Demons
             loci: angels
           - i-q65: Q65. The Work of Creation of Corporeal Creatures
+            loci: creation
           - i-q66: Q66. The Order of Creation Towards Distinction
+            loci: creation
           - i-q67: Q67. The Work of Distinction in Itself
+            loci: creation
           - i-q68: Q68. The Work of the Second Day
+            loci: creation
           - i-q69: Q69. The Work of the Third Day
+            loci: creation
           - i-q70: Q70. The Work of Adornment, as Regards the Fourth Day
+            loci: creation
           - i-q71: Q71. The Work of the Fifth Day
+            loci: creation
           - i-q72: Q72. The Work of the Sixth Day
+            loci: creation
           - i-q73: Q73. The Things That Belong to the Seventh Day
+            loci: creation
           - i-q74: Q74. All the Seven Days in Common
+            loci: creation
           - i-q75: "Q75. Man Who Is Composed of a Spiritual and a Corporeal Substance, and First as Regards the Soul"
             loci: [man, soul]
           - i-q76: Q76. The Union of Body and Soul
@@ -166,26 +178,43 @@ aquinas-summa-theologiae:
           - i-q83: Q83. Free Will
             loci: free-will
           - i-q84: Q84. How the Soul While United to the Body Understands Corporeal Things Beneath It
+            loci: soul
           - i-q85: Q85. The Mode and Order of Understanding
+            loci: soul
           - i-q86: Q86. What Our Intellect Knows in Material Things
+            loci: soul
           - i-q87: Q87. How the Intellectual Soul Knows Itself and All Within Itself
+            loci: soul
           - i-q88: Q88. How the Human Soul Knows What Is Above It
+            loci: soul
           - i-q89: Q89. The Knowledge of the Separated Soul
+            loci: soul
           - i-q90: Q90. The First Production of Man's Soul
+            loci: nature-of-man
           - i-q91: Q91. The Production of the First Man's Body
+            loci: nature-of-man
           - i-q92: Q92. The Production of the Woman
+            loci: nature-of-man
           - i-q93: Q93. The End or Term of the Production of Man
             loci: image-of-god
           - i-q94: Q94. The State of the First Man as Regards His Intellect
+            loci: original-righteousness
           - i-q95: "Q95. Things Pertaining to the First Man's Will — Grace and Righteousness"
             loci: original-righteousness
           - i-q96: Q96. The Mastership Belonging to Man in the State of Innocence
+            loci: original-righteousness
           - i-q97: Q97. The Preservation of the Individual in the Primitive State
+            loci: original-righteousness
           - i-q98: Q98. The Preservation of the Species
+            loci: original-righteousness
           - i-q99: Q99. The Condition of the Offspring as to the Body
+            loci: original-righteousness
           - i-q100: Q100. The Condition of the Offspring as Regards Righteousness
+            loci: original-righteousness
           - i-q101: Q101. The Condition of the Offspring as to Knowledge
+            loci: original-righteousness
           - i-q102: Q102. Man's Abode, Which Is Paradise
+            loci: original-righteousness
           - i-q103: Q103. The Government of Things in General
             loci: providence
           - i-q104: Q104. The Special Effects of the Divine Government
@@ -193,92 +222,172 @@ aquinas-summa-theologiae:
           - i-q105: Q105. The Change of Creatures by God
             loci: providence
           - i-q106: Q106. How One Creature Moves Another
+            loci: angels
           - i-q107: Q107. The Speech of the Angels
+            loci: angels
           - i-q108: Q108. The Angelic Degrees of Hierarchies and Orders
+            loci: angels
           - i-q109: Q109. The Ordering of the Bad Angels
+            loci: angels
           - i-q110: Q110. How Angels Act on Bodies
+            loci: angels
           - i-q111: Q111. The Action of the Angels on Man
+            loci: angels
           - i-q112: Q112. The Mission of the Angels
+            loci: angels
           - i-q113: Q113. The Guardianship of the Good Angels
+            loci: angels
           - i-q114: Q114. The Assaults of the Demons
+            loci: angels
           - i-q115: Q115. The Action of the Corporeal Creature
           - i-q116: Q116. Fate
+            loci: providence
           - i-q117: Q117. Things Pertaining to the Action of Man
           - i-q118: Q118. The Production of Man From Man as to the Soul
+            loci: soul
           - i-q119: Q119. The Propagation of Man as to the Body
       - prima-secundae: Prima Secundae (I-II)
         sections:
           - i-ii-q1: Q1. Man's Last End
+            loci: happiness
           - i-ii-q2: Q2. Those Things in Which Man's Happiness Consists
+            loci: happiness
           - i-ii-q3: Q3. What Is Happiness
+            loci: happiness
           - i-ii-q4: Q4. Those Things That Are Required for Happiness
+            loci: happiness
           - i-ii-q5: Q5. The Attainment of Happiness
+            loci: happiness
           - i-ii-q6: Q6. The Voluntary and the Involuntary
+            loci: human-acts
           - i-ii-q7: Q7. The Circumstances of Human Acts
+            loci: human-acts
           - i-ii-q8: Q8. The Will, in Regard to What It Wills
+            loci: human-acts
           - i-ii-q9: Q9. That Which Moves the Will
+            loci: human-acts
           - i-ii-q10: Q10. The Manner in Which the Will Is Moved
+            loci: human-acts
           - i-ii-q11: "Q11. Enjoyment, Which Is an Act of the Will"
+            loci: human-acts
           - i-ii-q12: Q12. Intention
+            loci: human-acts
           - i-ii-q13: "Q13. Choice, Which Is an Act of the Will in Regard to the Means"
+            loci: human-acts
           - i-ii-q14: "Q14. Counsel, Which Precedes Choice"
+            loci: human-acts
           - i-ii-q15: "Q15. Consent, Which Is an Act of the Will in Regard to the Means"
+            loci: human-acts
           - i-ii-q16: "Q16. Use, Which Is an Act of the Will in Regard to the Means"
+            loci: human-acts
           - i-ii-q17: Q17. The Acts Commanded by the Will
+            loci: human-acts
           - i-ii-q18: "Q18. The Good and Evil of Human Acts, in General"
+            loci: human-acts
           - i-ii-q19: Q19. The Goodness and Malice of the Interior Act of the Will
+            loci: human-acts
           - i-ii-q20: Q20. Goodness and Malice in External Human Actions
+            loci: human-acts
           - i-ii-q21: Q21. The Consequences of Human Actions by Reason of Their Goodness and Malice
+            loci: human-acts
           - i-ii-q22: Q22. The Subject of the Soul's Passions
+            loci: passions
           - i-ii-q23: Q23. How the Passions Differ From One Another
+            loci: passions
           - i-ii-q24: Q24. Good and Evil in the Passions of the Soul
+            loci: passions
           - i-ii-q25: Q25. The Order of the Passions to One Another
+            loci: passions
           - i-ii-q26: "Q26. The Passions of the Soul in Particular, and First, of Love"
+            loci: passions
           - i-ii-q27: Q27. The Cause of Love
+            loci: passions
           - i-ii-q28: Q28. The Effects of Love
+            loci: passions
           - i-ii-q29: Q29. Hatred
+            loci: passions
           - i-ii-q30: Q30. Concupiscence
+            loci: passions
           - i-ii-q31: Q31. Delight Considered in Itself
+            loci: passions
           - i-ii-q32: Q32. The Cause of Pleasure
+            loci: passions
           - i-ii-q33: Q33. The Effects of Pleasure
+            loci: passions
           - i-ii-q34: Q34. The Goodness and Malice of Pleasures
+            loci: passions
           - i-ii-q35: "Q35. Pain, or Sorrow, in Itself"
+            loci: passions
           - i-ii-q36: Q36. The Causes of Sorrow or Pain
+            loci: passions
           - i-ii-q37: Q37. The Effects of Pain or Sorrow
+            loci: passions
           - i-ii-q38: Q38. The Remedies of Sorrow or Pain
+            loci: passions
           - i-ii-q39: Q39. The Goodness and Malice of Sorrow or Pain
+            loci: passions
           - i-ii-q40: "Q40. The Irascible Passions, and First, of Hope and Despair"
+            loci: passions
           - i-ii-q41: "Q41. Fear, in Itself"
+            loci: passions
           - i-ii-q42: Q42. The Object of Fear
+            loci: passions
           - i-ii-q43: Q43. The Cause of Fear
+            loci: passions
           - i-ii-q44: Q44. The Effects of Fear
+            loci: passions
           - i-ii-q45: Q45. Daring
+            loci: passions
           - i-ii-q46: "Q46. Anger, in Itself"
+            loci: passions
           - i-ii-q47: "Q47. The Cause That Provokes Anger, and the Remedies of Anger"
+            loci: passions
           - i-ii-q48: Q48. The Effects of Anger
+            loci: passions
           - i-ii-q49: "Q49. Habits in General, as to Their Substance"
+            loci: virtue
           - i-ii-q50: Q50. The Subject of Habits
+            loci: virtue
           - i-ii-q51: "Q51. The Cause of Habits, as to Their Formation"
+            loci: virtue
           - i-ii-q52: Q52. The Increase of Habits
+            loci: virtue
           - i-ii-q53: Q53. The Corruption and Diminution of Habits
+            loci: virtue
           - i-ii-q54: Q54. The Distinction of Habits
+            loci: virtue
           - i-ii-q55: "Q55. The Virtues, as to Their Essence"
+            loci: virtue
           - i-ii-q56: Q56. The Subject of Virtue
+            loci: virtue
           - i-ii-q57: Q57. The Intellectual Virtues
+            loci: virtue
           - i-ii-q58: Q58. The Distinction Between Moral and Intellectual Virtues
+            loci: virtue
           - i-ii-q59: Q59. Moral Virtues in Relation to the Passions
+            loci: virtue
           - i-ii-q60: Q60. The Distinction of Moral Virtues From One Another
+            loci: virtue
           - i-ii-q61: Q61. The Cardinal Virtues
+            loci: virtue
           - i-ii-q62: Q62. The Theological Virtues
-            loci: faith
+            loci: [virtue, faith]
           - i-ii-q63: Q63. The Cause of Virtues
+            loci: virtue
           - i-ii-q64: Q64. The Mean of Virtue
+            loci: virtue
           - i-ii-q65: Q65. The Connection of Virtues
+            loci: virtue
           - i-ii-q66: Q66. Equality Among the Virtues
+            loci: virtue
           - i-ii-q67: Q67. The Duration of Virtues After This Life
+            loci: virtue
           - i-ii-q68: Q68. The Gifts of the Holy Ghost
+            loci: spiritual-gifts
           - i-ii-q69: Q69. The Beatitudes
+            loci: spiritual-gifts
           - i-ii-q70: Q70. The Fruits of the Holy Ghost
+            loci: spiritual-gifts
           - i-ii-q71: "Q71. Vice and Sin, Considered in Themselves"
             loci: sin
           - i-ii-q72: Q72. The Distinction of Sins
@@ -324,15 +433,15 @@ aquinas-summa-theologiae:
           - i-ii-q92: Q92. The Effects of Law
             loci: law
           - i-ii-q93: Q93. The Eternal Law
-            loci: law
+            loci: eternal-law
           - i-ii-q94: Q94. The Natural Law
             loci: natural-law
           - i-ii-q95: Q95. Human Law
-            loci: law
+            loci: human-law
           - i-ii-q96: Q96. The Power of Human Law
-            loci: law
+            loci: human-law
           - i-ii-q97: Q97. Change in Laws
-            loci: law
+            loci: human-law
           - i-ii-q98: Q98. The Old Law
             loci: [old-covenant, law]
           - i-ii-q99: Q99. The Precepts of the Old Law
@@ -340,10 +449,15 @@ aquinas-summa-theologiae:
           - i-ii-q100: Q100. The Moral Precepts of the Old Law
             loci: moral-law
           - i-ii-q101: Q101. The Ceremonial Precepts in Themselves
+            loci: ceremonial-law
           - i-ii-q102: Q102. The Causes of the Ceremonial Precepts
+            loci: ceremonial-law
           - i-ii-q103: Q103. The Duration of the Ceremonial Precepts
+            loci: ceremonial-law
           - i-ii-q104: Q104. The Judicial Precepts
+            loci: judicial-law
           - i-ii-q105: Q105. The Reason for the Judicial Precepts
+            loci: judicial-law
           - i-ii-q106: "Q106. The Law of the Gospel, Called the New Law, Considered in Itself"
             loci: [new-covenant, gospel]
           - i-ii-q107: Q107. The New Law as Compared to the Old
@@ -379,16 +493,23 @@ aquinas-summa-theologiae:
           - ii-ii-q7: Q7. The Effects of Faith
             loci: faith
           - ii-ii-q8: Q8. The Gift of Understanding
+            loci: spiritual-gifts
           - ii-ii-q9: Q9. The Gift of Knowledge
+            loci: spiritual-gifts
           - ii-ii-q10: Q10. Unbelief in General
             loci: faith
           - ii-ii-q11: Q11. Heresy
             loci: faith
           - ii-ii-q12: Q12. Apostasy
+            loci: faith
           - ii-ii-q13: "Q13. The Sin of Blasphemy, in General"
+            loci: faith
           - ii-ii-q14: Q14. Blasphemy Against the Holy Ghost
+            loci: faith
           - ii-ii-q15: Q15. The Vices Opposed to Knowledge and Understanding
+            loci: faith
           - ii-ii-q16: "Q16. The Precepts of Faith, Knowledge, and Understanding"
+            loci: faith
           - ii-ii-q17: "Q17. Hope, Considered in Itself"
             loci: hope
           - ii-ii-q18: Q18. The Subject of Hope
@@ -402,149 +523,261 @@ aquinas-summa-theologiae:
           - ii-ii-q22: Q22. The Precepts Relating to Hope and Fear
             loci: hope
           - ii-ii-q23: "Q23. Charity, Considered in Itself"
-            loci: salvation
+            loci: charity
           - ii-ii-q24: Q24. The Subject of Charity
-            loci: salvation
+            loci: charity
           - ii-ii-q25: Q25. The Object of Charity
-            loci: salvation
+            loci: charity
           - ii-ii-q26: Q26. The Order of Charity
-            loci: salvation
+            loci: charity
           - ii-ii-q27: "Q27. The Principal Act of Charity, Which Is to Love"
+            loci: charity
           - ii-ii-q28: Q28. Joy
+            loci: charity
           - ii-ii-q29: Q29. Peace
+            loci: charity
           - ii-ii-q30: Q30. Mercy
+            loci: charity
           - ii-ii-q31: Q31. Beneficence
+            loci: charity
           - ii-ii-q32: Q32. Almsdeeds
+            loci: charity
           - ii-ii-q33: Q33. Fraternal Correction
+            loci: charity
           - ii-ii-q34: Q34. Hatred
+            loci: charity
           - ii-ii-q35: Q35. Sloth
+            loci: charity
           - ii-ii-q36: Q36. Envy
+            loci: charity
           - ii-ii-q37: Q37. Discord
+            loci: charity
           - ii-ii-q38: Q38. Contention
+            loci: charity
           - ii-ii-q39: Q39. Schism
+            loci: [charity, unity-of-the-church]
           - ii-ii-q40: Q40. War
             loci: war
           - ii-ii-q41: Q41. Strife
+            loci: charity
           - ii-ii-q42: Q42. Sedition
+            loci: charity
           - ii-ii-q43: Q43. Scandal
+            loci: charity
           - ii-ii-q44: Q44. The Precepts of Charity
+            loci: charity
           - ii-ii-q45: Q45. The Gift of Wisdom
+            loci: spiritual-gifts
           - ii-ii-q46: Q46. Folly Which Is Opposed to Wisdom
+            loci: spiritual-gifts
           - ii-ii-q47: "Q47. Prudence, Considered in Itself"
+            loci: prudence
           - ii-ii-q48: Q48. The Parts of Prudence
+            loci: prudence
           - ii-ii-q49: Q49. Each Quasi-Integral Part of Prudence
+            loci: prudence
           - ii-ii-q50: Q50. The Subjective Parts of Prudence
+            loci: prudence
           - ii-ii-q51: Q51. The Virtues Which Are Connected With Prudence
+            loci: prudence
           - ii-ii-q52: Q52. The Gift of Counsel
+            loci: prudence
           - ii-ii-q53: Q53. Imprudence
+            loci: prudence
           - ii-ii-q54: Q54. Negligence
+            loci: prudence
           - ii-ii-q55: Q55. Vices Opposed to Prudence by Way of Resemblance
+            loci: prudence
           - ii-ii-q56: Q56. Comparison of the Precepts of Prudence
+            loci: prudence
           - ii-ii-q57: Q57. Right
-            loci: moral-law
+            loci: [justice, moral-law]
           - ii-ii-q58: Q58. Justice
-            loci: moral-law
+            loci: [justice, moral-law]
           - ii-ii-q59: Q59. Injustice
+            loci: justice
           - ii-ii-q60: Q60. Judgment
+            loci: justice
           - ii-ii-q61: Q61. The Parts of Justice
+            loci: justice
           - ii-ii-q62: Q62. Restitution
+            loci: justice
           - ii-ii-q63: Q63. Respect of Persons
+            loci: justice
           - ii-ii-q64: Q64. Murder
+            loci: justice
           - ii-ii-q65: Q65. Other Injuries Committed on the Person
+            loci: justice
           - ii-ii-q66: Q66. Theft and Robbery
-            loci: property
+            loci: [justice, property]
           - ii-ii-q67: "Q67. The Injustice of a Judge, in Judging"
+            loci: justice
           - ii-ii-q68: Q68. Those Things Which Concern Unjust Accusation
+            loci: justice
           - ii-ii-q69: "Q69. Sins Committed Against Justice, on the Part of the Defendant"
+            loci: justice
           - ii-ii-q70: Q70. The Injustice of a Witness
+            loci: justice
           - ii-ii-q71: Q71. Injustice in Judgment on the Part of Counsel
+            loci: justice
           - ii-ii-q72: Q72. Reviling
+            loci: justice
           - ii-ii-q73: Q73. Backbiting
+            loci: justice
           - ii-ii-q74: Q74. Tale-Bearing
+            loci: justice
           - ii-ii-q75: Q75. Derision
+            loci: justice
           - ii-ii-q76: Q76. Cursing
+            loci: justice
           - ii-ii-q77: "Q77. Cheating, Which Is Committed in Buying and Selling"
+            loci: justice
           - ii-ii-q78: Q78. The Sin of Usury
-            loci: property
+            loci: [justice, property]
           - ii-ii-q79: Q79. The Quasi-Integral Parts of Justice
+            loci: justice
           - ii-ii-q80: Q80. The Potential Parts of Justice
+            loci: justice
           - ii-ii-q81: Q81. Religion
             loci: worship
           - ii-ii-q82: Q82. Devotion
+            loci: worship
           - ii-ii-q83: Q83. Prayer
             loci: prayer
           - ii-ii-q84: Q84. Adoration
+            loci: worship
           - ii-ii-q85: Q85. Sacrifice
+            loci: worship
           - ii-ii-q86: Q86. Oblations and First-Fruits
+            loci: worship
           - ii-ii-q87: Q87. Tithes
+            loci: worship
           - ii-ii-q88: Q88. Vows
             loci: oaths
           - ii-ii-q89: Q89. Oaths
             loci: oaths
           - ii-ii-q90: Q90. The Taking of God's Name by Way of Adjuration
+            loci: worship
           - ii-ii-q91: Q91. The Use of the Divine Name by Way of Praise
+            loci: worship
           - ii-ii-q92: Q92. Superstition
             loci: idolatry
           - ii-ii-q93: Q93. Superstition Consisting in Undue Worship of the True God
+            loci: worship
           - ii-ii-q94: Q94. Idolatry
             loci: idolatry
           - ii-ii-q95: Q95. Superstition in Divinations
+            loci: idolatry
           - ii-ii-q96: Q96. Superstition in Observances
+            loci: idolatry
           - ii-ii-q97: Q97. Tempting God
+            loci: worship
           - ii-ii-q98: Q98. Perjury
+            loci: oaths
           - ii-ii-q99: Q99. Sacrilege
+            loci: worship
           - ii-ii-q100: Q100. Simony
+            loci: worship
           - ii-ii-q101: Q101. Piety
+            loci: justice
           - ii-ii-q102: "Q102. Observance, Considered as a Special Virtue, and Its Parts"
+            loci: justice
           - ii-ii-q103: Q103. Dulia
+            loci: justice
           - ii-ii-q104: Q104. Obedience
+            loci: justice
           - ii-ii-q105: Q105. Disobedience
+            loci: justice
           - ii-ii-q106: Q106. Gratitude or Thankfulness
+            loci: justice
           - ii-ii-q107: Q107. Ingratitude
+            loci: justice
           - ii-ii-q108: Q108. Vengeance
+            loci: justice
           - ii-ii-q109: Q109. Truth
             loci: truth
           - ii-ii-q110: "Q110. The Vices Opposed to Truth, and First of Lying"
+            loci: truth
           - ii-ii-q111: Q111. Dissimulation and Hypocrisy
+            loci: truth
           - ii-ii-q112: Q112. Boasting
+            loci: truth
           - ii-ii-q113: Q113. Irony
+            loci: truth
           - ii-ii-q114: Q114. Friendliness or Affability
+            loci: truth
           - ii-ii-q115: Q115. Flattery
+            loci: truth
           - ii-ii-q116: Quarreling
+            loci: truth
           - ii-ii-q117: Q117. Liberality
+            loci: justice
           - ii-ii-q118: "Q118. The Vices Opposed to Liberality, and in the First Place, of Covetousness"
+            loci: justice
           - ii-ii-q119: Q119. Prodigality
+            loci: justice
           - ii-ii-q120: Q120. Epikeia or Equity
+            loci: justice
           - ii-ii-q121: Q121. The Gift of Piety
+            loci: spiritual-gifts
           - ii-ii-q122: Q122. The Precepts of Justice
+            loci: justice
           - ii-ii-q123: Q123. Fortitude
+            loci: fortitude
           - ii-ii-q124: Q124. Martyrdom
+            loci: fortitude
           - ii-ii-q125: Q125. Fear
+            loci: fortitude
           - ii-ii-q126: Q126. Fearlessness
+            loci: fortitude
           - ii-ii-q127: Q127. Daring
+            loci: fortitude
           - ii-ii-q128: Q128. The Parts of Fortitude
+            loci: fortitude
           - ii-ii-q129: Q129. Magnanimity
+            loci: fortitude
           - ii-ii-q130: Q130. Presumption
+            loci: fortitude
           - ii-ii-q131: Q131. Ambition
+            loci: fortitude
           - ii-ii-q132: Q132. Vainglory
+            loci: fortitude
           - ii-ii-q133: Q133. Pusillanimity
+            loci: fortitude
           - ii-ii-q134: Q134. Magnificence
+            loci: fortitude
           - ii-ii-q135: Q135. Meanness
+            loci: fortitude
           - ii-ii-q136: Q136. Patience
+            loci: fortitude
           - ii-ii-q137: Q137. Perseverance
+            loci: fortitude
           - ii-ii-q138: Q138. The Vices Opposed to Perseverance
+            loci: fortitude
           - ii-ii-q139: Q139. The Gift of Fortitude
+            loci: fortitude
           - ii-ii-q140: Q140. The Precepts of Fortitude
+            loci: fortitude
           - ii-ii-q141: Q141. Temperance
+            loci: temperance
           - ii-ii-q142: Q142. The Vices Opposed to Temperance
+            loci: temperance
           - ii-ii-q143: Q143. The Parts of Temperance
+            loci: temperance
           - ii-ii-q144: Q144. Shamefacedness
+            loci: temperance
           - ii-ii-q145: Q145. Honesty
+            loci: temperance
           - ii-ii-q146: Q146. Abstinence
+            loci: temperance
           - ii-ii-q147: Q147. Fasting
+            loci: temperance
           - ii-ii-q148: Q148. Gluttony
+            loci: temperance
           - ii-ii-q149: Q149. Sobriety
+            loci: temperance
           - ii-ii-q150: Q150. Drunkenness
+            loci: temperance
           - ii-ii-q151: Q151. Chastity
             loci: chastity
           - ii-ii-q152: Q152. Virginity
@@ -554,29 +787,53 @@ aquinas-summa-theologiae:
           - ii-ii-q154: Q154. The Parts of Lust
             loci: chastity
           - ii-ii-q155: Q155. Continence
+            loci: temperance
           - ii-ii-q156: Q156. Incontinence
+            loci: temperance
           - ii-ii-q157: Q157. Clemency and Meekness
+            loci: temperance
           - ii-ii-q158: Q158. Anger
+            loci: temperance
           - ii-ii-q159: Q159. Cruelty
+            loci: temperance
           - ii-ii-q160: Q160. Modesty
+            loci: temperance
           - ii-ii-q161: Q161. Humility
+            loci: temperance
           - ii-ii-q162: Q162. Pride
+            loci: temperance
           - ii-ii-q163: Q163. The Sin of the First Man
+            loci: fall-of-man
           - ii-ii-q164: Q164. The Punishments of the First Man's Sin
+            loci: [fall-of-man, punishment-of-sin]
           - ii-ii-q165: Q165. The Temptation of Our First Parents
+            loci: fall-of-man
           - ii-ii-q166: Q166. Studiousness
+            loci: temperance
           - ii-ii-q167: Q167. Curiosity
+            loci: temperance
           - ii-ii-q168: Q168. Modesty as Consisting in the Outward Movements of the Body
+            loci: temperance
           - ii-ii-q169: Q169. Modesty in the Outward Apparel
+            loci: temperance
           - ii-ii-q170: Q170. The Precepts of Temperance
+            loci: temperance
           - ii-ii-q171: Q171. Prophecy
+            loci: spiritual-gifts
           - ii-ii-q172: Q172. The Cause of Prophecy
+            loci: spiritual-gifts
           - ii-ii-q173: Q173. The Manner in Which Prophetic Knowledge Is Conveyed
+            loci: spiritual-gifts
           - ii-ii-q174: Q174. The Division of Prophecy
+            loci: spiritual-gifts
           - ii-ii-q175: Q175. Rapture
+            loci: spiritual-gifts
           - ii-ii-q176: Q176. The Grace of Tongues
+            loci: spiritual-gifts
           - ii-ii-q177: Q177. The Gratuitous Grace Consisting in Words
+            loci: spiritual-gifts
           - ii-ii-q178: Q178. The Grace of Miracles
+            loci: spiritual-gifts
           - ii-ii-q179: Q179. The Division of Life Into Active and Contemplative
           - ii-ii-q180: Q180. The Contemplative Life
           - ii-ii-q181: Q181. The Active Life
@@ -609,9 +866,13 @@ aquinas-summa-theologiae:
           - iii-q9: Q9. Christ's Knowledge in General
             loci: christ
           - iii-q10: Q10. The Beatific Knowledge of Christ's Soul
+            loci: person-of-christ
           - iii-q11: Q11. The Imprinted or Infused Knowledge of Christ's Soul
+            loci: person-of-christ
           - iii-q12: Q12. The Acquired or Empiric Knowledge of Christ's Soul
+            loci: person-of-christ
           - iii-q13: Q13. The Power of Christ's Soul
+            loci: person-of-christ
           - iii-q14: Q14. The Defects of Body Assumed by the Son of God
             loci: state-of-humiliation
           - iii-q15: Q15. The Defects of Soul Assumed by Christ
@@ -625,13 +886,16 @@ aquinas-summa-theologiae:
           - iii-q19: Q19. The Unity of Christ's Operation
             loci: natures-of-christ
           - iii-q20: Q20. Christ's Subjection to the Father
+            loci: natures-of-christ
           - iii-q21: Q21. Christ's Prayer
+            loci: priestly-office
           - iii-q22: Q22. The Priesthood of Christ
             loci: priestly-office
           - iii-q23: Q23. Adoption as Befitting to Christ
           - iii-q24: Q24. The Predestination of Christ
             loci: predestination
           - iii-q25: Q25. The Adoration of Christ
+            loci: person-of-christ
           - iii-q26: Q26. Christ as Called the Mediator of God and Man
             loci: christ
           - iii-q27: Q27. The Sanctification of the Blessed Virgin
@@ -639,17 +903,26 @@ aquinas-summa-theologiae:
           - iii-q29: Q29. The Espousals of the Mother of God
           - iii-q30: Q30. The Annunciation of the Blessed Virgin
           - iii-q31: Q31. The Matter From Which the Savior's Body Was Conceived
+            loci: incarnation
           - iii-q32: Q32. The Active Principle in Christ's Conception
+            loci: incarnation
           - iii-q33: Q33. The Mode and Order of Christ's Conception
+            loci: incarnation
           - iii-q34: Q34. The Perfection of the Child Conceived
+            loci: incarnation
           - iii-q35: Q35. The Nativity of Christ
+            loci: state-of-humiliation
           - iii-q36: Q36. The Manifestation of the Newly Born Christ
+            loci: state-of-humiliation
           - iii-q37: Q37. The Circumcision and Other Legal Observances Practiced on the Infant Christ
           - iii-q38: Q38. The Baptism of John
           - iii-q39: Q39. The Baptizing of Christ
           - iii-q40: Q40. Christ's Manner of Life
+            loci: state-of-humiliation
           - iii-q41: Q41. Christ's Temptation
+            loci: state-of-humiliation
           - iii-q42: Q42. Christ's Doctrine
+            loci: prophetic-office
           - iii-q43: "Q43. The Miracles Worked by Christ, in General"
           - iii-q44: Q44. The Miracles in Particular
           - iii-q45: Q45. The Transfiguration of Christ
@@ -664,13 +937,17 @@ aquinas-summa-theologiae:
           - iii-q50: Q50. The Death of Christ
             loci: state-of-humiliation
           - iii-q51: Q51. Christ's Burial
+            loci: state-of-humiliation
           - iii-q52: Q52. The Descent of Christ Into Hell
             loci: state-of-humiliation
           - iii-q53: Q53. The Resurrection of Christ
             loci: state-of-exaltation
           - iii-q54: Q54. The Quality of Christ's Risen Body
+            loci: state-of-exaltation
           - iii-q55: Q55. The Manifestation of the Resurrection
+            loci: state-of-exaltation
           - iii-q56: Q56. The Causality of Christ's Resurrection
+            loci: state-of-exaltation
           - iii-q57: Q57. The Ascension of Christ
             loci: state-of-exaltation
           - iii-q58: Q58. Christ's Sitting at the Right Hand of the Father
@@ -798,10 +1075,15 @@ aquinas-summa-theologiae:
           - sup-q28: "Q28. The Distinction of Orders, Their Acts, and the Imprinting of the Character"
             loci: ordination
           - sup-q29: Q29. The Impediment of Bigamy
+            loci: ordination
           - sup-q30: Q30. The Impediment of Illegitimacy
+            loci: ordination
           - sup-q31: Q31. The Impediment That Supervenes to Orders After Their Reception
+            loci: ordination
           - sup-q32: Q32. The Things Annexed to the Sacrament of Order
+            loci: ordination
           - sup-q33: Q33. The Impediment to the Sacrament Which Occurs Through a Solemn Vow
+            loci: ordination
           - sup-q34: Q34. The Marriage Contract
             loci: marriage
           - sup-q35: Q35. The Consent of Marriage
@@ -841,12 +1123,19 @@ aquinas-summa-theologiae:
           - sup-q52: Q52. The Vice of Lust
             loci: marriage
           - sup-q53: Q53. The Impediment of Frigidity
+            loci: marriage
           - sup-q54: Q54. The Impediment of Sorcery
+            loci: marriage
           - sup-q55: Q55. The Impediment of Madness
+            loci: marriage
           - sup-q56: Q56. Mutual Consent as Expressed in Words of the Present
+            loci: marriage
           - sup-q57: Q57. A Betrothal
+            loci: marriage
           - sup-q58: Q58. The Marriage of Slaves
+            loci: marriage
           - sup-q59: Q59. Marriage With Second Partners
+            loci: marriage
           - sup-q60: Q60. The Resurrection
             loci: resurrection-of-the-dead
           - sup-q61: Q61. The Quality of Those Who Rise Again
@@ -902,7 +1191,9 @@ aquinas-summa-theologiae:
           - sup-q86: Q86. The Condition of the Bodies of the Damned
             loci: final-state
           - sup-q87: Q87. The Knowledge of the Separated Soul
+            loci: intermediate-state
           - sup-q88: Q88. The Knowledge of the Separated Soul in Regard to the Things of This World
+            loci: intermediate-state
           - sup-q89: Q89. The Punishment of the Damned
             loci: final-state
           - sup-q90: Q90. Purgatory

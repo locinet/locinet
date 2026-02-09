@@ -49,6 +49,20 @@
               slug: invisibility-of-god
             - name: Power of God
               slug: power-of-god
+            - name: Divine Perfection
+              slug: divine-perfection
+            - name: Divine Infinity
+              slug: divine-infinity
+            - name: Divine Immutability
+              slug: divine-immutability
+            - name: Divine Eternity
+              slug: divine-eternity
+            - name: Divine Love
+              slug: divine-love
+            - name: Divine Justice
+              slug: divine-justice
+            - name: Divine Mercy
+              slug: divine-mercy
             - name: Unity of God
               slug: unity-of-god
         - name: Knowledge of God
@@ -91,6 +105,23 @@
           slug: free-will
         - name: Original righteousness
           slug: original-righteousness
+    - name: Happiness
+      slug: happiness
+    - name: Human acts
+      slug: human-acts
+    - name: Passions
+      slug: passions
+    - name: Virtue
+      slug: virtue
+      children:
+        - name: Prudence
+          slug: prudence
+        - name: Justice
+          slug: justice
+        - name: Fortitude
+          slug: fortitude
+        - name: Temperance
+          slug: temperance
     - name: Sin
       slug: sin
       children:
@@ -126,8 +157,12 @@
 - name: Law
   slug: law
   children:
+    - name: Eternal law
+      slug: eternal-law
     - name: Natural law
       slug: natural-law
+    - name: Human law
+      slug: human-law
     - name: Moral law
       slug: moral-law
       children:
@@ -148,6 +183,10 @@
           slug: property
         - name: Truth
           slug: truth
+    - name: Ceremonial law
+      slug: ceremonial-law
+    - name: Judicial law
+      slug: judicial-law
     - name: Purpose of law
       slug: purpose-of-law
     - name: Christian liberty
@@ -201,16 +240,22 @@
       slug: faith
     - name: Hope
       slug: hope
+    - name: Charity
+      slug: charity
     - name: Repentance
       slug: repentance
     - name: Justification
       slug: justification
     - name: Sanctification
       slug: sanctification
+    - name: Adoption
+      slug: adoption
     - name: Good works
       slug: good-works
     - name: Merit
       slug: merit
+    - name: Perseverance
+      slug: perseverance
     - name: Glorification
       slug: glorification
 

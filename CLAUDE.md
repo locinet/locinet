@@ -78,6 +78,7 @@ work-id:
 - Section titles should be in title case (e.g., `Section I. On the Name` not `SECTION I. ON THE NAME`)
 - Section titles should include their numbering from the source (e.g., `Q1. The Nature and Extent of Sacred Doctrine`, `Chapter 1. Of God`)
 - Don't repeat a locus on a section if the same locus is already on the work or a parent section
+- Use the most specific applicable locus; fall back to a broader parent when no child fits (e.g., `divine-infinity` for "The Infinity of God", but `attributes-of-god` for "The Existence of God in Things")
 
 ### Loci tree (loci.yaml)
 - 8 top-level categories: Theology, God, Angels, Man, Law, Christ, Salvation, Church, Last things
