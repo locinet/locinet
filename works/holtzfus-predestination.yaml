@@ -22,7 +22,7 @@ holtzfus-predestination:
       - translator: unknown
         AI: true
         sites:
-          - site: ReformedBooksOnline
+          - site: RBO
             url: https://reformedbooksonline.com/wp-content/uploads/2026/02/Holtzfuz-Barthold-Theological-Treatise-on-Predestination-Election-and-Reprobation-of-Men.pdf
             pdf: true
             section_urls:

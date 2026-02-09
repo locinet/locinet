@@ -119,7 +119,7 @@ eleventyComputed:
       {% if work.workLoci.length > 0 %}
         <span class="loci-tags">
           {% for tag in work.workLoci %}
-            <span class="loci-tag" data-slug="{{ tag }}">{{ site.lociFlat[tag].name if site.lociFlat[tag] else tag }}</span>
+            <a class="loci-tag" href="/?locus={{ tag }}" data-slug="{{ tag }}">{{ site.lociFlat[tag].name if site.lociFlat[tag] else tag }}</a>
           {% endfor %}
         </span>
       {% endif %}
@@ -154,7 +154,7 @@ eleventyComputed:
             {% if section.loci.length > 0 %}
               <span class="loci-tags">
                 {% for tag in section.loci %}
-                  <span class="loci-tag" data-slug="{{ tag }}">{{ site.lociFlat[tag].name if site.lociFlat[tag] else tag }}</span>
+                  <a class="loci-tag" href="/?locus={{ tag }}" data-slug="{{ tag }}">{{ site.lociFlat[tag].name if site.lociFlat[tag] else tag }}</a>
                 {% endfor %}
               </span>
             {% endif %}

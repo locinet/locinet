@@ -23,7 +23,7 @@ venema-disputes:
       - translator: Nosferatu
         AI: true
         sites:
-          - site: Reformed Books Online
+          - site: RBO
             url: https://reformedbooksonline.com/wp-content/uploads/2026/02/Venema-Herman-Disputes-on-Covenant-of-Works-Mediate-or-Immediate-Imputation-Active-and-Passive-Obedience-of-Christ-and-General-and-Particular-Decrees-of-Predestination.pdf
             pdf: true
             section_urls:

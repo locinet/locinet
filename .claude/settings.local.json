@@ -86,7 +86,8 @@
       "WebFetch(domain:www.worldcat.org)",
       "WebFetch(domain:classify.oclc.org)",
       "Bash(npm run import-work:*)",
-      "Bash(npm run oclc-search:*)"
+      "Bash(npm run oclc-search:*)",
+      "WebFetch(domain:www.ccel.org)"
     ]
   }
 }

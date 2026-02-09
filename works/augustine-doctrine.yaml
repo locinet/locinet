@@ -1,5 +1,6 @@
 augustine-doctrine:
   author: Q8018
+  loci: scripture
   la:
     title: De Doctrina Christiana
     orig_lang: true

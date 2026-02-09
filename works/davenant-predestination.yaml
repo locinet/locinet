@@ -33,7 +33,7 @@ davenant-predestination:
     translations:
       - translator: unknown
         sites:
-          - site: ReformedBooksOnline
+          - site: RBO
             url: https://reformedbooksonline.com/wp-content/uploads/2026/02/Davenant-John-On-Predestination-Reprobation.pdf
             pdf: true
             section_urls:

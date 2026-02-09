@@ -11,6 +11,14 @@ dort-canons:
         loci: predestination
       - second-head: Second Head of Doctrine
         loci: atonement
+      - third-fourth-head: Third and Fourth Heads of Doctrine
+        loci:
+          - original-sin
+          - free-will
+          - effectual-calling
+      - fifth-head: Fifth Head of Doctrine
+        loci: sanctification
+      - dort-conclusion: Conclusion
     translations:
       - translator: Anonymous
         year: 1619

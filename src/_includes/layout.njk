@@ -8,14 +8,15 @@
 </head>
 <body>
   <nav class="site-nav">
-    <a href="/">Loci Index</a>
-    <a href="/works/">Works Index</a>
-    <a href="/translators/">Translators</a>
+    <a href="/">Locinet</a>
     {{ navExtra | safe }}
   </nav>
   <main>
     {{ content | safe }}
   </main>
+  <footer class="site-footer">
+    <a href="/translators/">Translators Index</a>
+  </footer>
   <script>var repoUrl = {{ site.repoUrl | dump | safe }};</script>
   <script src="/assets/filter.js"></script>
 </body>

@@ -16,6 +16,7 @@ boethius-tractates:
         loci: creation
       - catholic-faith: On the Catholic Faith
       - against-eutyches-nestorius: A Treatise Against Eutyches and Nestorius
+        loci: natures-of-christ
     translations:
       - translator: H.F. Stewart and E.K. Rand
         sites:

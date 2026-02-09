@@ -20,10 +20,10 @@ simonis-influx:
               - examining-concurrence: Part I. Examining Concurrence
               - contemplating-prerunning: Part II. Contemplating Prerunning
     translations:
-      - translator: Reformed Books Online
+      - translator: RBO
         AI: true
         sites:
-          - site: Reformed Books Online
+          - site: RBO
             url: https://reformedbooksonline.com/wp-content/uploads/2026/02/Simonis-Johann-The-Influx-of-God-into-Secondary-Causes.pdf
             pdf: true
             section_urls:

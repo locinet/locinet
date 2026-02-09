@@ -136,24 +136,248 @@
       });
     }
 
-    // Check URL params for pre-filled filter
-    const params = new URLSearchParams(window.location.search);
-    const locusParam = params.get("locus");
-    if (locusParam) {
-      filterInput.value = locusParam;
-      applyFilter();
+    // --- View toggle (home page only) ---
+
+    const toggleTopicBtn = document.getElementById("toggle-topic");
+    const toggleAuthorBtn = document.getElementById("toggle-author");
+    const lociMain = document.querySelector(".loci-main");
+    const worksMain = document.querySelector(".works-main");
+    const filterBoxTopic = document.getElementById("filter-box-topic");
+    const filterBoxAuthor = document.getElementById("filter-box-author");
+    const authorFilterInput = document.getElementById("author-filter");
+
+    if (toggleTopicBtn && toggleAuthorBtn && lociMain && worksMain) {
+      let currentMode = "topic";
+      let activeLocusSlug = null;
+
+      // Active locus indicator elements
+      const activeLociIndicator = document.getElementById("active-locus-indicator");
+      const activeLocusName = document.getElementById("active-locus-name");
+      const clearLocusBtn = document.getElementById("clear-locus-filter");
+
+      function setMode(mode) {
+        currentMode = mode;
+
+        // Update toggle buttons
+        toggleTopicBtn.classList.toggle("active", mode === "topic");
+        toggleAuthorBtn.classList.toggle("active", mode === "author");
+
+        // Show/hide main content areas
+        lociMain.style.display = mode === "topic" ? "" : "none";
+        worksMain.style.display = mode === "author" ? "" : "none";
+
+        // Show/hide filter boxes
+        if (filterBoxTopic) filterBoxTopic.style.display = mode === "topic" ? "" : "none";
+        if (filterBoxAuthor) filterBoxAuthor.style.display = mode === "author" ? "" : "none";
+
+        // Clear filters when switching
+        if (mode === "topic") {
+          if (authorFilterInput) authorFilterInput.value = "";
+          clearLocusFilter();
+          applyAuthorAndLocusFilter();
+        } else {
+          filterInput.value = "";
+          applyFilter();
+        }
+
+        // Update URL
+        var params = new URLSearchParams(window.location.search);
+        if (mode === "author") {
+          params.set("view", "author");
+        } else {
+          params.delete("view");
+        }
+        var newUrl = window.location.pathname;
+        var qs = params.toString();
+        if (qs) newUrl += "?" + qs;
+        history.replaceState(null, "", newUrl);
+      }
+
+      toggleTopicBtn.addEventListener("click", function () { setMode("topic"); });
+      toggleAuthorBtn.addEventListener("click", function () { setMode("author"); });
+
+      // --- Sidebar behavior ---
+
+      function getSlugsForLocus(slug) {
+        var entry = flat[slug];
+        if (!entry) return new Set([slug]);
+        var set = new Set([slug]);
+        for (var d of (entry.descendants || [])) set.add(d);
+        return set;
+      }
+
+      function setLocusFilter(slug) {
+        activeLocusSlug = slug;
+        var entry = flat[slug];
+        if (activeLociIndicator && activeLocusName) {
+          activeLocusName.textContent = entry ? entry.name : slug;
+          activeLociIndicator.style.display = "";
+        }
+
+        // Highlight sidebar link
+        document.querySelectorAll(".loci-sidebar a.sidebar-active").forEach(function (a) {
+          a.classList.remove("sidebar-active");
+        });
+        var sidebarLink = document.querySelector('.loci-sidebar a[data-slug="' + slug + '"]');
+        if (sidebarLink) sidebarLink.classList.add("sidebar-active");
+
+        // Expand parent tree in sidebar so the active locus is visible
+        if (entry && entry.ancestors) {
+          for (var anc of entry.ancestors) {
+            var ancLink = document.querySelector('.loci-sidebar a[data-slug="' + anc + '"]');
+            if (ancLink) {
+              var sibling = ancLink.nextElementSibling;
+              if (sibling && sibling.classList.contains("stree-collapsed")) {
+                sibling.classList.remove("stree-collapsed");
+                ancLink.classList.add("expanded");
+              }
+            }
+          }
+        }
+
+        applyAuthorAndLocusFilter();
+      }
+
+      function clearLocusFilter() {
+        activeLocusSlug = null;
+        if (activeLociIndicator) activeLociIndicator.style.display = "none";
+        document.querySelectorAll(".loci-sidebar a.sidebar-active").forEach(function (a) {
+          a.classList.remove("sidebar-active");
+        });
+      }
+
+      if (clearLocusBtn) {
+        clearLocusBtn.addEventListener("click", function () {
+          clearLocusFilter();
+          applyAuthorAndLocusFilter();
+        });
+      }
+
+      // Override sidebar click behavior
+      document.querySelectorAll(".loci-sidebar a").forEach(function (link) {
+        link.addEventListener("click", function (e) {
+          if (currentMode === "author") {
+            e.preventDefault();
+            var slug = this.dataset.slug;
+            if (slug) {
+              // Toggle expand/collapse for nodes with children (stree-toggle)
+              if (this.classList.contains("stree-toggle")) {
+                var children = this.nextElementSibling;
+                if (children && children.classList.contains("stree")) {
+                  children.classList.toggle("stree-collapsed");
+                  this.classList.toggle("expanded");
+                }
+              }
+              setLocusFilter(slug);
+            }
+          }
+          // In topic mode, keep original behavior (handled by the existing stree-toggle handler below)
+        });
+      });
+
+      // --- Author + locus combined filter for works ---
+
+      function applyAuthorAndLocusFilter() {
+        var authorQuery = authorFilterInput ? authorFilterInput.value.toLowerCase().trim() : "";
+        var locusSlugs = activeLocusSlug ? getSlugsForLocus(activeLocusSlug) : null;
+
+        var authors = document.querySelectorAll("#works-index .works-index-author");
+        for (var author of authors) {
+          var authorName = author.dataset.authorName || "";
+
+          // Author name filter
+          var authorNameMatch = !authorQuery || authorName.includes(authorQuery);
+          if (!authorNameMatch) {
+            author.classList.add("filtered-hidden");
+            continue;
+          }
+
+          // Locus filter: check individual works
+          if (locusSlugs) {
+            var workItems = author.querySelectorAll(".works-index-list li");
+            var anyWorkVisible = false;
+            for (var li of workItems) {
+              var workLoci;
+              try {
+                workLoci = JSON.parse(li.dataset.loci || "[]");
+              } catch (ex) {
+                workLoci = [];
+              }
+              var workMatches = workLoci.some(function (l) { return locusSlugs.has(l); });
+              if (workMatches) {
+                li.classList.remove("filtered-hidden");
+                anyWorkVisible = true;
+              } else {
+                li.classList.add("filtered-hidden");
+              }
+            }
+            if (anyWorkVisible) {
+              author.classList.remove("filtered-hidden");
+            } else {
+              author.classList.add("filtered-hidden");
+            }
+          } else {
+            // No locus filter — show all works for this author
+            author.classList.remove("filtered-hidden");
+            author.querySelectorAll(".works-index-list li").forEach(function (li) {
+              li.classList.remove("filtered-hidden");
+            });
+          }
+        }
+      }
+
+      if (authorFilterInput) {
+        authorFilterInput.addEventListener("input", applyAuthorAndLocusFilter);
+      }
+
+      var clearAuthorBtn = document.getElementById("clear-author-filter");
+      if (clearAuthorBtn) {
+        clearAuthorBtn.addEventListener("click", function () {
+          if (authorFilterInput) {
+            authorFilterInput.value = "";
+            applyAuthorAndLocusFilter();
+            authorFilterInput.focus();
+          }
+        });
+      }
+
+      // --- Check URL params for initial state ---
+
+      var params = new URLSearchParams(window.location.search);
+      var viewParam = params.get("view");
+      var locusParam = params.get("locus");
+
+      if (viewParam === "author") {
+        setMode("author");
+        if (locusParam && flat[locusParam]) {
+          setLocusFilter(locusParam);
+        }
+      } else {
+        if (locusParam) {
+          filterInput.value = locusParam;
+          applyFilter();
+        }
+      }
+    } else {
+      // Not on home page — check URL params for pre-filled filter (author pages)
+      var params = new URLSearchParams(window.location.search);
+      var locusParam = params.get("locus");
+      if (locusParam) {
+        filterInput.value = locusParam;
+        applyFilter();
+      }
     }
   }
 
-  // --- Works index author filtering ---
+  // --- Works index standalone author filtering (for pages that still use #works-index without toggle) ---
 
-  const authorFilterInput = document.getElementById("author-filter");
-  const isWorksIndex = document.querySelector("#works-index") !== null;
-  if (authorFilterInput && isWorksIndex) {
-    function applyAuthorFilter() {
-      const query = authorFilterInput.value.toLowerCase().trim();
-      const authors = document.querySelectorAll(".works-index-author");
-      for (const author of authors) {
+  var standaloneAuthorFilter = document.getElementById("author-filter");
+  var isStandaloneWorksIndex = document.querySelector("#works-index") !== null && document.getElementById("toggle-topic") === null;
+  if (standaloneAuthorFilter && isStandaloneWorksIndex) {
+    function applyStandaloneAuthorFilter() {
+      var query = standaloneAuthorFilter.value.toLowerCase().trim();
+      var authors = document.querySelectorAll(".works-index-author");
+      for (var author of authors) {
         if (!query || author.dataset.authorName.includes(query)) {
           author.classList.remove("filtered-hidden");
         } else {
@@ -162,14 +386,14 @@
       }
     }
 
-    authorFilterInput.addEventListener("input", applyAuthorFilter);
+    standaloneAuthorFilter.addEventListener("input", applyStandaloneAuthorFilter);
 
-    const clearAuthorBtn = document.getElementById("clear-author-filter");
-    if (clearAuthorBtn) {
-      clearAuthorBtn.addEventListener("click", function () {
-        authorFilterInput.value = "";
-        applyAuthorFilter();
-        authorFilterInput.focus();
+    var clearStandaloneBtn = document.getElementById("clear-author-filter");
+    if (clearStandaloneBtn) {
+      clearStandaloneBtn.addEventListener("click", function () {
+        standaloneAuthorFilter.value = "";
+        applyStandaloneAuthorFilter();
+        standaloneAuthorFilter.focus();
       });
     }
   }
@@ -642,6 +866,25 @@
       window.open(url, "_blank");
     }
   }
+
+  // --- Sidebar tree expand/collapse (topic mode) ---
+
+  document.querySelectorAll('.stree-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+      // Only handle expand/collapse in topic mode (author mode handles it separately)
+      var toggleBtn = document.getElementById("toggle-topic");
+      if (toggleBtn && !toggleBtn.classList.contains("active")) return;
+
+      e.preventDefault();
+      var children = this.nextElementSibling;
+      if (children && children.classList.contains('stree')) {
+        children.classList.toggle('stree-collapsed');
+        this.classList.toggle('expanded');
+      }
+      var target = document.querySelector(this.getAttribute('href'));
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
 
   // --- Helpers ---
 

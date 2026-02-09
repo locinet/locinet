@@ -14,11 +14,6 @@ pareus-contra-bellarminum:
         sections:
           - b1c7: "Chapter 7: On the Loss of Grace"
             loci: sin
-      - b2: Book 2
-      - b3: Book 3
-      - b4: Book 4
-      - b5: Book 5
-      - b6: Book 6
     translations:
       - AI: true
         sites:
