@@ -1,0 +1,20 @@
+wendelin-christian-theology:
+  author: Q1901484
+  category: systematic
+  la:
+    title: Christianae Theologiae Libri Duo
+    orig_lang: true
+    editions:
+      - year: 1634
+        place: Hanau
+  en:
+    title: Two Books of Christian Theology
+    sections:
+      - b1c25: "Book 1, Chapter 25: On Christ's Imputed Righteousness"
+        loci: justification
+    translations:
+      - translator: Michael Lynch
+        sites:
+          - site: Translationes Lyncei
+            section_urls:
+              - b1c25: https://michaellynch.substack.com/p/marcus-friedrich-wendelin-on-christs

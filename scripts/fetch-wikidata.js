@@ -5,6 +5,10 @@ const yaml = require("js-yaml");
 const WORKS_DIR = path.resolve(__dirname, "../works");
 const CACHE_DIR = path.resolve(__dirname, "../_cache/authors");
 
+function isQid(s) {
+  return typeof s === "string" && /^Q\d+$/.test(s);
+}
+
 function collectQids() {
   const qids = new Set();
   for (const file of fs.readdirSync(WORKS_DIR)) {
@@ -16,9 +20,11 @@ function collectQids() {
     const author = work.author;
     if (author) {
       if (Array.isArray(author)) {
-        for (const qid of author) qids.add(qid);
+        for (const qid of author) {
+          if (isQid(qid)) qids.add(qid);
+        }
       } else {
-        qids.add(author);
+        if (isQid(author)) qids.add(author);
       }
     }
     // Collect corporate_author QID if present

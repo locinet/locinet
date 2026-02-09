@@ -106,6 +106,8 @@
               slug: new-covenant
             - name: Gospel
               slug: gospel
+            - name: Spiritual gifts
+              slug: spiritual-gifts
 
 - name: Law
   slug: law

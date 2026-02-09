@@ -205,6 +205,7 @@ function parseWork(fileId, data) {
     return {
       translator: t.translator || "Unknown",
       year: t.year || null,
+      AI: t.AI || false,
       sites,
     };
   });
@@ -301,7 +302,7 @@ function getAuthorMeta(qid, authors) {
   return authors[qid] || {
     qid,
     name: qid,
-    slug: qid.toLowerCase(),
+    slug: slugify(qid),
     birthYear: null,
     deathYear: null,
     imageUrl: null,
@@ -464,7 +465,7 @@ function buildLociIndex(lociFlat, works, authors) {
         birthYear: caMeta?.birthYear || null,
       };
     } else {
-      authorMeta = authors[work.author] || { name: work.author, slug: work.author.toLowerCase(), qid: work.author };
+      authorMeta = authors[work.author] || { name: work.author, slug: slugify(work.author), qid: work.author };
     }
 
     // Work-level loci
@@ -550,6 +551,92 @@ function computeDisplayNames(index) {
   }
 }
 
+// --- Build translator index ---
+
+function sortTranslatorsByLastName(translators) {
+  translators.sort((a, b) => {
+    const aParts = a.name.split(/\s+/);
+    const bParts = b.name.split(/\s+/);
+    const aLast = aParts[aParts.length - 1];
+    const bLast = bParts[bParts.length - 1];
+    if (aLast !== bLast) return aLast.localeCompare(bLast);
+    return a.name.localeCompare(b.name);
+  });
+}
+
+function sortWorksByAuthor(works) {
+  works.sort((a, b) => {
+    if (a.authorName !== b.authorName) return a.authorName.localeCompare(b.authorName);
+    return a.title.localeCompare(b.title);
+  });
+}
+
+function buildTranslatorIndex(works, authorPages) {
+  // site -> translator -> works[]
+  const bySite = {};
+
+  // Build a lookup from QID to author page for name/slug
+  const authorByQid = {};
+  for (const ap of authorPages) {
+    if (ap.qid && ap.qid.startsWith("Q")) {
+      authorByQid[ap.qid] = ap;
+    }
+  }
+
+  for (const work of works) {
+    // Resolve author display info (prefer corporate author)
+    let authorName, authorSlug;
+    if (work.corporateAuthor) {
+      authorName = work.corporateAuthor.label;
+      authorSlug = work.corporateAuthor.slug;
+    } else {
+      const ap = authorByQid[work.author];
+      authorName = ap ? ap.name : work.author;
+      authorSlug = ap ? ap.slug : slugify(work.author);
+    }
+
+    for (const t of work.translations) {
+      const translatorName = t.translator;
+      const translatorKey = translatorName.toLowerCase();
+
+      const workEntry = {
+        title: work.title,
+        workId: work.id,
+        authorName,
+        authorSlug,
+        year: t.year,
+        AI: t.AI,
+      };
+
+      for (const s of t.sites) {
+        const siteName = s.siteName;
+        const siteKey = siteName.toLowerCase();
+        if (!bySite[siteKey]) {
+          bySite[siteKey] = { name: siteName, translators: {} };
+        }
+        if (!bySite[siteKey].translators[translatorKey]) {
+          bySite[siteKey].translators[translatorKey] = { name: translatorName, works: [] };
+        }
+        bySite[siteKey].translators[translatorKey].works.push(workEntry);
+      }
+    }
+  }
+
+  // Convert to sorted arrays
+  const sites = Object.values(bySite);
+  sites.sort((a, b) => a.name.localeCompare(b.name));
+
+  for (const site of sites) {
+    site.translators = Object.values(site.translators);
+    sortTranslatorsByLastName(site.translators);
+    for (const t of site.translators) {
+      sortWorksByAuthor(t.works);
+    }
+  }
+
+  return sites;
+}
+
 // --- Main export ---
 
 module.exports = function () {
@@ -568,12 +655,15 @@ module.exports = function () {
     return aYear - bYear;
   });
 
+  const translatorIndex = buildTranslatorIndex(works, authorPages);
+
   return {
     lociTree,
     lociFlat,
     authorPages,
     worksIndex,
     lociIndex,
+    translatorIndex,
     repoUrl: "https://github.com/locinet/locinet",
   };
 };
