@@ -63,6 +63,12 @@ work-id:
               - section-id: https://...
 ```
 
+**Work granularity rules:**
+- Each YAML file represents one distinct work. Do not combine multiple works into a single file.
+- Collections of complete works (Opera Omnia, Opera Theologica Omnia, etc.) should be broken into their separate constituent works, each getting its own YAML file.
+- Collections of select disputations/dissertations (e.g. Selectarum Disputationum Theologicarum) should likewise be broken into separate works — one file per disputation.
+- Anthologies or excerpts from multiple authors should be broken into the individual works they are drawn from, with each excerpt tracked as a section of its parent work.
+
 **Critical YAML rules:**
 - `sections` and `translations` are siblings of `title` under the language key, never children
 - Reserved keys in section mappings: `loci`, `sections` — all other keys are treated as section-id: title

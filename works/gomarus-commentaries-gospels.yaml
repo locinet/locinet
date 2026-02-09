@@ -1,0 +1,11 @@
+gomarus-commentaries-gospels:
+  author: Q931871
+  category: commentary
+  en:
+    title: "Commentaries on Matthew, Luke & John"
+    translations:
+      - AI: true
+        sites:
+          - site: RBO
+            url: https://reformedbooksonline.com/wp-content/uploads/2026/02/Gomarus-Francis-Works-pt-1-Commentaries-on-Matthew-Luke-and-John.pdf
+            pdf: true

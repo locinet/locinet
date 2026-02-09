@@ -1,0 +1,17 @@
+polanus-letter-spirit:
+  author: Q454349
+  category: disputations
+  la:
+    title: Theses Theologicae de Litera et Spiritu
+    orig_lang: true
+    editions:
+      - year: 1592
+        place: Basel
+  en:
+    title: "Theological Theses on the Letter & the Spirit"
+    translations:
+      - translator: Matthew Daniels
+        AI: true
+        sites:
+          - site: Obedientia Mortis Christi
+            url: https://matthaeusmac.substack.com/p/amandus-polanus-on-the-letter-and

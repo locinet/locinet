@@ -1,0 +1,16 @@
+gomarus-mass:
+  author: Q931871
+  category: disputations
+  loci: lords-supper
+  la:
+    title: "Disputationum Theologicarum Tertio-Repetitarum Quadragesima-Quarta, de Missa, quam Favente Deo Opt. Max. ex Auctoritate & Decreto Reverendi Ordinis Theologici, sub Praesidio Clarissimi, Doctissimique Viri, D. Francisci Gomari... Publice Discutendam Proponit"
+    orig_lang: true
+    editions:
+      - year: 1604
+  en:
+    title: "44th of the 3rd Repetition of Theological Disputations: On the Mass"
+    translations:
+      - AI: true
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/2026/02/01/franciscus-gomarus-c-1563-1641-on-the-mass/

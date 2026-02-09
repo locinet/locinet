@@ -1,0 +1,25 @@
+synopsis-purioris-theologiae:
+  author:
+    - Q1698178
+    - Q2848543
+    - Q606757
+    - Q606748
+  corporate_author: "Professors of Leiden"
+  la:
+    title: Synopsis Purioris Theologiae
+    orig_lang: true
+    editions:
+      - year: 1625
+        place: Leiden
+  en:
+    title: Synopsis of Pure Theology
+    sections:
+      - disp29: "Disputation 29: On the Satisfaction of Jesus Christ"
+        loci: atonement
+    translations:
+      - AI: true
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/2026/02/02/the-professors-of-leiden-c-1565-1651-on-the-satisfaction-of-jesus-christ/
+            section_urls:
+              - disp29: https://confessionallyreformed.wordpress.com/2026/02/02/the-professors-of-leiden-c-1565-1651-on-the-satisfaction-of-jesus-christ/

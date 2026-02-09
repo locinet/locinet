@@ -1,0 +1,11 @@
+ward-sacraments:
+  author: Q7412879
+  loci: sacraments
+  en:
+    title: On the Sacraments
+    translations:
+      - AI: true
+        sites:
+          - site: RBO
+            url: https://reformedbooksonline.com/wp-content/uploads/2026/02/Ward-Samuel-On-the-Sacraments.pdf
+            pdf: true

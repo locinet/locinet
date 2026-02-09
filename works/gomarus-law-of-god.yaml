@@ -1,0 +1,19 @@
+gomarus-law-of-god:
+  author: Q931871
+  category: disputations
+  loci: law
+  la:
+    title: Disputationum Theologicarum Decima Quinta
+    orig_lang: true
+    editions:
+      - year: 1603
+        sites:
+          - site: Google Books
+            url: https://www.google.com/books/edition/Disputationum_theologicarum_decima_quint/
+  en:
+    title: "15th of the Theological Disputations: On the Law of God"
+    translations:
+      - AI: true
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/2026/02/02/franciscus-gomarus-c-1563-1641-on-the-law-of-god/

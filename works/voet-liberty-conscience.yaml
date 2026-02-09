@@ -1,0 +1,14 @@
+voet-liberty-conscience:
+  author: Q983347
+  category: treatise
+  loci:
+    - civil-government
+    - christian-liberty
+  en:
+    title: "On Liberty of Conscience & Permission of Religion in the Republic"
+    translations:
+      - AI: true
+        sites:
+          - site: RBO
+            url: https://reformedbooksonline.com/wp-content/uploads/2026/02/Voet-Gisbert-On-Liberty-of-Conscience-Permission-of-Religion-in-the-Republic.pdf
+            pdf: true

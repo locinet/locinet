@@ -1,0 +1,12 @@
+gomarus-free-will:
+  author: Q931871
+  category: disputations
+  loci: free-will
+  en:
+    title: Theological Disputation on Free Will
+    translations:
+      - AI: true
+        sites:
+          - site: RBO
+            url: https://reformedbooksonline.com/wp-content/uploads/2026/02/Gomarus-Francis-On-Free-Will.pdf
+            pdf: true

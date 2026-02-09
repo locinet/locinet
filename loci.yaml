@@ -90,6 +90,8 @@
           slug: original-sin
         - name: Transmission of sin
           slug: transmission-of-sin
+        - name: Concupiscence
+          slug: concupiscence
         - name: Punishment of sin
           slug: punishment-of-sin
     - name: Grace
@@ -128,8 +130,6 @@
           slug: property
         - name: Truth
           slug: truth
-        - name: Concupiscence
-          slug: concupiscence
     - name: Purpose of law
       slug: purpose-of-law
     - name: Christian liberty

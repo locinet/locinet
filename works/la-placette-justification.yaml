@@ -1,0 +1,12 @@
+la-placette-justification:
+  author: Q12319161
+  category: treatise
+  loci: justification
+  en:
+    title: Treatise on Justification
+    translations:
+      - AI: true
+        sites:
+          - site: RBO
+            url: https://reformedbooksonline.com/wp-content/uploads/2026/02/La-Placette-Jean-Treatise-on-Justification.pdf
+            pdf: true
