@@ -154,13 +154,24 @@
     var traditionCheckboxes = document.querySelectorAll(".tradition-checkbox");
 
     if (traditionDropdownBtn && traditionDropdownMenu) {
+      var traditionJustOpened = false;
+
       traditionDropdownBtn.addEventListener("click", function (e) {
         e.stopPropagation();
         var open = traditionDropdownMenu.style.display !== "none";
         traditionDropdownMenu.style.display = open ? "none" : "";
+        if (!open) {
+          traditionJustOpened = true;
+          requestAnimationFrame(function () { traditionJustOpened = false; });
+        }
+      });
+
+      traditionDropdownMenu.addEventListener("click", function (e) {
+        e.stopPropagation();
       });
 
       document.addEventListener("click", function (e) {
+        if (traditionJustOpened) return;
         if (traditionDropdownMenu.style.display !== "none" &&
             !traditionDropdownMenu.contains(e.target) &&
             e.target !== traditionDropdownBtn) {

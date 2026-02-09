@@ -589,4 +589,7 @@ body:has(.loci-page) { max-width: 1200px; }
   .filter-box input { width: 100%; }
   .add-author-dropdown { width: calc(100vw - 1em); right: -0.5em; }
   .add-work-panel { width: calc(100vw - 1em); right: -0.5em; }
+  .view-toggle { flex-wrap: wrap; gap: 0.3em; }
+  .tradition-dropdown-menu { left: auto; right: 0; }
+  .tradition-option { padding: 0.5em 0.6em; }
 }
