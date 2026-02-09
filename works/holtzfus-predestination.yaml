@@ -1,0 +1,31 @@
+holtzfus-predestination:
+  author: Q809291
+  loci:
+    - predestination
+    - reprobation
+  la:
+    title: Tractatus theologicus de praedestinatione, electione et reprobatione hominum, ad promovendam concordiam ecclesiasticam
+    orig_lang: true
+    editions:
+      - year: 1703
+        oclc: 312576661
+  en:
+    title: Theological Treatise on Predestination, Election, and Reprobation of Men
+    sections:
+      - diss1-predestination-in-general: "Dissertation I: On Predestination in General"
+        loci: predestination
+      - diss2-election-of-men: "Dissertation II: Concerning the Election of Men"
+        loci: predestination
+      - diss3-reprobation: "Dissertation III: On Reprobation"
+        loci: reprobation
+    translations:
+      - translator: unknown
+        AI: true
+        sites:
+          - site: ReformedBooksOnline
+            url: https://reformedbooksonline.com/wp-content/uploads/2026/02/Holtzfuz-Barthold-Theological-Treatise-on-Predestination-Election-and-Reprobation-of-Men.pdf
+            pdf: true
+            section_urls:
+              - diss1-predestination-in-general: https://reformedbooksonline.com/wp-content/uploads/2026/02/Holtzfuz-Barthold-Theological-Treatise-on-Predestination-Election-and-Reprobation-of-Men.pdf#page=4
+              - diss2-election-of-men: https://reformedbooksonline.com/wp-content/uploads/2026/02/Holtzfuz-Barthold-Theological-Treatise-on-Predestination-Election-and-Reprobation-of-Men.pdf#page=166
+              - diss3-reprobation: https://reformedbooksonline.com/wp-content/uploads/2026/02/Holtzfuz-Barthold-Theological-Treatise-on-Predestination-Election-and-Reprobation-of-Men.pdf#page=188

@@ -12,6 +12,10 @@ A directory of theological works hosted on the internet, built with 11ty and dep
 - `npm run build` — build to `_site/`
 - `npm run fetch` — fetch/cache author data from Wikidata
 - `npm run validate` — check loci tags against loci.yaml (exits non-zero on errors, warnings are non-fatal)
+- `npm run pdf-toc -- <path-or-url>` — extract PDF outline/TOC with page numbers (add `-- --json` for JSON output; accepts local paths or URLs)
+- `npm run wikidata-search -- "person name"` — search Wikidata for person entities, shows QID, name, dates, description
+- `npm run oclc-search -- "author" "title"` — search Open Library for OCLC numbers, prints WorldCat link
+- `npm run import-work -- <pdf-url> [--author Q123] [--id work-id] [--depth N] [--lang la]` — generate YAML skeleton from PDF outline
 
 ## Architecture
 
@@ -26,7 +30,8 @@ A directory of theological works hosted on the internet, built with 11ty and dep
 Each file has one top-level key (the work ID, e.g. `calvin-institutes`). Structure:
 ```yaml
 work-id:
-  author: Q12345              # Wikidata Q number (required)
+  author: Q12345              # Wikidata Q number (required), or array: [Q12345, Q67890]
+  corporate_author: "Name"    # Optional: string label, or {label: "Name", qid: Q999}
   category: systematic         # Optional: systematic, monograph, sermons
   loci: tag                    # Optional: work-level loci (string or array)
   la:                          # Original language block (la, fr, de, nl, etc.)
@@ -35,6 +40,7 @@ work-id:
     editions:
       - year: 1559
         place: Geneva          # Optional
+        oclc: 123456789        # Optional: OCLC number (shows WorldCat link on works page)
         sites:                 # Optional: links to original
           - site: BSB
             url: https://...
@@ -62,6 +68,8 @@ work-id:
 - Reserved keys in section mappings: `loci`, `sections` — all other keys are treated as section-id: title
 - Colons in YAML values need quoting: `"THE TENTH TOPIC: On the LAW of GOD"`
 - Loci slugs: lowercase, hyphens for spaces, no apostrophes (e.g., `lords-supper`)
+- Section titles should be in title case (e.g., `Section I. On the Name` not `SECTION I. ON THE NAME`)
+- Don't repeat a locus on a section if the same locus is already on the work or a parent section
 
 ### Loci tree (loci.yaml)
 - 8 top-level categories: Theology, God, Angels, Man, Law, Christ, Salvation, Church, Last things
@@ -102,5 +110,20 @@ work-id:
 - `worksIndex[]`: same data as authorPages but sorted by earliest work year
 - `lociIndex[slug][qid]`: maps each locus to authors who discuss it, with `{displayName, entries[]}` for the home page tree
 - `computeDisplayNames()`: disambiguates authors sharing a family name (adds initial, then birth year if still ambiguous)
+
+### Creating a work YAML from a PDF
+
+**Quick method (recommended for online PDFs):**
+1. Run `npm run import-work -- <pdf-url> --author Q123 --id work-id` to generate a YAML skeleton
+2. Fill in `# FILL IN` placeholders (titles, translator, site name)
+3. Uncomment and fill in `# loci:` tags using slugs from `loci.yaml`
+4. Run `npm run validate` then `npm run build` to verify
+
+**Manual method:**
+1. Run `npm run pdf-toc -- <path-or-url>` to extract the outline with page numbers
+2. Use the outline to build the `sections:` tree in the YAML (section IDs must be globally unique)
+3. Tag sections with loci slugs from `loci.yaml` based on chapter titles
+4. For PDFs hosted online, add `section_urls` under the translation site using `URL#page=N` fragments
+5. Run `npm run validate` then `npm run build` to verify
 
 ## Known issues / TODOs

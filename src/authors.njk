@@ -7,7 +7,7 @@ permalink: "/authors/{{ authorPage.slug }}/"
 layout: layout.njk
 eleventyComputed:
   pageTitle: "{{ authorPage.name }} — Locinet"
-  navExtra: '<div class="add-work-container"><a href="#" class="contribute-link" id="contribute-btn" data-author-name="{{ authorPage.name }}" data-author-qid="{{ authorPage.qid }}">Add a work</a><div class="add-work-panel" id="add-work-panel" style="display:none;"></div></div>'
+  navExtra: '{% if not authorPage.isCorporate %}<div class="add-work-container"><a href="#" class="contribute-link" id="contribute-btn" data-author-name="{{ authorPage.name }}" data-author-qid="{{ authorPage.qid }}">Add a work</a><div class="add-work-panel" id="add-work-panel" style="display:none;"></div></div>{% endif %}'
 ---
 
 {% if authorPage.imageUrl %}
@@ -24,6 +24,14 @@ eleventyComputed:
   <p class="author-dates">
     {% if authorPage.birthYear %}{{ authorPage.birthYear }}{% endif %}{% if authorPage.deathYear %}–{{ authorPage.deathYear }}{% endif %}
   </p>
+  {% if authorPage.isCorporate and authorPage.members.length > 0 %}
+    <p class="corporate-members">Members:
+      {%- for member in authorPage.members %}
+        <a href="/authors/{{ member.slug }}/">{{ member.name }}</a>
+        {%- if not loop.last %}, {% endif -%}
+      {%- endfor %}
+    </p>
+  {% endif %}
   <p class="author-ext-links">
     {% if authorPage.wikipediaUrl %}
       <a href="{{ authorPage.wikipediaUrl }}">Wikipedia</a> ·
@@ -31,7 +39,9 @@ eleventyComputed:
     {% if authorPage.prdlId %}
       <a href="https://www.prdl.org/author_view.php?a_id={{ authorPage.prdlId }}">PRDL</a> ·
     {% endif %}
-    <a href="https://www.wikidata.org/wiki/{{ authorPage.qid }}">Wikidata</a>
+    {% if authorPage.qid and authorPage.qid.startsWith("Q") %}
+      <a href="https://www.wikidata.org/wiki/{{ authorPage.qid }}">Wikidata</a>
+    {% endif %}
   </p>
 </div>
 
@@ -50,7 +60,23 @@ eleventyComputed:
         <a href="#" class="edit-link" data-work-id="{{ work.id }}" data-yaml-filename="{{ work.yamlFilename }}">[Edit]</a>
       </h2>
       {% if work.origTitle and work.origTitle != work.title %}
-        <p class="work-title-orig"><em>{{ work.origTitle }}</em></p>
+        <p class="work-title-orig"><em>{% if work.origUrl %}<a href="{{ work.origUrl }}">{{ work.origTitle }}</a>{% else %}{{ work.origTitle }}{% endif %}</em></p>
+      {% endif %}
+
+      {# Corporate authorship attribution on individual author pages #}
+      {% if not authorPage.isCorporate and work.corporateAuthor %}
+        <p class="corporate-attribution">(
+          {%- if work.coMembers.length > 0 -%}
+            with
+            {%- for m in work.coMembers %}
+              <a href="/authors/{{ m.slug }}/">{{ m.name }}</a>
+              {%- if not loop.last %}, {% endif -%}
+            {%- endfor %}
+            as members of
+          {%- else -%}
+            as member of
+          {%- endif %}
+          <a href="/authors/{{ work.corporateAuthor.slug }}/">{{ work.corporateAuthor.label }}</a>)</p>
       {% endif %}
 
       {# Edition info #}

@@ -118,7 +118,20 @@ function buildSectionUrlMap(sectionUrls) {
   return map;
 }
 
+// --- Slugify ---
+
+function slugify(name) {
+  return name
+    .toLowerCase()
+    .replace(/[^a-z0-9\s-]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/-+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 // --- Work parsing ---
+
+const WORK_META_KEYS = new Set(["author", "category", "loci", "corporate_author"]);
 
 function parseWork(fileId, data) {
   const work = data[fileId];
@@ -127,7 +140,7 @@ function parseWork(fileId, data) {
   const en = work.en || {};
   const origLangs = [];
   for (const langCode of Object.keys(work)) {
-    if (langCode === "author" || langCode === "category" || langCode === "loci") continue;
+    if (WORK_META_KEYS.has(langCode)) continue;
     const langData = work[langCode];
     if (langData && typeof langData === "object" && langData.orig_lang) {
       origLangs.push({ lang: langCode, ...langData });
@@ -144,7 +157,7 @@ function parseWork(fileId, data) {
   }
   if (year === null) {
     for (const langCode of Object.keys(work)) {
-      if (langCode === "author" || langCode === "category" || langCode === "loci") continue;
+      if (WORK_META_KEYS.has(langCode)) continue;
       const langData = work[langCode];
       if (langData && typeof langData === "object" && langData.editions) {
         for (const ed of langData.editions) {
@@ -198,6 +211,7 @@ function parseWork(fileId, data) {
 
   // Original language edition sites
   const origEditions = [];
+  let oclc = null;
   if (origLang && origLang.editions) {
     for (const ed of origLang.editions) {
       const entry = { year: ed.year, place: ed.place || null, sites: [] };
@@ -206,19 +220,55 @@ function parseWork(fileId, data) {
           entry.sites.push({ siteName: s.site, url: s.url });
         }
       }
+      if (ed.oclc && !oclc) oclc = String(ed.oclc);
       origEditions.push(entry);
     }
   }
 
+  // Normalize author to array
+  const authors = Array.isArray(work.author) ? work.author : [work.author];
+
+  // Parse corporate_author
+  let corporateAuthor = null;
+  if (work.corporate_author) {
+    if (typeof work.corporate_author === "string") {
+      corporateAuthor = {
+        label: work.corporate_author,
+        slug: slugify(work.corporate_author),
+        qid: null,
+      };
+    } else if (typeof work.corporate_author === "object") {
+      const ca = work.corporate_author;
+      corporateAuthor = {
+        label: ca.label,
+        slug: ca.qid ? null : slugify(ca.label), // resolved later if QID
+        qid: ca.qid || null,
+      };
+    }
+  }
+
+  // First original edition site URL (for linking the original title)
+  let origUrl = null;
+  for (const ed of origEditions) {
+    for (const s of ed.sites) {
+      if (s.url) { origUrl = s.url; break; }
+    }
+    if (origUrl) break;
+  }
+
   return {
     id: fileId,
-    author: work.author,
+    author: authors[0], // backward compat: primary author QID
+    authors,
+    corporateAuthor,
     category: work.category || null,
     workLoci,
     allLoci: [...new Set(allLoci)],
     year,
     origTitle: origLang ? origLang.title : null,
     origLang: origLang ? origLang.lang : null,
+    origUrl,
+    oclc,
     origEditions,
     title: en.title || origLang?.title || fileId,
     sections,
@@ -247,26 +297,75 @@ function loadAllWorks() {
 
 // --- Build author pages ---
 
+function getAuthorMeta(qid, authors) {
+  return authors[qid] || {
+    qid,
+    name: qid,
+    slug: qid.toLowerCase(),
+    birthYear: null,
+    deathYear: null,
+    imageUrl: null,
+    wikipediaUrl: null,
+    prdlId: null,
+    labels: {},
+  };
+}
+
 function buildAuthorPages(works, authors) {
   const byAuthor = {};
+  const corporateAuthors = {}; // keyed by slug
+
   for (const w of works) {
-    if (!byAuthor[w.author]) byAuthor[w.author] = [];
-    byAuthor[w.author].push(w);
+    // Resolve corporate author slug from QID cache if needed
+    if (w.corporateAuthor && w.corporateAuthor.qid && !w.corporateAuthor.slug) {
+      const caMeta = authors[w.corporateAuthor.qid];
+      w.corporateAuthor.slug = caMeta ? caMeta.slug : slugify(w.corporateAuthor.label);
+    }
+
+    if (w.corporateAuthor) {
+      // Build corporate author entry
+      const caKey = w.corporateAuthor.slug;
+      if (!corporateAuthors[caKey]) {
+        const caQid = w.corporateAuthor.qid;
+        const caMeta = caQid ? authors[caQid] : null;
+        corporateAuthors[caKey] = {
+          label: w.corporateAuthor.label,
+          slug: w.corporateAuthor.slug,
+          qid: caQid,
+          meta: caMeta,
+          memberQids: new Set(),
+          works: [],
+        };
+      }
+      for (const qid of w.authors) {
+        corporateAuthors[caKey].memberQids.add(qid);
+      }
+      corporateAuthors[caKey].works.push(w);
+    }
+
+    // Add work to each individual author
+    for (const qid of w.authors) {
+      if (!byAuthor[qid]) byAuthor[qid] = [];
+
+      // Annotate individual author's copy with corporate info
+      const workCopy = { ...w };
+      if (w.corporateAuthor) {
+        workCopy.corporateAuthor = { ...w.corporateAuthor };
+        workCopy.coMembers = w.authors
+          .filter((q) => q !== qid)
+          .map((q) => {
+            const m = getAuthorMeta(q, authors);
+            return { qid: q, name: m.name, slug: m.slug };
+          });
+      }
+      byAuthor[qid].push(workCopy);
+    }
   }
 
-  return Object.entries(byAuthor)
+  // Build individual author pages
+  const pages = Object.entries(byAuthor)
     .map(([qid, authorWorks]) => {
-      const meta = authors[qid] || {
-        qid,
-        name: qid,
-        slug: qid.toLowerCase(),
-        birthYear: null,
-        deathYear: null,
-        imageUrl: null,
-        wikipediaUrl: null,
-        prdlId: null,
-        labels: {},
-      };
+      const meta = getAuthorMeta(qid, authors);
       authorWorks.sort((a, b) => (a.year || 9999) - (b.year || 9999));
 
       // Collect unique original languages for this author's works
@@ -308,8 +407,40 @@ function buildAuthorPages(works, authors) {
         authorLabels,
         works: authorWorks,
       };
-    })
-    .sort((a, b) => (a.birthYear || 9999) - (b.birthYear || 9999));
+    });
+
+  // Build corporate author pages
+  for (const ca of Object.values(corporateAuthors)) {
+    const caMeta = ca.meta;
+    const members = [...ca.memberQids].map((qid) => {
+      const m = getAuthorMeta(qid, authors);
+      return { qid, name: m.name, slug: m.slug };
+    });
+
+    ca.works.sort((a, b) => (a.year || 9999) - (b.year || 9999));
+
+    pages.push({
+      qid: ca.qid || ca.slug,
+      name: ca.label,
+      slug: ca.slug,
+      birthYear: caMeta?.birthYear || null,
+      deathYear: caMeta?.deathYear || null,
+      imageUrl: caMeta?.imageUrl || null,
+      commonsUrl: caMeta?.imageUrl
+        ? caMeta.imageUrl.replace('http://', 'https://').replace('Special:FilePath/', 'File:')
+        : null,
+      wikipediaUrl: caMeta?.wikipediaUrl || null,
+      prdlId: caMeta?.prdlId || null,
+      openLibraryId: caMeta?.openLibraryId || null,
+      origLangName: ca.label,
+      authorLabels: [],
+      isCorporate: true,
+      members,
+      works: ca.works,
+    });
+  }
+
+  return pages.sort((a, b) => (a.birthYear || 9999) - (b.birthYear || 9999));
 }
 
 // --- Build loci index ---
@@ -319,7 +450,22 @@ function buildLociIndex(lociFlat, works, authors) {
   const index = {};
 
   for (const work of works) {
-    const authorMeta = authors[work.author] || { name: work.author, slug: work.author.toLowerCase(), qid: work.author };
+    let authorMeta;
+    if (work.corporateAuthor) {
+      // Use corporate author in loci index
+      const ca = work.corporateAuthor;
+      const caMeta = ca.qid ? authors[ca.qid] : null;
+      authorMeta = {
+        name: ca.label,
+        slug: ca.slug,
+        qid: ca.qid || ca.slug,
+        familyName: ca.label.split(/\s+/).pop(),
+        givenName: ca.label.split(/\s+/)[0],
+        birthYear: caMeta?.birthYear || null,
+      };
+    } else {
+      authorMeta = authors[work.author] || { name: work.author, slug: work.author.toLowerCase(), qid: work.author };
+    }
 
     // Work-level loci
     for (const slug of work.workLoci) {

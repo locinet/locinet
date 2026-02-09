@@ -1,0 +1,159 @@
+vlak-dissertationum-trias:
+  author: Q101207391
+  category: monograph
+  loci: [covenant-of-grace, justification]
+  la:
+    title: Dissertationum Trias de Dei Operum et Pacis Foederibus, atque de Justificatione
+    orig_lang: true
+    editions:
+      - year: 1689
+        oclc: 718020920
+  en:
+    title: A Triad of Dissertations on the Covenants of Works and of Peace of God, and on Justification
+    sections:
+      - diss-1: "First Theological Dissertation: On the Covenant of Works of God"
+        loci: law
+        sections:
+          - d1-s1c1: Prolegomena
+          - d1-s1c2: On the Passage in Hosea VI. 7
+          - d1-s1c3: On the Covenant of God with Adam & the Covenant of Works
+          - d1-s2c1: The Remnants of the Covenant of Works after the Fall, and their various Economies
+            loci: old-covenant
+          - d1-s2c2: That Lev. XVIII does not speak of the Covenant of Works, but of the Economy of the Covenant of Grace
+            loci: old-covenant
+          - d1-s2c3: Ezekiel XX. 1-21 is explained, demonstrating that the Prophet speaks not of the Covenant of Works but of Grace
+            loci: old-covenant
+          - d1-s2c4: Parallel Passages of the New Testament are explained
+          - d1-s2c5: Deut. XXVII. 26 & Gal. III. 10 are explained, not of the Covenant of Works, but of the Economy of the Covenant of Grace
+            loci: old-covenant
+          - d1-s3c1: On the Explanation of Original Sin from the Covenant of Works of Adam
+            loci: original-sin
+          - d1-s3c2: On the Satisfaction of Christ & his Subjection to the Divine Law
+            loci: atonement
+          - d1-s3c3: On the Justification of a Sinner from the Nature of the Covenant of Works
+            loci: justification
+          - d1-s4c1: On the Consensus of Theologians
+          - d1-s4c2: The Argument from the Condemned Opinion of Adversaries, especially the Socinians
+          - d1-s4c3: On the Fault of Logomachia
+          - d1-s4c4: On the Eternal Covenant of the Father & the Son and the Covenant of Works
+            loci: covenant-of-grace
+          - d1-s4-ann: Annotations to Sect. IV Cap. IV
+      - diss-2: "Second Theological Dissertation: On the Covenant of Peace of God and its Various Economies"
+        loci: covenant-of-grace
+        sections:
+          - d2-s1c1: Definition of the Covenant of Peace
+          - d2-s1c2: "On the Argument of the Author's Book, The Eternal Gospel"
+          - d2-s1c3: On the Explanation of the Covenant of Grace from the Mind of the Distinguished Leidekker
+          - d2-s2c1: On the Unity & Varied Economy of the Covenant of Grace
+          - d2-s2c2: "On the Economy of the Covenant of Grace under the Promise given in Paradise, from Adam to Noah"
+          - d2-s2c3: "On the Economy of the Covenant of Grace under the Promise from the time of Noah to Abraham"
+          - d2-s2c4: "On the Covenants of the Promises of Abraham made in Uncircumcision & in Circumcision before the Law"
+          - d2-s3c1: "On the Legal Economy of the Covenant of Grace, or on the Law & the Mosaic Old Testament in General"
+            loci: old-covenant
+          - d2-s3c2: "On the General Oblation of the Mosaic Covenant, and its Reception by the People"
+            loci: old-covenant
+          - d2-s3c3: "On the Initiation of the Mosaic Covenant on Mount Sinai"
+            loci: old-covenant
+          - d2-s3c4: "On the Renewal of the Violated Israelite Covenant upon the Tablets & Precepts"
+            loci: old-covenant
+          - d2-s3c5: On the Final Perfection of the Mosaic Covenant over All Things Contained in the Last Book of the Law
+            loci: old-covenant
+          - d2-s4c1: "On the Gospel Economy of the Covenant of Grace, or the New Testament with the Law of Liberty"
+            loci: [gospel, new-covenant]
+          - d2-s4c2: On the New Testament
+            loci: new-covenant
+          - d2-s4c3: On the New Covenant
+            loci: new-covenant
+          - d2-s4c4: On the Distinction of the Old & New Testament from Jeremiah XXXI. 31-35
+            loci: [old-covenant, new-covenant]
+          - d2-s4c5: "On the Distinction of the Faith of the Promise, of the Law, and of the Gospel"
+            loci: faith
+      - diss-3: "Third Theological Dissertation: On Justification"
+        loci: justification
+        sections:
+          - d3-s1c1: On the Necessity & Method of this Dissertation
+          - d3-s1c2: "On the Name, Nature, & Members of Justification"
+          - d3-s1c3: On the Spicilegium of Justification from the Eternal Gospel
+          - d3-s1c4: On the Various Chapters of Justification treated in the Exercitationes
+          - d3-s2c1: On the Defense of the Justification of the Impious
+          - d3-s2c2: On the Defense of the Justification of the Pious
+          - d3-s2c3: On the Connection of the Benefits of Salvation in order to Justification
+            loci: salvation
+          - d3-s2c4: On the Accusations of Leidekker concerning the Eight Theses
+          - d3-s3c1: "On the New Method of Theology, according to which Justification is reduced to the Economy of the Father"
+          - d3-s3c2: "On Leidekker's Name and Definition of Justification"
+          - d3-s3c3: "On the Imputation of the Righteousness of Christ, or on Imputed Righteousness"
+          - d3-s3c4: "On the Connection of Justification & Sanctification, or of Faith & Good Works"
+            loci: [justification, sanctification]
+          - d3-s3c5: "On the Perfection of Remission, even before Sins are committed"
+          - d3-s3c6: "On Active & Passive Obedience, the Right & Possession of Eternal Life"
+          - d3-s3c6b: On the Justification of the Pious
+          - d3-s3c7: "On the Active & Passive Economy of Justification, & the varied Difference of the Old & New Testament"
+          - d3-s4c1: On the Opinion of certain Englishmen and its Comparison with ours
+          - d3-s4c2: On the Gallican Stain of Amyraldus & Le Blanc
+          - d3-s4c3: On the recent Anonymous Little Book on the Epistle to the Romans
+          - d3-s4c4: "On the Renewal of Remission after the more grievous Lapses of the Justified, through Repentance"
+            loci: [justification, repentance]
+    translations:
+      - AI: true
+        sites:
+          - site: RBO
+            url: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf
+            pdf: true
+            section_urls:
+              - diss-1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=71
+              - d1-s1c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=71
+              - d1-s1c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=81
+              - d1-s1c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=87
+              - d1-s2c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=90
+              - d1-s2c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=98
+              - d1-s2c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=104
+              - d1-s2c4: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=107
+              - d1-s2c5: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=115
+              - d1-s3c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=122
+              - d1-s3c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=126
+              - d1-s3c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=129
+              - d1-s4c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=131
+              - d1-s4c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=145
+              - d1-s4c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=148
+              - d1-s4c4: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=155
+              - d1-s4-ann: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=166
+              - diss-2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=171
+              - d2-s1c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=171
+              - d2-s1c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=175
+              - d2-s1c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=180
+              - d2-s2c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=188
+              - d2-s2c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=192
+              - d2-s2c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=195
+              - d2-s2c4: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=196
+              - d2-s3c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=198
+              - d2-s3c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=204
+              - d2-s3c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=207
+              - d2-s3c4: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=220
+              - d2-s3c5: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=224
+              - d2-s4c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=228
+              - d2-s4c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=234
+              - d2-s4c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=238
+              - d2-s4c4: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=243
+              - d2-s4c5: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=249
+              - diss-3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=254
+              - d3-s1c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=254
+              - d3-s1c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=256
+              - d3-s1c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=261
+              - d3-s1c4: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=268
+              - d3-s2c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=277
+              - d3-s2c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=281
+              - d3-s2c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=284
+              - d3-s2c4: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=286
+              - d3-s3c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=290
+              - d3-s3c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=294
+              - d3-s3c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=299
+              - d3-s3c4: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=303
+              - d3-s3c5: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=308
+              - d3-s3c6: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=313
+              - d3-s3c6b: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=317
+              - d3-s3c7: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=320
+              - d3-s4c1: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=324
+              - d3-s4c2: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=326
+              - d3-s4c3: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=329
+              - d3-s4c4: https://reformedbooksonline.com/wp-content/uploads/2026/02/Vlak-A-Triad-of-Dissertations-on-the-Covenants-and-Justification-contra-Leydekker.pdf#page=333

@@ -25,7 +25,7 @@ navExtra: '<div class="add-author-container"><a href="#" class="contribute-link"
     <ul class="works-index-list">
       {% for work in author.works %}
         <li>
-          {% if work.year %}<span class="work-year">{{ work.year }}.</span> {% endif %}<a href="/authors/{{ author.slug }}/#{{ work.id }}" class="work-title-inline">{{ work.title }}</a>{% if work.origTitle and work.origTitle != work.title %} <em class="work-orig-inline">({{ work.origTitle }})</em>{% endif %}
+          {% if work.year %}<span class="work-year">{{ work.year }}.</span> {% endif %}<a href="/authors/{{ author.slug }}/#{{ work.id }}" class="work-title-inline">{{ work.title }}</a>{% if work.origTitle and work.origTitle != work.title %} <em class="work-orig-inline">({{ work.origTitle }})</em>{% endif %}{% if work.oclc %} <a href="https://www.worldcat.org/oclc/{{ work.oclc }}" class="oclc-link" title="WorldCat">[WorldCat]</a>{% endif %}
         </li>
       {% endfor %}
     </ul>

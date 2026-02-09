@@ -58,6 +58,18 @@ function main() {
     if (!work.author) {
       console.error(`ERROR [${file}]: Missing author field`);
       errors++;
+    } else if (Array.isArray(work.author)) {
+      if (work.author.length === 0) {
+        console.error(`ERROR [${file}]: author array is empty`);
+        errors++;
+      }
+    }
+
+    if (work.corporate_author && typeof work.corporate_author === "object") {
+      if (!work.corporate_author.label) {
+        console.error(`ERROR [${file}]: corporate_author object missing label field`);
+        errors++;
+      }
     }
 
     // Check work-level loci

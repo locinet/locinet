@@ -12,8 +12,19 @@ function collectQids() {
     const raw = fs.readFileSync(path.join(WORKS_DIR, file), "utf8");
     const data = yaml.load(raw);
     const key = Object.keys(data)[0];
-    const author = data[key].author;
-    if (author) qids.add(author);
+    const work = data[key];
+    const author = work.author;
+    if (author) {
+      if (Array.isArray(author)) {
+        for (const qid of author) qids.add(qid);
+      } else {
+        qids.add(author);
+      }
+    }
+    // Collect corporate_author QID if present
+    if (work.corporate_author && typeof work.corporate_author === "object" && work.corporate_author.qid) {
+      qids.add(work.corporate_author.qid);
+    }
   }
   return [...qids];
 }

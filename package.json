@@ -6,10 +6,17 @@
     "build": "npx @11ty/eleventy",
     "serve": "npx @11ty/eleventy --serve",
     "fetch": "node scripts/fetch-wikidata.js",
-    "validate": "node scripts/validate.js"
+    "validate": "node scripts/validate.js",
+    "pdf-toc": "node scripts/extract-pdf-toc.js",
+    "wikidata-search": "node scripts/wikidata-search.js",
+    "oclc-search": "node scripts/oclc-search.js",
+    "import-work": "node scripts/import-work.js"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.0.0",
     "js-yaml": "^4.1.0"
+  },
+  "devDependencies": {
+    "pdf-parse": "^2.4.5"
   }
 }

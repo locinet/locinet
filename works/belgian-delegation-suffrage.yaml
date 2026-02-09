@@ -1,0 +1,20 @@
+belgian-delegation-suffrage:
+  author:
+    - Q1698178
+    - Q606748
+    - Q606757
+  corporate_author: "Belgian Delegation to the Synod of Dort"
+  en:
+    title: Suffrage Delivered to the Synod of Dort
+    sections:
+      - first-article-election: "Concerning the First Article which is on Election and Reprobation (Part 1 on Election)"
+        loci: predestination
+      - first-article-reprobation: "Concerning the First Article which is on Election and Reprobation (Part 2 on Reprobation)"
+        loci: reprobation
+    translations:
+      - translator: Michael Lynch
+        sites:
+          - site: Translationes Lyncei
+            section_urls:
+              - first-article-election: https://michaellynch.substack.com/p/the-judgment-of-three-belgian-professors
+              - first-article-reprobation: https://michaellynch.substack.com/p/the-judgment-of-three-belgian-professors-5e1
