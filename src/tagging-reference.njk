@@ -14,10 +14,8 @@ Do not select loci where the topic is only briefly mentioned.</p>
 Changes to loci names require updating all work files that reference them.</p>
 
 <pre class="tagging-tree">
-{%- macro renderTree(nodes, prefix, isLast) -%}
+{%- macro renderTree(nodes, prefix) -%}
 {%- for node in nodes -%}
-{%- set connector = "" -%}
-{%- if prefix != "" -%}
 {%- if loop.last -%}
 {%- set connector = prefix + "└── " -%}
 {%- set childPrefix = prefix + "    " -%}
@@ -25,21 +23,24 @@ Changes to loci names require updating all work files that reference them.</p>
 {%- set connector = prefix + "├── " -%}
 {%- set childPrefix = prefix + "│   " -%}
 {%- endif -%}
-{%- else -%}
-{%- set connector = "" -%}
-{%- set childPrefix = "" -%}
+{{ "\n" + connector }}<strong>{{ node.name }}</strong>  <code>{{ node.slug }}</code>
+{%- if node.desc -%}
+{{ "\n" + childPrefix }}<span class="tree-desc">{{ node.desc }}</span>
 {%- endif -%}
-{{ connector }}{{ node.name | padEnd(50 - connector.length) }}  <code>{{ node.slug }}</code>
 {%- if node.children -%}
 {{ renderTree(node.children, childPrefix) }}
 {%- endif -%}
 {%- endfor -%}
 {%- endmacro -%}
 
-{% for node in site.lociTree %}
-<strong>{{ node.name }}</strong>  <code>{{ node.slug }}</code>
-{%- if node.children %}
+{%- for node in site.lociTree %}
+
+<strong class="tree-root">{{ node.name }}</strong>  <code>{{ node.slug }}</code>
+{%- if node.desc -%}
+{{ "\n  " }}<span class="tree-desc">{{ node.desc }}</span>
+{%- endif -%}
+{%- if node.children -%}
 {{ renderTree(node.children, "") }}
-{%- endif %}
-{% endfor %}
+{%- endif -%}
+{%- endfor %}
 </pre>

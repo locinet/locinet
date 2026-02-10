@@ -1,7 +1,7 @@
 ---
 layout: layout.njk
 pageTitle: "Locinet — Loci Theologici"
-navExtra: '<div class="add-author-container"><a href="#" class="contribute-link" id="add-author-btn">Add an author</a><div class="add-author-dropdown" id="add-author-dropdown" style="display:none;"><input type="text" id="author-search" placeholder="Search Wikidata for a person..." autocomplete="off"><div class="author-search-status" id="author-search-status"></div><ul class="author-search-results" id="author-search-results"></ul></div></div>'
+navExtra: '<div class="add-author-container"><a href="#" class="contribute-link" id="add-author-btn">Add a work</a> <a href="/contributing/" class="help-link" title="How to contribute">?</a><div class="add-author-dropdown" id="add-author-dropdown" style="display:none;"><input type="text" id="author-search" placeholder="Search for a person..." autocomplete="off"><div class="author-search-status" id="author-search-status"></div><ul class="author-search-results" id="author-search-results"></ul></div></div>'
 ---
 
 <h1>Loci Theologici</h1>
@@ -131,6 +131,10 @@ navExtra: '<div class="add-author-container"><a href="#" class="contribute-link"
 <script>
   const lociFlat = {{ site.lociFlat | dump | safe }};
   const traditions = {{ site.traditions | dump | safe }};
+  const siteAuthors = {
+    {% for author in site.authorPages %}"{{ author.qid }}": { name: {{ author.name | dump | safe }}, slug: "{{ author.slug }}" }{% if not loop.last %},{% endif %}
+    {% endfor %}
+  };
 </script>
 <script>
   // Tooltip for author mouseover

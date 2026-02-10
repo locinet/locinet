@@ -777,13 +777,14 @@
     });
   });
 
-  // --- Add an author (Wikidata search) ---
+  // --- Add a work (Wikidata search) ---
 
   const addAuthorBtn = document.getElementById("add-author-btn");
   const addAuthorDropdown = document.getElementById("add-author-dropdown");
   const authorSearchInput = document.getElementById("author-search");
   const authorSearchStatus = document.getElementById("author-search-status");
   const authorSearchResults = document.getElementById("author-search-results");
+  const knownAuthors = typeof siteAuthors !== "undefined" ? siteAuthors : {};
 
   if (addAuthorBtn && addAuthorDropdown) {
     let searchTimer = null;
@@ -886,13 +887,15 @@
             var dates = "";
             if (birth || death) dates = (birth || "?") + "\u2013" + (death || "");
 
+            var onSite = knownAuthors[qid];
             var li = document.createElement("li");
             li.innerHTML =
               '<span class="author-result-name">' + escapeHtml(label) + "</span>" +
+              (onSite ? ' <span class="author-on-site">\u2713 on site</span>' : "") +
               (dates ? ' <span class="author-result-dates">' + escapeHtml(dates) + "</span>" : "") +
               (desc ? '<br><span class="author-result-desc">' + escapeHtml(desc) + "</span>" : "");
             li.addEventListener("click", function () {
-              openNewWorkFile(qid, label);
+              openNewWorkFile(qid, onSite ? onSite.name : label);
               addAuthorDropdown.style.display = "none";
             });
             authorSearchResults.appendChild(li);
@@ -920,32 +923,32 @@
         typeof repoUrl !== "undefined"
           ? repoUrl
           : "https://github.com/locinet/locinet";
+      var guideUrl = "https://locinet.github.io/locinet/contributing/";
       var skeleton =
         "# New work for " + label + "\n" +
-        '# Fill in the fields below, then click "Commit changes" and open a pull request.\n' +
-        "# For valid loci tags, see the Tagging Reference page on the site.\n" +
-        "# For more examples, see other files in the works/ folder.\n\n" +
-        "CHANGE-THIS-ID:\n" +
+        "# Guide: " + guideUrl + "\n" +
+        "#\n" +
+        "# Instructions:\n" +
+        "#   1. Change the work ID below (e.g. calvin-institutes)\n" +
+        "#   2. Fill in the title, year, and translation fields\n" +
+        "#   3. Use AI to add sections and loci tags (see guide)\n" +
+        '#   4. Click "Commit changes" and open a pull request\n\n' +
+        "CHANGE-THIS-ID:  # <-- replace with a short slug (e.g. author-short-title)\n" +
         "  author: " + qid + "  # " + label + " \u2014 do not change\n" +
         "  # category: systematic  # Optional: systematic, monograph, sermons\n" +
-        "  # loci: tag  # Optional: work-level loci tag\n" +
-        "  la:  # Original language (use la, fr, de, nl, etc.)\n" +
-        "    title:  # REQUIRED\n" +
+        "  la:  # Change to original language if not Latin (fr, de, nl, etc.)\n" +
+        "    title:  # Original-language title\n" +
         "    orig_lang: true\n" +
         "    editions:\n" +
-        "      - year:  # REQUIRED\n" +
-        "        # place:  # Optional\n" +
+        "      - year:  # Year of first publication\n" +
         "  en:\n" +
-        "    title:  # REQUIRED: English title\n" +
-        "    sections:  # Optional\n" +
-        "      - section-id: Section Title\n" +
-        "        loci: tag  # Optional\n" +
+        "    title:  # English title\n" +
+        "    # sections:  # Use AI to generate sections from a table of contents\n" +
         "    translations:\n" +
-        "      - translator:  # Name of translator\n" +
-        "        # AI: true  # Set if AI-translated\n" +
+        "      - translator:  # Translator name\n" +
         "        sites:\n" +
-        "          - site:  # Hosting website name\n" +
-        "            url:  # URL to full text\n";
+        "          - site:  # Website name (e.g. CCEL, Internet Archive)\n" +
+        "            url:  # URL to the full text\n";
       var filename = slugify(label) + "-WORK.yaml";
       var url =
         repo +

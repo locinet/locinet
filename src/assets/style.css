@@ -43,6 +43,24 @@ a:hover { color: var(--link-hover); text-decoration: underline; }
   font-size: 0.85em;
   margin-left: auto;
 }
+.help-link {
+  font-size: 0.75em;
+  color: var(--muted);
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  display: inline-block;
+  width: 1.4em;
+  height: 1.4em;
+  text-align: center;
+  line-height: 1.4em;
+  text-decoration: none;
+  vertical-align: middle;
+}
+.help-link:hover {
+  background: var(--tag-bg);
+  color: var(--text);
+  text-decoration: none;
+}
 
 /* Author page header */
 .author-image-link {
@@ -283,6 +301,14 @@ body:has(.loci-page) { max-width: 1200px; }
 .tagging-tree strong {
   font-size: 1.1em;
 }
+.tagging-tree .tree-root {
+  font-size: 1.2em;
+}
+.tagging-tree .tree-desc {
+  color: var(--muted);
+  font-style: italic;
+  font-size: 0.9em;
+}
 
 /* Works index */
 .works-index-author { margin-bottom: 1.5em; }
@@ -340,6 +366,7 @@ body:has(.loci-page) { max-width: 1200px; }
   background: var(--tag-bg);
 }
 .author-result-name { font-weight: bold; }
+.author-on-site { font-size: 0.8em; color: #2e7d32; font-weight: bold; }
 .author-result-dates { color: var(--muted); font-size: 0.9em; }
 .author-result-desc { font-style: italic; color: var(--muted); font-size: 0.85em; }
 
