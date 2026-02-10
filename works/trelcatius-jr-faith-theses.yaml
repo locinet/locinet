@@ -1,0 +1,19 @@
+trelcatius-jr-faith-theses:
+  author: Q65851019
+  category: disputations
+  loci:
+    - faith
+    - justification
+  la:
+    title: Theologicae theses concernentes fidem iustificantem, et iustificationem fidei
+    orig_lang: true
+    editions:
+      - year: 1603
+        place: Leiden
+  en:
+    title: Theological Theses Concerning Justifying Faith and the Justification of Faith
+    translations:
+      - AI: true
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/2026/01/17/lucas-trelcatius-jr-c-1573-1607-on-faith-and-justification-by-faith/

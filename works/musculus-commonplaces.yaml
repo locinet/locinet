@@ -12,6 +12,16 @@ musculus-commonplaces:
         loci: god
       - works-of-god: Concerning the Works of God
         loci: works-of-god
+      - creation: Concerning Creation
+        loci: creation
+      - creation-of-angels: Concerning the Creation of Angels
+        loci: angels
+      - fall-of-angels: Concerning the Fall of the Angels
+        loci: angels
+      - creation-of-man: Concerning the Creation of Man
+        loci: man
+      - fall-of-man: Concerning the Fall of Man
+        loci: fall-of-man
     translations:
       - translator: Unknown AI
         AI: true
@@ -21,3 +31,8 @@ musculus-commonplaces:
             section_urls:
               - god: https://confessionallyreformed.wordpress.com/2026/01/01/wolfgang-musculus-1497-1563-on-god/
               - works-of-god: https://confessionallyreformed.wordpress.com/2026/01/01/wolfgang-musculus-c-1497-1563-on-the-works-of-god/
+              - creation: https://confessionallyreformed.wordpress.com/2026/01/01/wolfgang-musculus-c-1497-1563-on-creation/
+              - creation-of-angels: https://confessionallyreformed.wordpress.com/2026/01/01/wolfgang-musculus-c-1497-1563-on-the-creation-of-angels/
+              - fall-of-angels: https://confessionallyreformed.wordpress.com/2026/01/02/wolfgang-musculus-c-1497-1563-on-the-fall-of-the-angels/
+              - creation-of-man: https://confessionallyreformed.wordpress.com/2026/01/02/wolfgang-musculus-c-1497-1563-on-the-creation-of-man/
+              - fall-of-man: https://confessionallyreformed.wordpress.com/2026/01/02/wolfgang-musculus-c-1497-1563-on-the-fall-of-man/

@@ -5,15 +5,22 @@ alting-methodus: # Every work should have its own YAML file, which should start 
     orig_lang: true
     editions:
       - year: 1658
-  en: 
-    sections: # Sections should be the sections written by the author himself. Prefatory introductions by other authors should not be included. 
+  en:
+    title: Method of Didactic Theology
+    sections:
       - nature-of-theology: On the Nature of Theology
         loci: theology
-    translations: 
-      - translator: Unknown AI (2026) # Name of the translator.
+      - methodus-god: On God
+        loci: god
+      - methodus-church: "Locus 13: On the Church"
+        loci: church
+    translations:
+      - translator: Unknown AI (2026)
         AI: true
-        sites: 
+        sites:
           - site: Confessionally Reformed
-            url: https://confessionallyreformed.wordpress.com/2026/02/04/johann-heinrich-alting-c-1583-1644-on-the-nature-of-theology-2/
-            section_urls: # If URLs are in the exact same order as the sections above, they can be listed with dashes before them.
+            url: https://confessionallyreformed.wordpress.com/
+            section_urls:
               - nature-of-theology: https://confessionallyreformed.wordpress.com/2026/02/04/johann-heinrich-alting-c-1583-1644-on-the-nature-of-theology-2/
+              - methodus-god: https://confessionallyreformed.wordpress.com/2025/04/20/johann-heinrich-alting-c-1644-on-god/
+              - methodus-church: https://confessionallyreformed.wordpress.com/2025/12/31/johann-heinrich-alting-c-1583-1644-on-the-church-3/

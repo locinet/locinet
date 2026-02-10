@@ -90,7 +90,9 @@
       "WebFetch(domain:www.ccel.org)",
       "WebFetch(domain:aquinas.cc)",
       "Bash(ls -la \"C:\\\\Users\\\\jfhut\\\\locinet\\\\_cache\\\\authors\"\" | grep -i \"q9438|aquinas \")",
-      "WebFetch(domain:www.newadvent.org)"
+      "WebFetch(domain:www.newadvent.org)",
+      "WebFetch(domain:confessionallyreformed.wordpress.com)",
+      "WebFetch(domain:theologicalmeditations.blogspot.com)"
     ]
   }
 }

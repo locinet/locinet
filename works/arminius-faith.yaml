@@ -1,0 +1,17 @@
+arminius-faith:
+  author: Q313070
+  category: disputations
+  loci: faith
+  la:
+    title: De fide
+    orig_lang: true
+    editions:
+      - year: 1615
+        place: Leiden
+  en:
+    title: On Faith
+    translations:
+      - AI: true
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/2026/01/14/franciscus-gomarus-jacobus-arminius-c-1560-1641-on-faith/

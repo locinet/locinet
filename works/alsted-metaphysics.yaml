@@ -1,0 +1,55 @@
+alsted-metaphysics:
+  author: Q454743
+  la:
+    title: Metaphysicae brevissima delineatio
+    orig_lang: true
+    editions:
+      - year: 1611
+        place: Herborn
+  en:
+    title: A Most Brief Delineation of Metaphysics
+    sections:
+      - intro: Introduction into Metaphysics
+      - ch1: "Chapter 1: On the Nature of Metaphysics"
+      - ch2: "Chapter 2: On Essence and Existence"
+      - ch3: "Chapter 3: On Unity"
+      - ch4: "Chapter 4: On Truth"
+      - ch5: "Chapter 5: On Goodness"
+      - ch6: "Chapter 6: On the Same and the Diverse"
+      - ch7: "Chapter 7: On the Whole and the Part"
+      - ch8: "Chapter 8: On the Simple and the Composite"
+      - ch9: "Chapter 9: On the Perfect and the Imperfect"
+      - ch10: "Chapter 10: On the Natural and the Artificial"
+      - ch11: "Chapter 11: On the Finite and the Infinite"
+      - ch12: "Chapter 12: On the Necessary and the Contingent"
+      - ch13: "Chapter 13: On the Uncreated and the Created"
+      - ch14: "Chapter 14: On the Illocal and the Local"
+      - ch15: "Chapter 15: On Act and Potency"
+      - ch16: "Chapter 16: On the Possible and the Impossible"
+      - ch17: "Chapter 17: On the Cause and the Caused"
+      - ch18: "Chapter 18: On Substance and Accident"
+    translations:
+      - AI: true
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/by-author/the-17th-century/johann-heinrich-alsted-c-1588-1638/a-most-brief-delineation-of-metaphysics-1611/
+            section_urls:
+              - intro: https://confessionallyreformed.wordpress.com/2026/02/08/johann-heinrich-alsted-c-1588-1638-on-metaphysics-an-introduction/
+              - ch1: https://confessionallyreformed.wordpress.com/2026/02/08/johann-heinrich-alsted-c-1588-1638-on-the-nature-of-metaphysics/
+              - ch2: https://confessionallyreformed.wordpress.com/2026/02/08/johann-heinrich-alsted-c-1588-1638-on-essence-and-existence/
+              - ch3: https://confessionallyreformed.wordpress.com/2026/02/08/johann-heinrich-alsted-c-1588-1638-on-unity/
+              - ch4: https://confessionallyreformed.wordpress.com/2026/02/08/johann-heinrich-alsted-c-1588-1638-on-truth/
+              - ch5: https://confessionallyreformed.wordpress.com/2026/02/08/johann-heinrich-alsted-c-1588-1638-on-goodness/
+              - ch6: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-same-and-the-diverse/
+              - ch7: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-whole-and-the-part/
+              - ch8: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-simple-and-the-composite/
+              - ch9: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-perfect-and-the-imperfect/
+              - ch10: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-natural-and-the-artificial/
+              - ch11: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-finite-and-the-infinite/
+              - ch12: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-necessary-and-the-contingent/
+              - ch13: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-uncreated-and-the-created-and-synonymous-divisions/
+              - ch14: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-illocal-and-the-local/
+              - ch15: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-act-and-potency/
+              - ch16: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-possible-and-the-impossible/
+              - ch17: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-the-cause-and-the-caused/
+              - ch18: https://confessionallyreformed.wordpress.com/2026/02/09/johann-heinrich-alsted-c-1588-1638-on-substance-and-accident/

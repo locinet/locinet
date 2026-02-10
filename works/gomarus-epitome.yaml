@@ -1,0 +1,48 @@
+gomarus-epitome:
+  author: Q931871
+  category: systematic
+  la:
+    title: Locorum communium theologicorum epitome
+    orig_lang: true
+    editions:
+      - year: 1653
+        place: Amsterdam
+  en:
+    title: An Epitome of Common Theological Topics
+    sections:
+      - theology: On Theology
+        loci: theology
+      - scripture: On Sacred Scripture
+        loci: scripture
+      - god: On God, One and Triune
+        loci: god
+      - decree: On the Eternal Decree of God
+        loci: predestination
+      - predestination: On Predestination
+        loci: predestination
+      - creation: On the Creation of the World
+        loci: creation
+      - angels: On Created Angels and the True and False Honor of Them
+        loci: angels
+      - sacraments: On the Sacraments
+        loci: sacraments
+      - eucharist: On the Eucharist
+        loci: lords-supper
+      - christian-liberty: On Christian Liberty
+        loci: christian-liberty
+    translations:
+      - AI: true
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/
+            section_urls:
+              - theology: https://confessionallyreformed.wordpress.com/2026/01/23/franciscus-gomarus-c-1563-1641-on-theology/
+              - scripture: https://confessionallyreformed.wordpress.com/2026/01/23/franciscus-gomarus-c-1563-1641-on-sacred-scripture/
+              - god: https://confessionallyreformed.wordpress.com/2026/01/24/franciscus-gomarus-c-1563-1641-on-god-one-and-triune/
+              - decree: https://confessionallyreformed.wordpress.com/2026/01/24/franciscus-gomarus-c-1563-1641-on-the-eternal-decree-of-god/
+              - predestination: https://confessionallyreformed.wordpress.com/2026/01/24/franciscus-gomarus-c-1563-1641-on-predestination/
+              - creation: https://confessionallyreformed.wordpress.com/2026/01/24/franciscus-gomarus-c-1563-1641-on-the-creation-of-the-world/
+              - angels: https://confessionallyreformed.wordpress.com/2026/01/25/franciscus-gomarus-c-1563-1641-on-the-created-angels-and-the-true-and-false-honor-of-them/
+              - sacraments: https://confessionallyreformed.wordpress.com/2026/01/25/franciscus-gomarus-c-1563-1641-on-the-sacraments/
+              - eucharist: https://confessionallyreformed.wordpress.com/2026/01/25/franciscus-gomarus-c-1563-1641-on-the-eucharist/
+              - christian-liberty: https://confessionallyreformed.wordpress.com/2026/01/25/franciscus-gomarus-c-1563-1641-on-christian-liberty/

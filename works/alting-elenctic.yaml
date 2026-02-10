@@ -14,6 +14,8 @@ alting-elenctic:
         loci: law
       - 11: "THE ELEVENTH TOPIC: On the GOSPEL, or the COVENANT OF GRACE"
         loci: covenant-of-grace
+      - 13: "THE THIRTEENTH TOPIC: On the CHURCH"
+        loci: church
     translations:
       - translator: Unknown AI (2026)
         AI: true
@@ -22,6 +24,7 @@ alting-elenctic:
             url: https://confessionallyreformed.wordpress.com/2026/02/04/johann-heinrich-alting-c-1583-1644-on-elenctic-theology/
             section_urls:
               - prooemium: https://confessionallyreformed.wordpress.com/2026/02/04/johann-heinrich-alting-c-1583-1644-on-elenctic-theology/
+              - 13: https://confessionallyreformed.wordpress.com/2025/12/31/johann-heinrich-alting-c-1583-1644-on-the-church-2/
       - translator: Nosferatu (AI assisted?)
         AI: true
         sites:

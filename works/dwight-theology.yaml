@@ -1,0 +1,18 @@
+dwight-theology:
+  author: Q325553
+  category: sermons
+  en:
+    title: "Theology Explained and Defended: In a Series of Sermons"
+    orig_lang: true
+    editions:
+      - year: 1823
+        place: New Haven
+    sections:
+      - sermon-105: "Sermon 105: The Fourth Commandment, the Perpetuity of the Sabbath"
+        loci: sabbath
+    translations:
+      - sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/
+            section_urls:
+              - sermon-105: https://confessionallyreformed.wordpress.com/2025/10/20/timothy-dwight-c-1752-1817-on-the-perpetuity-of-the-sabbath-the-fourth-commandment/

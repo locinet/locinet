@@ -15,6 +15,16 @@ leblanc-theses:
         loci: free-will
       - free-choice-catholic: On Free Choice in General (Roman Catholic Positions)
         loci: free-will
+      - predestination: On the Eternal Election and Predestination of Men
+        loci: predestination
+      - cause-predestination: On the Cause of Predestination
+        loci: predestination
+      - perspicuity: On the Perspicuity of Sacred Scripture
+        loci: scripture
+      - certainty-faith: On the Certainty Which Belongs to Faith
+        loci: faith
+      - vernacular-scripture: On Vulgar and Vernacular Versions of the Scripture
+        loci: scripture
     translations:
       - translator: Claude 3 Opus edited by Onku
         AI: true
@@ -29,3 +39,13 @@ leblanc-theses:
             section_urls:
               - free-choice-reformed: https://michaellynch.substack.com/p/le-blanc-on-free-choice-in-general
               - free-choice-catholic: https://michaellynch.substack.com/p/le-blanc-on-free-choice-in-general-557
+      - AI: true
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/
+            section_urls:
+              - predestination: https://confessionallyreformed.wordpress.com/2026/01/12/louis-le-blanc-de-beaulieu-c-1614-1675-on-the-eternal-election-and-predestination-of-men/
+              - cause-predestination: https://confessionallyreformed.wordpress.com/2026/01/11/louis-le-blanc-de-beaulieu-c-1614-1675-on-the-cause-of-predestination/
+              - perspicuity: https://confessionallyreformed.wordpress.com/2026/01/12/louis-le-blanc-de-beaulieu-c-1614-1675-on-the-perspicuity-of-sacred-scripture/
+              - certainty-faith: https://confessionallyreformed.wordpress.com/2026/01/12/louis-le-blanc-de-beaulieu-c-1614-1675-on-the-certainty-which-belongs-to-faith/
+              - vernacular-scripture: https://confessionallyreformed.wordpress.com/2026/01/13/louis-le-blanc-de-beaulieu-c-1614-1675-on-vulgar-and-vernacular-versions-of-the-scripture/

@@ -1,0 +1,22 @@
+beza-propositions:
+  author:
+    - Q314981
+    - Q27070471
+  la:
+    title: Propositions and Principles of Divinitie
+    orig_lang: true
+    editions:
+      - year: 1591
+        place: Edinburgh
+  en:
+    title: Propositions and Principles of Divinity
+    sections:
+      - sanctification: On Sanctification
+        loci: sanctification
+    translations:
+      - year: 1591
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/
+            section_urls:
+              - sanctification: https://confessionallyreformed.wordpress.com/2025/05/21/theodore-de-beze-c-1605-on-sanctification/

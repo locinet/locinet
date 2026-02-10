@@ -7,212 +7,281 @@
 # - Loci may be moved around the tree without breaking anything.
 # - Changing the NAME (and thus slug) of a locus requires updating all work files that reference it.
 # - Slugs: lowercase, spaces to hyphens, no apostrophes or special characters.
+# - desc: optional definition to disambiguate scope for AI tagging.
 
 - name: Theology
   slug: theology
   children:
     - name: Nature of theology
       slug: nature-of-theology
+      desc: The object, method, and divisions of theology as a discipline
     - name: Natural theology
       slug: natural-theology
+      desc: Knowledge of God attainable by unaided reason from creation and conscience
     - name: Supernatural theology
       slug: supernatural-theology
+      desc: Knowledge of God derived from divine revelation
       children:
         - name: Scripture
           slug: scripture
+          desc: The nature, authority, canon, and interpretation of Holy Scripture
           children:
             - name: Illumination
               slug: illumination
+              desc: The internal work of the Holy Spirit enabling understanding of Scripture
             - name: Credibility of Scripture
               slug: credibility-of-scripture
             - name: Sufficiency of Scripture
               slug: sufficiency-of-scripture
+              desc: Whether Scripture alone contains all things necessary for salvation
 
 - name: God
   slug: god
   children:
     - name: Being of God
       slug: being-of-god
+      desc: "The divine essence and being considered in itself (De Deo Uno)"
       children:
         - name: Existence of God
           slug: existence-of-god
+          desc: Arguments and proofs for the existence of God
         - name: Knowability of God
           slug: knowability-of-god
+          desc: Whether and how God can be known by creatures
         - name: Attributes of God
           slug: attributes-of-god
+          desc: "The divine attributes generally, or specific attributes lacking their own locus (e.g., wisdom, holiness, omnipresence)"
           children:
             - name: Divine Simplicity
               slug: divine-simplicity
+              desc: God's lack of composition; that God is not made up of parts
             - name: Goodness of God
               slug: goodness-of-god
             - name: Invisibility of God
               slug: invisibility-of-god
             - name: Power of God
               slug: power-of-god
+              desc: Divine omnipotence and its extent
             - name: Divine Perfection
               slug: divine-perfection
             - name: Divine Infinity
               slug: divine-infinity
+              desc: "God's boundlessness, including immensity and omnipresence"
             - name: Divine Immutability
               slug: divine-immutability
             - name: Divine Eternity
               slug: divine-eternity
             - name: Divine Love
               slug: divine-love
+              desc: God's love as a divine attribute (distinct from charity as a human virtue)
             - name: Divine Justice
               slug: divine-justice
             - name: Divine Mercy
               slug: divine-mercy
             - name: Unity of God
               slug: unity-of-god
+              desc: That there is only one God; divine unicity
         - name: Knowledge of God
           slug: knowledge-of-god
+          desc: "God's own knowledge (scientia Dei): foreknowledge, middle knowledge, and the divine ideas"
         - name: Will of God
           slug: will-of-god
+          desc: "The divine will: its nature, freedom, and objects (voluntas Dei)"
         - name: Names of God
           slug: names-of-god
+          desc: The divine names and titles as a theological topic (De Nominibus Dei)
         - name: Trinity
           slug: trinity
+          desc: "The doctrine of the triune God: the three persons, their relations, processions, and missions"
     - name: Works of God
       slug: works-of-god
       children:
         - name: Creation
           slug: creation
+          desc: "The doctrine of creation: God's bringing all things into being from nothing"
         - name: Predestination
           slug: predestination
+          desc: "God's eternal decree concerning the salvation of rational creatures"
           children:
             - name: Reprobation
               slug: reprobation
+              desc: God's decree to pass over or condemn the non-elect
         - name: Providence
           slug: providence
+          desc: God's ongoing governance and preservation of creation
 
 - name: Angels
   slug: angels
+  desc: "The nature, orders, and activities of angels and demons"
 
 - name: Man
   slug: man
+  desc: Theological anthropology
   children:
     - name: Nature of man
       slug: nature-of-man
+      desc: The constitution of human nature as body and soul
       children:
         - name: Soul
           slug: soul
+          desc: "The nature, faculties, and immortality of the rational soul"
         - name: Conscience
           slug: conscience
+          desc: The practical judgment of reason regarding the morality of particular acts
         - name: Image of God
           slug: image-of-god
         - name: Free will
           slug: free-will
+          desc: "The will's freedom or bondage, especially in relation to grace and sin"
         - name: Original righteousness
           slug: original-righteousness
+          desc: The state of integrity and holiness in which man was created before the fall
     - name: Happiness
       slug: happiness
+      desc: "Beatitudo: the ultimate end and highest good of man"
     - name: Human acts
       slug: human-acts
+      desc: "Actus humani: deliberate, voluntary acts proceeding from reason and will"
     - name: Passions
       slug: passions
+      desc: "Appetitive movements of the soul (love, hate, desire, fear, anger, etc.)"
     - name: Virtue
       slug: virtue
+      desc: "Virtue generally: its nature, kinds, and relation to the good life"
       children:
         - name: Prudence
           slug: prudence
         - name: Justice
           slug: justice
+          desc: The cardinal virtue of rendering to each what is due (distinct from divine justice)
         - name: Fortitude
           slug: fortitude
         - name: Temperance
           slug: temperance
     - name: Sin
       slug: sin
+      desc: "Sin broadly: its nature, causes, and effects"
       children:
         - name: Origin of sin
           slug: origin-of-sin
+          desc: The ultimate origin and cause of sin
         - name: Nature of sin
           slug: nature-of-sin
         - name: Fall of man
           slug: fall-of-man
+          desc: "Adam's first transgression and its immediate consequences"
         - name: Original sin
           slug: original-sin
+          desc: "Inherited guilt and corruption from Adam's first sin"
         - name: Transmission of sin
           slug: transmission-of-sin
+          desc: "How original sin is propagated to Adam's posterity"
         - name: Concupiscence
           slug: concupiscence
+          desc: "Disordered desire remaining after the fall; the inclination toward sin"
         - name: Punishment of sin
           slug: punishment-of-sin
     - name: Grace
       slug: grace
+      desc: "Divine grace broadly: its nature, necessity, and divisions (distinct from specific effects like justification)"
       children:
         - name: Covenant of grace
           slug: covenant-of-grace
+          desc: "God's covenant of salvation in Christ, including its administration across Old and New Testaments"
           children:
             - name: Old covenant
               slug: old-covenant
+              desc: The Mosaic administration of the covenant of grace
             - name: New covenant
               slug: new-covenant
+              desc: The covenant as administered after the coming of Christ
             - name: Gospel
               slug: gospel
+              desc: The gospel promise of salvation in Christ as distinct from the law
             - name: Spiritual gifts
               slug: spiritual-gifts
+              desc: Extraordinary and ordinary gifts of the Holy Spirit (charismata)
 
 - name: Law
   slug: law
+  desc: "The divine, natural, and positive law as a rule of life"
   children:
     - name: Eternal law
       slug: eternal-law
+      desc: "God's eternal plan and reason governing all creation"
     - name: Natural law
       slug: natural-law
+      desc: The moral law as known by human reason apart from special revelation
     - name: Human law
       slug: human-law
+      desc: Positive law enacted by human authority
     - name: Moral law
       slug: moral-law
+      desc: "The moral law as summarized in the Ten Commandments; specific duties and prohibitions"
       children:
         - name: Worship
           slug: worship
+          desc: The regulation and practice of divine worship (first table of the law)
           children:
             - name: Idolatry
               slug: idolatry
             - name: Oaths
               slug: oaths
+              desc: "The lawful use of oaths and vows, and the sin of perjury"
             - name: Sabbath
               slug: sabbath
         - name: Chastity
           slug: chastity
         - name: War
           slug: war
+          desc: "The justice of war, just war theory, and the Christian's relation to warfare"
         - name: Property
           slug: property
+          desc: "Theft, ownership, and obligations regarding others' goods"
         - name: Truth
           slug: truth
+          desc: "Truthfulness, lying, and the obligation to bear true witness"
     - name: Ceremonial law
       slug: ceremonial-law
+      desc: "The Old Testament ceremonial precepts (sacrifices, cleanness laws) and their abrogation"
     - name: Judicial law
       slug: judicial-law
+      desc: The Old Testament civil and judicial precepts
     - name: Purpose of law
       slug: purpose-of-law
+      desc: "The uses or functions of the law (usus legis): pedagogical, civil, normative"
     - name: Christian liberty
       slug: christian-liberty
+      desc: "Freedom from the law's condemnation, ceremonies, and human traditions"
 
 - name: Christ
   slug: christ
   children:
     - name: Person of Christ
       slug: person-of-christ
+      desc: The constitution of Christ's person as one person in two natures
       children:
         - name: Names of Christ
           slug: names-of-christ
         - name: Natures of Christ
           slug: natures-of-christ
+          desc: "The divine and human natures of Christ, their properties, and their union"
     - name: Incarnation
       slug: incarnation
+      desc: The assumption of human nature by the eternal Son of God
     - name: States of Christ
       slug: states-of-christ
+      desc: The successive states of Christ's humiliation and exaltation
       children:
         - name: State of humiliation
           slug: state-of-humiliation
+          desc: "Christ's earthly life, suffering, and death"
         - name: State of exaltation
           slug: state-of-exaltation
+          desc: "Christ's resurrection, ascension, and session at God's right hand"
     - name: Offices of Christ
       slug: offices-of-christ
+      desc: The threefold office (munus triplex) of Christ as prophet, priest, and king
       children:
         - name: Prophetic office
           slug: prophetic-office
@@ -221,72 +290,98 @@
           children:
             - name: Atonement
               slug: atonement
+              desc: "Christ's work of satisfying divine justice and reconciling sinners to God"
         - name: Kingly office
           slug: kingly-office
 
 - name: Salvation
   slug: salvation
+  desc: The application of redemption to believers (ordo salutis)
   children:
     - name: Union with Christ
       slug: union-with-christ
+      desc: The believer's spiritual union and communion with Christ (unio mystica)
     - name: Calling
       slug: calling
+      desc: Divine calling (vocatio) in the order of salvation
       children:
         - name: External calling
           slug: external-calling
+          desc: The outward call of the gospel through the preaching of the Word
         - name: Effectual calling
           slug: effectual-calling
+          desc: The inward call of the Spirit that infallibly brings about conversion
     - name: Faith
       slug: faith
+      desc: "Saving faith (fides salvifica): its nature, object, and acts"
     - name: Hope
       slug: hope
+      desc: "The theological virtue of hope: confident expectation of eternal life"
     - name: Charity
       slug: charity
+      desc: "Caritas: the theological virtue of love toward God and neighbor (not almsgiving)"
     - name: Repentance
       slug: repentance
+      desc: "Turning from sin to God: contrition, confession, and amendment of life"
     - name: Justification
       slug: justification
+      desc: The act of God declaring sinners righteous on account of Christ
     - name: Sanctification
       slug: sanctification
+      desc: The progressive renewal of the believer in holiness by the Holy Spirit
     - name: Adoption
       slug: adoption
+      desc: God's act of receiving believers as children and heirs
     - name: Good works
       slug: good-works
+      desc: "The nature, necessity, and place of good works in the Christian life"
     - name: Merit
       slug: merit
+      desc: Whether and how human works merit reward before God
     - name: Perseverance
       slug: perseverance
+      desc: The preservation of the saints in grace unto final salvation
     - name: Glorification
       slug: glorification
+      desc: The final glorification of believers in the resurrection
 
 - name: Church
   slug: church
   children:
     - name: Nature of the church
       slug: nature-of-the-church
+      desc: "What the church is: its definition, attributes, and membership"
       children:
         - name: Unity of the church
           slug: unity-of-the-church
         - name: True church
           slug: true-church
+          desc: The marks (notae) by which the true church is identified and distinguished from false churches
     - name: Government of the church
       slug: government-of-the-church
+      desc: "Church polity: the offices, structures, and forms of church government"
       children:
         - name: Papacy
           slug: papacy
+          desc: The claims and authority of the Bishop of Rome
         - name: Ordination
           slug: ordination
         - name: Church discipline
           slug: church-discipline
+          desc: "The exercise of corrective discipline, censures, and excommunication"
     - name: Power of the church
       slug: power-of-the-church
+      desc: "Ecclesiastical power and jurisdiction (potestas ecclesiae): the keys, authority, and limits of church power"
     - name: Means of grace
       slug: means-of-grace
+      desc: The appointed instruments through which God communicates grace to believers
       children:
         - name: Word of God
           slug: word-of-god
+          desc: The preaching and public reading of Scripture as a means of grace (distinct from the doctrine of Scripture itself)
         - name: Sacraments
           slug: sacraments
+          desc: "The sacraments generally: their nature, number, and efficacy"
           children:
             - name: Baptism
               slug: baptism
@@ -294,6 +389,7 @@
               slug: lords-supper
             - name: Penance
               slug: penance
+              desc: "The sacrament of penance: confession, contrition, absolution, and satisfaction"
               children:
                 - name: Indulgences
                   slug: indulgences
@@ -305,16 +401,21 @@
           slug: prayer
     - name: Marriage
       slug: marriage
+      desc: Marriage as a divine institution and (in some traditions) a sacrament
     - name: Civil government
       slug: civil-government
+      desc: "The civil magistrate: the authority of the state, church-state relations, and the Christian's duty to civil authority"
 
 - name: Last things
   slug: last-things
+  desc: Eschatology; the final destiny of individuals and the world
   children:
     - name: Death
       slug: death
+      desc: "The nature of death, its cause in sin, and its meaning for the believer"
     - name: Intermediate state
       slug: intermediate-state
+      desc: The state of the soul between death and the bodily resurrection
       children:
         - name: Purgatory
           slug: purgatory
@@ -322,11 +423,14 @@
       slug: second-coming
     - name: Millennium
       slug: millennium
+      desc: "The thousand-year reign of Christ (Rev. 20) and its interpretation"
     - name: Resurrection of the dead
       slug: resurrection-of-the-dead
     - name: Final judgement
       slug: final-judgement
     - name: Beatific vision
       slug: beatific-vision
+      desc: The direct vision and enjoyment of God by the blessed in heaven
     - name: Final state
       slug: final-state
+      desc: The eternal states of heaven and hell after the final judgment

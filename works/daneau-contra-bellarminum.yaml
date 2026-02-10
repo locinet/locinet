@@ -1,0 +1,20 @@
+daneau-contra-bellarminum:
+  author: Q6481240
+  la:
+    title: Ad tomum II controversiarum Roberti Bellarmini responsio
+    orig_lang: true
+    editions:
+      - year: 1598
+        place: Geneva
+  en:
+    title: Response to Bellarmine's Controversies, Volume 2
+    sections:
+      - baptism: On Baptism
+        loci: baptism
+    translations:
+      - AI: true
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/
+            section_urls:
+              - baptism: https://confessionallyreformed.wordpress.com/2026/01/22/lambertus-daneau-c-1530-1595-on-baptism/

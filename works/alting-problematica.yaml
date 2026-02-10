@@ -1,0 +1,20 @@
+alting-problematica:
+  author: Q1971867
+  la:
+    title: Theologia problematica nova
+    orig_lang: true
+    editions:
+      - year: 1662
+        place: Amsterdam
+  en:
+    title: New Problematic Theology
+    sections:
+      - locus-13: "Locus 13: Problems on the Church"
+        loci: church
+    translations:
+      - AI: true
+        sites:
+          - site: Confessionally Reformed
+            url: https://confessionallyreformed.wordpress.com/
+            section_urls:
+              - locus-13: https://confessionallyreformed.wordpress.com/2025/12/31/johann-heinrich-alting-c-1583-1644-on-the-church-4/
