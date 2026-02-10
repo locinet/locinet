@@ -1,0 +1,21 @@
+bergius-johann-holy-supper:
+  author: Q1692675
+  loci: lords-supper
+  de:
+    title: "Da\xDF die Wort Christi noch veste stehen"
+    orig_lang: true
+    editions:
+      - year: 1632
+        place: Berlin
+        sites:
+          - site: SLUB Dresden
+            url: https://digital.slub-dresden.de/werkansicht/dlf/3826/5
+  en:
+    title: "The Holy Supper: Healing the Reformed and Lutheran Divide"
+    translations:
+      - translator: Oz (Reformed Retrieval)
+        AI: true
+        sites:
+          - site: Dropbox
+            url: https://www.dropbox.com/scl/fo/uv2juioyzp386pfbj4aq4/APeC1pYJMHheaOyny5sRVO0/%5BJohann%20Bergius%5D%20The%20Holy%20Supper.pdf?rlkey=fxax6agqlrzlwoukaiwdgtedf&e=1&dl=0
+            pdf: true

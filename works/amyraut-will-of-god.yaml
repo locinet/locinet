@@ -1,0 +1,22 @@
+amyraut-will-of-god:
+  author: Q1236249
+  category: disputations
+  loci: will-of-god
+  la:
+    title: Syntagma thesium theologicorum in Academia Salmuriensis
+    orig_lang: true
+    editions:
+      - year: 1665
+        place: Saumur
+        sites:
+          - site: Google Books
+            url: https://books.google.com/books?id=redb4dlhJQMC
+  en:
+    title: Thesis on the Will of God
+    translations:
+      - translator: Oz (Reformed Retrieval)
+        AI: true
+        sites:
+          - site: Dropbox
+            url: https://www.dropbox.com/scl/fo/uv2juioyzp386pfbj4aq4/AJLGTL08p726Uz2fnneHIHw/%5BMoses%20Amyraut%5D%20Thesis%20on%20The%20Will%20of%20God.pdf?rlkey=fxax6agqlrzlwoukaiwdgtedf&e=1&dl=0
+            pdf: true

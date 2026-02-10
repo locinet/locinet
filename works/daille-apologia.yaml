@@ -1,0 +1,33 @@
+daille-apologia:
+  author: Q3171523
+  loci: government-of-the-church
+  la:
+    title: Apologia pro duabus Ecclesiarum in Gallia protestantium synodis nationalibus
+    orig_lang: true
+    editions:
+      - year: 1655
+        place: Amsterdam
+  en:
+    title: In Defense of the National Synods of the French Reformed Churches
+    sections:
+      - vol-1: "Volume 1: Apologia"
+      - vol-2-testimonies: "Volume 2: Testimonies"
+      - vindication: Vindication of the Apology
+    translations:
+      - translator: IrenicalProt (Colloquia Scholastica)
+        AI: true
+        sites:
+          - site: Dropbox
+            url:
+              volumes:
+                1: https://www.dropbox.com/scl/fo/uv2juioyzp386pfbj4aq4/ADXagW6h0xzz660OIBxeCrc/%5BJean%20Daill%C3%A9%5D%20Apologia%20Vol%201..pdf?rlkey=fxax6agqlrzlwoukaiwdgtedf&dl=0
+                2: https://www.dropbox.com/scl/fo/uv2juioyzp386pfbj4aq4/AOcbhFjdaQqYete9RkepFQI/%5BJean%20Daill%C3%A9%5D%20Apologia%20Vol%202.%20Testimonies.pdf?rlkey=fxax6agqlrzlwoukaiwdgtedf&dl=0
+            pdf: true
+      - translator: Nos (Colloquia Scholastica)
+        AI: true
+        sites:
+          - site: Dropbox
+            url: https://www.dropbox.com/scl/fo/uv2juioyzp386pfbj4aq4/AKVx2HJ6scGUS879cf5VRcA/%5BJean%20Daill%C3%A9%5D%20Vindication%20of%20the%20Apology.pdf?rlkey=fxax6agqlrzlwoukaiwdgtedf&dl=0
+            pdf: true
+            section_urls:
+              - vindication: https://www.dropbox.com/scl/fo/uv2juioyzp386pfbj4aq4/AKVx2HJ6scGUS879cf5VRcA/%5BJean%20Daill%C3%A9%5D%20Vindication%20of%20the%20Apology.pdf?rlkey=fxax6agqlrzlwoukaiwdgtedf&dl=0

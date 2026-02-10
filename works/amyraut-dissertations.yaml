@@ -1,0 +1,21 @@
+amyraut-dissertations:
+  author: Q1236249
+  category: disputations
+  la:
+    title: Dissertationes theologicae sex
+    orig_lang: true
+    editions:
+      - year: 1660
+        place: Saumur
+        sites:
+          - site: Google Books
+            url: https://books.google.com/books?id=sMeaPFOTToIC
+  en:
+    title: Six Theological Dissertations
+    translations:
+      - translator: Nos (Colloquia Scholastica)
+        AI: true
+        sites:
+          - site: Dropbox
+            url: https://www.dropbox.com/scl/fo/uv2juioyzp386pfbj4aq4/AALlHaH7x5B94cwt_U_afvY/%5BMoses%20Amyraut%5D%20Six%20Theological%20Dissertations.pdf?rlkey=fxax6agqlrzlwoukaiwdgtedf&dl=0
+            pdf: true

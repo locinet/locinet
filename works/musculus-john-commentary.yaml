@@ -1,0 +1,22 @@
+musculus-john-commentary:
+  author: Q704851
+  la:
+    title: In divi Ioannis Evangelistam commentarii
+    orig_lang: true
+    editions:
+      - year: 1580
+        place: Basel
+        sites:
+          - site: Google Books
+            url: https://books.google.com/books?id=xJw5AAAAcAAJ
+  en:
+    title: Commentary on the Gospel of John
+    sections:
+      - john-3-16: "John 3:16 & The Redemption of Mankind"
+    translations:
+      - translator: Oz (Reformed Retrieval)
+        AI: true
+        sites:
+          - site: Dropbox
+            url: https://www.dropbox.com/scl/fi/2m9asvzm4szyoegd2bwux/Wolfgang-Musculus-John-316-The-Redemption-of-Mankind.pdf?rlkey=qvh7x6aelmqn2qnzgr3u35b4m&e=1&st=penz4ozh&dl=0
+            pdf: true

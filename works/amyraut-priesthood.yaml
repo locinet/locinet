@@ -1,0 +1,22 @@
+amyraut-priesthood:
+  author: Q1236249
+  category: disputations
+  loci: priestly-office
+  la:
+    title: Syntagma thesium theologicarum in Academia Salmuriensis
+    orig_lang: true
+    editions:
+      - year: 1664
+        place: Saumur
+        sites:
+          - site: Google Books
+            url: https://books.google.com/books?id=redb4dlhJQMC
+  en:
+    title: Thesis on the Priesthood of Christ
+    translations:
+      - translator: Oz (Reformed Retrieval)
+        AI: true
+        sites:
+          - site: Dropbox
+            url: https://www.dropbox.com/scl/fo/uv2juioyzp386pfbj4aq4/AHhNFcCdY6zExeXAMWz54zs/%5BMoses%20Amyraut%5D%20Theses%20On%20The%20Priesthood%20of%20Christ.pdf?rlkey=fxax6agqlrzlwoukaiwdgtedf&dl=0
+            pdf: true
