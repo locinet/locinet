@@ -7,6 +7,7 @@ const LOCI_PATH = path.resolve(__dirname, "../../loci.yaml");
 const AUTHORS_DIR = path.resolve(__dirname, "../../_cache/authors");
 const TRADITIONS_PATH = path.resolve(__dirname, "../../traditions.yaml");
 const TRANSLATORS_PATH = path.resolve(__dirname, "../../translators.yaml");
+const DISPLAY_NAMES_PATH = path.resolve(__dirname, "../../display_names.yaml");
 
 // --- Loci processing ---
 
@@ -134,6 +135,23 @@ function buildSectionUrlMap(sectionUrls) {
     }
   }
   return map;
+}
+
+// --- Display names ---
+
+function loadDisplayNames() {
+  if (!fs.existsSync(DISPLAY_NAMES_PATH)) return { corporate_authors: {} };
+  const raw = fs.readFileSync(DISPLAY_NAMES_PATH, "utf8");
+  const data = yaml.load(raw) || {};
+  return { corporate_authors: data.corporate_authors || {} };
+}
+
+// For "Name of Place" authors (e.g., "Augustine of Hippo"), use the part
+// before " of " as the family name instead of the last word.
+function deriveFamilyName(name) {
+  const ofIndex = name.indexOf(" of ");
+  if (ofIndex > 0) return name.substring(0, ofIndex);
+  return name.split(/\s+/).pop();
 }
 
 // --- Slugify ---
@@ -473,7 +491,7 @@ function buildAuthorPages(works, authors, traditionAuthors) {
 
 // --- Build loci index ---
 
-function buildLociIndex(lociFlat, works, authors) {
+function buildLociIndex(lociFlat, works, authors, corporateShortNames) {
   // Map each locus slug to authors + works/sections that discuss it
   const index = {};
 
@@ -490,6 +508,7 @@ function buildLociIndex(lociFlat, works, authors) {
         familyName: ca.label.split(/\s+/).pop(),
         givenName: ca.label.split(/\s+/)[0],
         birthYear: caMeta?.birthYear || null,
+        shortName: corporateShortNames[ca.label] || null,
       };
     } else {
       authorMeta = authors[work.author] || { name: work.author, slug: slugify(work.author), qid: work.author };
@@ -527,9 +546,10 @@ function addToLociIndex(index, slug, authorMeta, work, section) {
       name: authorMeta.name,
       slug: authorMeta.slug,
       qid: authorMeta.qid,
-      familyName: authorMeta.familyName || nameParts[nameParts.length - 1],
+      familyName: authorMeta.familyName || deriveFamilyName(authorMeta.name),
       givenName: authorMeta.givenName || nameParts[0],
       birthYear: authorMeta.birthYear || null,
+      shortName: authorMeta.shortName || null,
       entries: [],
     };
   }
@@ -545,15 +565,22 @@ function computeDisplayNames(index) {
   for (const slug of Object.keys(index)) {
     const authors = Object.values(index[slug]);
 
-    // Group by family name to detect collisions
+    // Group by family name to detect collisions (skip entries with shortName override)
     const byFamily = {};
     for (const a of authors) {
+      if (a.shortName) continue;
       const fam = a.familyName;
       if (!byFamily[fam]) byFamily[fam] = [];
       byFamily[fam].push(a);
     }
 
     for (const a of authors) {
+      // Corporate authors / entries with explicit short names
+      if (a.shortName) {
+        a.displayName = a.shortName;
+        continue;
+      }
+
       const fam = a.familyName;
       const peers = byFamily[fam];
       if (peers.length === 1) {
@@ -674,8 +701,9 @@ module.exports = function () {
   const works = loadAllWorks(translatorsMap);
   const traditionsData = loadTraditions();
   const traditionAuthors = traditionsData.authors || {};
+  const displayNames = loadDisplayNames();
   const authorPages = buildAuthorPages(works, authors, traditionAuthors);
-  const lociIndex = buildLociIndex(lociFlat, works, authors);
+  const lociIndex = buildLociIndex(lociFlat, works, authors, displayNames.corporate_authors);
   computeDisplayNames(lociIndex);
 
   // Annotate lociIndex entries with tradition

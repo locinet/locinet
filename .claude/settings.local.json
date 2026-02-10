@@ -100,7 +100,8 @@
       "Bash(done)",
       "Bash(do sed -i '1a\\\\  date_added: 2026-02-10' \"$f\")",
       "Bash(echo:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "Bash(ls:*)"
     ]
   }
 }
